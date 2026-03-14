@@ -1,22 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --accent-cyan: #00ffff;
-  --accent-purple: #8b5cf6;
-  --accent-orange: #f97316;
+  /* Design System Colors */
+  --color-primary: #1E293B;
+  --color-secondary: #334155;
+  --color-cta: #22C55E;
+  --color-background: #0F172A;
+  --color-text: #F8FAFC;
+  
+  /* Spacing Variables */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem;  /* 8px */
+  --space-md: 1rem;    /* 16px */
+  --space-lg: 1.5rem;  /* 24px */
+  --space-xl: 2rem;    /* 32px */
+  --space-2xl: 3rem;   /* 48px */
+  --space-3xl: 4rem;   /* 64px */
+  
+  /* Shadow Depths */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-text);
+  --font-heading: 'Space Grotesk', var(--font-sans), system-ui, sans-serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
   
-  /* Custom colors */
-  --color-accent-cyan: var(--accent-cyan);
-  --color-accent-purple: var(--accent-purple);
-  --color-accent-orange: var(--accent-orange);
+  /* Custom colors for Tailwind */
+  --color-zone-primary: var(--color-primary);
+  --color-zone-secondary: var(--color-secondary);
+  --color-zone-cta: var(--color-cta);
+  --color-zone-bg: var(--color-background);
+  --color-zone-text: var(--color-text);
 }
 
 * {
@@ -30,44 +50,194 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-text);
   font-family: var(--font-sans);
   line-height: 1.6;
+  antialiased: true;
 }
 
-/* Grid animation */
+/* Animated grid pattern */
 .grid-bg {
   background-image: 
-    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: grid-move 20s ease-in-out infinite;
+    linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 30s ease-in-out infinite;
 }
 
 @keyframes grid-move {
-  0%, 100% { background-position: 0 0; }
-  50% { background-position: 25px 25px; }
+  0%, 100% { 
+    background-position: 0 0; 
+    transform: scale(1);
+  }
+  50% { 
+    background-position: 30px 30px; 
+    transform: scale(1.02);
+  }
 }
 
-/* Glow effects */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+/* Button Components */
+.btn-primary {
+  background: var(--color-cta);
+  color: var(--color-background);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 200ms ease;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-sans);
 }
 
-.glow-purple {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+.btn-primary:hover {
+  background: #16A34A;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
 }
 
-.glow-orange {
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-secondary);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 200ms ease;
+  cursor: pointer;
+  font-family: var(--font-sans);
 }
 
-/* Hover effects */
-.hover-lift {
-  transition: all 0.3s ease;
+.btn-secondary:hover {
+  border-color: var(--color-cta);
+  color: var(--color-cta);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
-.hover-lift:hover {
-  transform: translateY(-5px);
+/* Card Component */
+.card {
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  transition: all 200ms ease;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--color-cta);
+  background: rgba(30, 41, 59, 0.5);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.heading-xl {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+}
+
+.heading-md {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-cta);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, [role="button"] {
+  transition: all 150ms ease;
+}
+
+/* Ensure all clickable elements have pointer cursor */
+a, button, [role="button"], [tabindex="0"] {
+  cursor: pointer;
+}
+
+/* Depth and visual hierarchy */
+.section-depth {
+  position: relative;
+}
+
+.section-depth::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.05) 0%, 
+    rgba(30, 41, 59, 0.1) 50%, 
+    rgba(51, 65, 85, 0.05) 100%);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .grid-bg {
+    animation: none;
+  }
+}
+
+/* Responsive section gaps */
+.section-gap {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .section-gap {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+}
+
+/* Icon styling */
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  stroke-width: 2;
+  color: currentColor;
+}
+
+.icon-lg {
+  width: 2em;
+  height: 2em;
+}
+
+.icon-xl {
+  width: 3em;
+  height: 3em;
 }

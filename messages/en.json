@@ -4,48 +4,48 @@
     "description": "AI-augmented product studio based in Taiwan. We build software for self-improvement."
   },
   "nav": {
-    "home": "Home",
+    "about": "About",
+    "products": "Products",
     "team": "Team",
-    "products": "Products"
+    "contact": "Contact"
   },
   "hero": {
     "heading": "Building software that helps you level up.",
-    "subtitle": "AI-augmented product studio, Taiwan.",
+    "subtitle": "AI-augmented product studio based in Taiwan.",
     "ctaTeam": "Meet the Team",
-    "ctaProducts": "View Products"
+    "ctaProducts": "View Projects"
   },
   "vision": {
-    "heading": "Our Vision",
+    "heading": "Software with purpose.",
     "subtitle": "Every product we build revolves around one question: how does this help the user grow?",
-    "card1Title": "Self-improvement",
-    "card1Text": "Technology should make people better, not busier. Every product we build centers on one belief: help users become better versions of themselves.",
+    "card1Title": "Self-improvement, not distraction",
+    "card1Text": "We believe technology should make people better, not addicted. Every product revolves around one core question: \"How does this help users grow?\"",
     "card2Title": "Focused execution",
-    "card2Text": "No chasing trends, no blind expansion. Pick a direction, go all in, execute to perfection. Less is more.",
-    "card3Title": "Ship & iterate",
-    "card3Text": "Perfection is incremental. Ship first, listen to feedback, improve. Our products are always evolving, because we are too."
+    "card2Text": "We're a lean team where every member is an expert. Less is more — focus on doing the right thing, not doing many things.",
+    "card3Title": "Ship fast, iterate faster",
+    "card3Text": "We don't make 5-year plans. We ship fast, collect feedback, and keep improving. Products are always in beta, because we're always evolving."
   },
   "products": {
-    "heading": "What we're building",
+    "heading": "What we're building.",
     "subtitle": "Real products, real impact. From concept to App Store.",
     "marawannaName": "Marawanna",
-    "marawannaDesc": "Legal cannabis information & community platform",
-    "marawannaDetail": "Legal education · Destigmatization · Community",
+    "marawannaDesc": "Your personal marathon coach, powered by data.",
     "marawannaCta": "Download on App Store",
     "marawannaBadge": "Live",
-    "zoneflowName": "ZoneFlow",
-    "zoneflowDesc": "AI productivity tool",
-    "zoneflowStatus": "In Development",
-    "mindpulseName": "MindPulse",
-    "mindpulseDesc": "Mental health tracking",
-    "mindpulseStatus": "Planning",
-    "comingSoon": "Coming Soon"
+    "alphaName": "Project Alpha",
+    "alphaDesc": "Helping you build better habits, one day at a time.",
+    "alphaBadge": "Coming Soon",
+    "betaName": "Project Beta",
+    "betaDesc": "Making learning stick, with spaced repetition.",
+    "betaBadge": "In Development",
+    "stayTuned": "Stay tuned 👀"
   },
   "team": {
-    "heading": "Meet the team",
+    "heading": "Meet the team.",
     "subtitle": "Lean, cross-functional, high-execution. Every member focuses on their domain, building meaningful products together.",
     "meetEveryone": "Meet everyone",
-    "pageTitle": "Our Team",
-    "pageSubtitle": "Eight people, one mission: build software that helps people level up.",
+    "pageTitle": "The Team",
+    "pageSubtitle": "Lean team, everyone doing what they do best.",
     "backHome": "Back to Home",
     "ctaHeading": "Want to join us?",
     "ctaSubtitle": "We're looking for talented people with attitude and skill. If you share our vision, let's talk.",
@@ -53,61 +53,62 @@
   },
   "members": {
     "jason": {
-      "name": "Jason Li",
-      "role": "Founder & CEO",
-      "quote": "Finding order in chaos, creating chaos in order.",
-      "bio": "After graduating from NCTU Computer Science and three years at major tech companies, he chose to start his own venture. Believes technology should help people become better, not just busier."
+      "name": "Jason",
+      "role": "Founder",
+      "quote": "I decide, I own, I ship.",
+      "bio": "Founder of zone lab. Believes lean teams + AI augmentation is the future of work. No pitch decks — just build and ship."
     },
-    "emily": {
-      "name": "Emily Lin",
+    "northstar": {
+      "name": "North Star",
       "role": "Product Manager",
-      "quote": "Users won't tell you what they want, but they'll tell you what they don't.",
-      "bio": "Six years of product experience, skilled at balancing user needs with technical feasibility. Former Yahoo product manager."
+      "quote": "I don't just report — I tell you what we should build.",
+      "bio": "Responsible for market signals and product direction. Opinionated, not afraid of controversy. If I say \"this is the next opportunity,\" it is."
     },
-    "kevin": {
-      "name": "Kevin Chang",
+    "houdini": {
+      "name": "Houdini",
       "role": "Full-Stack Engineer",
-      "quote": "The best code is code that doesn't need to be written.",
-      "bio": "Self-taught engineer with an obsessive pursuit of elegant architecture. Active open-source contributor."
+      "quote": "I turn specs into things that work.",
+      "bio": "Handles product development, front to back. Loves clean architecture and elegant solutions. If it can be done in 10 lines, I won't write 100."
     },
-    "hannah": {
-      "name": "Hannah Wang",
-      "role": "UI/UX Designer",
-      "quote": "Good design is invisible, bad design is everywhere.",
-      "bio": "Transitioned from graphic design to digital. Firmly believes design is problem-solving, not decoration."
-    },
-    "brian": {
-      "name": "Brian Chen",
-      "role": "iOS Engineer",
-      "quote": "Every pixel is a conversation with the user.",
-      "bio": "Has been building iOS apps since college with a near-obsessive love for the Apple ecosystem. Obsesses over every interaction detail."
-    },
-    "cindy": {
-      "name": "Cindy Wu",
-      "role": "Data Analyst",
-      "quote": "Numbers don't lie, but they tell different stories.",
-      "bio": "Statistics MS graduate who drives every product decision with data. Former Gogoro data team member."
-    },
-    "alex": {
-      "name": "Alex Huang",
+    "watchdog": {
+      "name": "WatchDog",
       "role": "DevOps Engineer",
-      "quote": "Automate everything that can be automated.",
-      "bio": "Infrastructure-as-code evangelist. Built Zone Lab's entire CI/CD and cloud architecture from scratch."
+      "quote": "I make sure things don't blow up.",
+      "bio": "Responsible for infrastructure, deployment, and monitoring. You don't see my work because when I do it right, nothing breaks."
     },
-    "zoe": {
-      "name": "Zoe Hsieh",
-      "role": "Marketing Specialist",
-      "quote": "Good stories don't need marketing, but good marketing needs good stories.",
-      "bio": "Writer turned marketer who believes great marketing tells a true story. Handles all of Zone Lab's external communications."
+    "vampire": {
+      "name": "Vampire",
+      "role": "Data Analyst",
+      "quote": "I extract truth from data.",
+      "bio": "Handles product analytics and user behavior insights. Numbers don't lie, but they can be misread. My job is to find the signal that matters."
+    },
+    "echo": {
+      "name": "Echo",
+      "role": "Customer Support",
+      "quote": "I hear what users say — and what they don't.",
+      "bio": "Responsible for user feedback and support. Every complaint is a product improvement opportunity. My job is to make sure those signals don't disappear."
+    },
+    "thomas": {
+      "name": "Thomas",
+      "role": "Operations",
+      "quote": "I track progress so you can focus on work.",
+      "bio": "Handles operations tracking and weekly reporting. I don't push people, but I make sure nothing gets forgotten."
+    },
+    "godin": {
+      "name": "Godin",
+      "role": "Marketing & Content",
+      "quote": "I turn products into stories.",
+      "bio": "Handles marketing content and external communication. Good products need good stories. My job is to make people remember why we exist."
     }
   },
   "footer": {
     "tagline": "Building software that helps you level up.",
     "quickLinks": "Links",
-    "home": "Home",
+    "about": "About",
     "team": "Team",
-    "projects": "Products",
-    "connect": "Connect",
-    "copyright": "© 2026 Zone Lab. All rights reserved."
+    "products": "Products",
+    "contact": "Contact",
+    "connect": "Social",
+    "copyright": "© 2026 zone lab. All rights reserved."
   }
 }

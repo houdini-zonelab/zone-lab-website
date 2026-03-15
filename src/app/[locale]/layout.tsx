@@ -3,21 +3,21 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
-import { Syne, Crimson_Pro } from 'next/font/google';
+import { Inter, Noto_Sans_TC } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
 
-const syne = Syne({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--syne-font',
+  variable: '--inter-font',
   display: 'swap',
 });
 
-const crimsonPro = Crimson_Pro({
+const notoSansTC = Noto_Sans_TC({
   subsets: ['latin'],
-  variable: '--crimson-font',
+  variable: '--noto-sans-tc-font',
   display: 'swap',
-  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 export async function generateStaticParams() {
@@ -57,7 +57,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${syne.variable} ${crimsonPro.variable} scroll-smooth`}
+      className={`${inter.variable} ${notoSansTC.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
@@ -68,7 +68,7 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <body className="font-body antialiased bg-[#F5F0E8] dark:bg-[#0A0A0A] text-[#1A1A1A] dark:text-[#F0EDE8] overflow-x-hidden">
+      <body className="font-sans antialiased bg-white dark:bg-[#0F172A] text-[#111827] dark:text-[#F8FAFC] overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

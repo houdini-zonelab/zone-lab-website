@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-sans: var(--inter-font), "Noto Sans TC", -apple-system, system-ui, sans-serif;
-  --font-display: var(--inter-font), "Noto Sans TC", -apple-system, system-ui, sans-serif;
+  --font-sans: var(--dm-sans-font), "Noto Sans TC", -apple-system, system-ui, sans-serif;
+  --font-display: var(--syne-font), "Noto Sans TC", -apple-system, system-ui, sans-serif;
   --color-primary: #06B6D4;
   --color-primary-light: #22D3EE;
   --color-secondary: #A855F7;
@@ -25,6 +25,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Display font for headings */
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+}
+
 /* Selection */
 ::selection {
   background: #06B6D4;
@@ -36,58 +41,78 @@ body {
   color: #0F172A;
 }
 
-/* Smooth theme transitions */
-*, *::before, *::after {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
+/* Smooth theme transitions — only on bg/border, not ALL properties */
+body,
+header,
+footer,
+section,
+nav,
+main {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Hero gradient animation */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+/* ══════════════ HERO ══════════════ */
+
+/* Noise texture overlay */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
-.hero-gradient {
-  background: linear-gradient(-45deg, #06B6D4, #A855F7, #22D3EE, #C084FC);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
+/* Animated gradient mesh for hero */
+@keyframes mesh-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.mesh-orb {
+  animation: mesh-drift 12s ease-in-out infinite;
+}
+
+.mesh-orb-delayed {
+  animation: mesh-drift 15s ease-in-out infinite reverse;
+}
+
+.mesh-orb-slow {
+  animation: mesh-drift 18s ease-in-out infinite 3s;
 }
 
 /* Grid pattern overlay */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
-/* Glassmorphism nav */
+:is(.dark) .grid-pattern-light {
+  display: none;
+}
+
+.grid-pattern-light {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* ══════════════ NAV ══════════════ */
+
 .nav-glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
 }
 
 :is(.dark) .nav-glass {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.85);
 }
 
-/* Subtle card glow for dark mode */
-.card-glow {
-  position: relative;
-}
+/* ══════════════ LINKS ══════════════ */
 
-:is(.dark) .card-glow:hover::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(192, 132, 252, 0.15));
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Link underline slide */
 .link-underline {
   position: relative;
 }
@@ -98,26 +123,38 @@ body {
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1.5px;
   background: currentColor;
-  transition: width 0.3s ease;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .link-underline:hover::after {
   width: 100%;
 }
 
-/* Pulse animation for live badge */
+/* ══════════════ CARDS ══════════════ */
+
+.card-glow {
+  position: relative;
+}
+
+:is(.dark) .card-glow:hover {
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.12), 0 8px 30px rgba(34, 211, 238, 0.06);
+}
+
+/* ══════════════ BADGES ══════════════ */
+
 @keyframes pulse-live {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  50% { opacity: 0.4; }
 }
 
 .badge-pulse {
   animation: pulse-live 2s ease-in-out infinite;
 }
 
-/* Scrollbar styling */
+/* ══════════════ SCROLLBAR ══════════════ */
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -127,24 +164,42 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.12);
   border-radius: 3px;
 }
 
 :is(.dark) ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
 }
 
-/* Float animation for hero elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* ══════════════ EDITORIAL NUMBER ══════════════ */
+
+.editorial-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  opacity: 0.06;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  user-select: none;
+  pointer-events: none;
 }
 
-.float-slow {
-  animation: float 6s ease-in-out infinite;
+:is(.dark) .editorial-number {
+  opacity: 0.04;
 }
 
-.float-delayed {
-  animation: float 6s ease-in-out infinite 2s;
+/* ══════════════ SECTION DIVIDER ══════════════ */
+
+.section-line {
+  width: 48px;
+  height: 2px;
+  background: #06B6D4;
+}
+
+:is(.dark) .section-line {
+  background: #22D3EE;
 }

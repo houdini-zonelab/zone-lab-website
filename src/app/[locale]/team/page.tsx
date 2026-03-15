@@ -38,8 +38,8 @@ export default function TeamPage() {
       <Navbar />
 
       {/* ═══════════════ HEADER ═══════════════ */}
-      <section className="pt-28 pb-16 md:pt-36 md:pb-20 px-6">
-        <div className="max-w-[1280px] mx-auto">
+      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-6">
+        <div className="max-w-[1100px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,18 +47,21 @@ export default function TeamPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-[#374151] dark:text-[#E2E8F0] hover:text-primary dark:hover:text-primary-light transition-colors mb-8 group"
+              className="inline-flex items-center gap-2 text-sm text-[#888] dark:text-[#778] hover:text-primary dark:hover:text-primary-light transition-colors mb-8 group"
             >
               <ArrowLeft
-                size={16}
+                size={15}
                 className="group-hover:-translate-x-1 transition-transform"
               />
               {t('team.backHome')}
             </Link>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-[-0.02em] leading-[1.1]">
+
+            <div className="section-line mb-6" />
+
+            <h1 className="font-display text-5xl md:text-[clamp(3rem,6vw,4.5rem)] font-extrabold tracking-[-0.03em] leading-[1.05]">
               {t('team.pageTitle')}
             </h1>
-            <p className="mt-4 text-lg text-[#374151] dark:text-[#E2E8F0] max-w-xl">
+            <p className="mt-4 text-lg text-[#666] dark:text-[#8899aa] max-w-lg">
               {t('team.pageSubtitle')}
             </p>
           </motion.div>
@@ -67,8 +70,8 @@ export default function TeamPage() {
 
       {/* ═══════════════ MEMBERS ═══════════════ */}
       <section className="pb-24 md:pb-32 px-6">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-6">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="grid lg:grid-cols-2 gap-5">
             {members.map((m, i) => {
               const Icon = m.icon;
               return (
@@ -78,11 +81,11 @@ export default function TeamPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 0.5,
-                    delay: i * 0.05,
+                    delay: i * 0.04,
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   viewport={{ once: true }}
-                  className="bg-white dark:bg-[#1E293B] rounded-xl p-6 md:p-8 border border-gray-100 dark:border-slate-700 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 card-glow"
+                  className="bg-white dark:bg-[#111827] rounded-2xl p-7 md:p-8 border border-gray-100 dark:border-slate-800 hover:border-gray-200 dark:hover:border-slate-700 transition-all duration-300 card-glow"
                 >
                   <div className="flex flex-col sm:flex-row items-start gap-6">
                     {/* Avatar */}
@@ -93,36 +96,30 @@ export default function TeamPage() {
                           alt={t(`members.${m.key}.name`)}
                           width={200}
                           height={200}
-                          className="rounded-full object-cover w-[120px] h-[120px] md:w-[160px] md:h-[160px] shadow-md"
+                          className="rounded-full object-cover w-[100px] h-[100px] md:w-[130px] md:h-[130px] shadow-md ring-2 ring-gray-100 dark:ring-slate-800"
                         />
                       ) : (
                         <div
-                          className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] rounded-full flex items-center justify-center shadow-md"
+                          className="w-[100px] h-[100px] md:w-[130px] md:h-[130px] rounded-full flex items-center justify-center shadow-md ring-2 ring-gray-100 dark:ring-slate-800"
                           style={{ background: `linear-gradient(135deg, ${m.gradientFrom}, ${m.gradientTo})` }}
                         >
-                          {Icon && (
-                            <Icon
-                              size={48}
-                              className="text-white"
-                              strokeWidth={1.5}
-                            />
-                          )}
+                          {Icon && <Icon size={40} className="text-white" strokeWidth={1.5} />}
                         </div>
                       )}
                     </div>
 
                     {/* Info */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-1">
+                      <h3 className="font-display text-2xl md:text-[1.65rem] font-bold mb-0.5 tracking-[-0.01em]">
                         {t(`members.${m.key}.name`)}
                       </h3>
                       <p className="text-sm font-semibold text-primary dark:text-primary-light mb-4">
                         {t(`members.${m.key}.role`)}
                       </p>
-                      <blockquote className="text-base italic border-l-2 border-primary dark:border-primary-light pl-4 mb-4 text-[#374151] dark:text-[#E2E8F0]">
+                      <blockquote className="text-[15px] italic border-l-2 border-primary/30 dark:border-primary-light/30 pl-4 mb-4 text-[#555] dark:text-[#99aabb]">
                         &ldquo;{t(`members.${m.key}.quote`)}&rdquo;
                       </blockquote>
-                      <p className="text-sm text-[#374151] dark:text-[#E2E8F0] leading-relaxed">
+                      <p className="text-sm text-[#666] dark:text-[#8899aa] leading-[1.7]">
                         {t(`members.${m.key}.bio`)}
                       </p>
                     </div>
@@ -135,23 +132,23 @@ export default function TeamPage() {
       </section>
 
       {/* ═══════════════ CTA ═══════════════ */}
-      <section className="py-20 md:py-28 px-6 bg-[#F9FAFB] dark:bg-[#1E293B]">
-        <div className="max-w-[1280px] mx-auto text-center">
+      <section className="py-24 md:py-32 px-6 bg-[#F3F4F6] dark:bg-[#0F172A]">
+        <div className="max-w-[1100px] mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">
               {t('team.ctaHeading')}
             </h2>
-            <p className="text-lg text-[#374151] dark:text-[#E2E8F0] max-w-xl mx-auto mb-8">
+            <p className="text-lg text-[#666] dark:text-[#8899aa] max-w-xl mx-auto mb-10">
               {t('team.ctaSubtitle')}
             </p>
             <a
               href="mailto:hello@zonelab.tw"
-              className="inline-flex items-center gap-2 bg-primary dark:bg-primary-light text-white dark:text-[#0F172A] font-semibold text-sm px-8 py-4 rounded-lg hover:opacity-90 hover:scale-[1.02] transition-all duration-150 shadow-md"
+              className="inline-flex items-center gap-2 bg-primary dark:bg-primary-light text-white dark:text-[#0B1120] font-semibold text-sm px-8 py-3.5 rounded-lg hover:opacity-90 hover:scale-[1.02] transition-all duration-150 shadow-md"
             >
               <Mail size={16} />
               {t('team.ctaButton')}
@@ -161,51 +158,52 @@ export default function TeamPage() {
       </section>
 
       {/* ═══════════════ FOOTER ═══════════════ */}
-      <footer className="py-16 px-6 bg-[#111827] dark:bg-[#0F172A] text-[#E2E8F0]">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="grid md:grid-cols-3 gap-10 mb-12">
+      <footer className="py-16 md:py-20 px-6 bg-[#111827] dark:bg-[#080D19] text-[#94A3B8]">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="grid md:grid-cols-3 gap-10 mb-14">
             <div>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-2.5 mb-4">
                 <Image
                   src="/zone-lab-logo.png"
                   alt="Zone Lab"
-                  width={40}
-                  height={40}
+                  width={28}
+                  height={28}
+                  className="opacity-80"
                 />
-                <span className="font-semibold text-white">zone lab</span>
+                <span className="font-display font-bold text-sm text-white/90">zone lab</span>
               </div>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm leading-relaxed">
                 {t('footer.tagline')}
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-xs uppercase tracking-widest mb-4 text-gray-400">
+              <h4 className="font-display font-semibold text-xs uppercase tracking-[0.15em] mb-5 text-[#556]">
                 {t('footer.quickLinks')}
               </h4>
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-2.5 text-sm">
                 <li>
-                  <Link href="/" className="text-gray-400 hover:text-primary-light transition-colors">
+                  <Link href="/" className="hover:text-primary-light transition-colors duration-150">
                     {t('footer.about')}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/team" className="text-gray-400 hover:text-primary-light transition-colors">
+                  <Link href="/team" className="hover:text-primary-light transition-colors duration-150">
                     {t('footer.team')}
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-xs uppercase tracking-widest mb-4 text-gray-400">
+              <h4 className="font-display font-semibold text-xs uppercase tracking-[0.15em] mb-5 text-[#556]">
                 {t('footer.connect')}
               </h4>
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-2.5 text-sm">
                 <li>
                   <a
                     href="https://github.com/zone-lab"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-400 hover:text-primary-light transition-colors"
+                    className="inline-flex items-center gap-2 hover:text-primary-light transition-colors duration-150"
                   >
                     <Github size={14} /> GitHub
                   </a>
@@ -215,7 +213,7 @@ export default function TeamPage() {
                     href="https://twitter.com/zonelab"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-400 hover:text-primary-light transition-colors"
+                    className="inline-flex items-center gap-2 hover:text-primary-light transition-colors duration-150"
                   >
                     <Twitter size={14} /> X (Twitter)
                   </a>
@@ -223,7 +221,7 @@ export default function TeamPage() {
                 <li>
                   <a
                     href="mailto:hello@zonelab.tw"
-                    className="inline-flex items-center gap-2 text-gray-400 hover:text-primary-light transition-colors"
+                    className="inline-flex items-center gap-2 hover:text-primary-light transition-colors duration-150"
                   >
                     <Mail size={14} /> hello@zonelab.tw
                   </a>
@@ -231,8 +229,8 @@ export default function TeamPage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-slate-700 pt-8">
-            <p className="text-center text-xs text-gray-500">
+          <div className="border-t border-slate-800 pt-8">
+            <p className="text-center text-xs text-[#445]">
               {t('footer.copyright')}
             </p>
           </div>

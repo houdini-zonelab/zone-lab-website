@@ -13,25 +13,25 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center text-sm font-medium">
+    <div className="flex items-center text-[13px] font-medium">
       <button
         onClick={() => switchLocale('en')}
-        className={`px-2 py-1 rounded-md transition-colors duration-150 ${
+        className={`px-2 py-1 rounded-md transition-colors duration-150 cursor-pointer ${
           locale === 'en'
             ? 'text-primary dark:text-primary-light font-semibold'
-            : 'text-[#374151] dark:text-[#E2E8F0] hover:text-primary dark:hover:text-primary-light'
+            : 'text-[#555] dark:text-[#aab] hover:text-[#1a1a1a] dark:hover:text-white'
         }`}
         aria-label="Switch to English"
       >
         EN
       </button>
-      <span className="text-gray-300 dark:text-slate-600">|</span>
+      <span className="text-gray-300 dark:text-slate-600 select-none">|</span>
       <button
         onClick={() => switchLocale('zh')}
-        className={`px-2 py-1 rounded-md transition-colors duration-150 ${
+        className={`px-2 py-1 rounded-md transition-colors duration-150 cursor-pointer ${
           locale === 'zh'
             ? 'text-primary dark:text-primary-light font-semibold'
-            : 'text-[#374151] dark:text-[#E2E8F0] hover:text-primary dark:hover:text-primary-light'
+            : 'text-[#555] dark:text-[#aab] hover:text-[#1a1a1a] dark:hover:text-white'
         }`}
         aria-label="切換至繁體中文"
       >

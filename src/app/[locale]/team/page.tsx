@@ -4,237 +4,167 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { Section, SectionHeader } from '@/components/Section';
+import { Card, CardContent } from '@/components/ui/card';
+import { buttonVariants } from '@/components/ui/button';
 import {
   ArrowLeft,
   Compass,
   Wand2,
   Shield,
   BarChart3,
-  AudioLines,
+  Megaphone,
   ClipboardList,
   PenTool,
   Mail,
   Github,
-  Twitter,
 } from 'lucide-react';
-import Navbar from '@/components/Navbar';
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const members = [
-  { key: 'jason', isPhoto: true, image: '/jason-photo.png' },
-  { key: 'northstar', icon: Compass, gradientFrom: '#06B6D4', gradientTo: '#22D3EE' },
-  { key: 'houdini', icon: Wand2, gradientFrom: '#A855F7', gradientTo: '#C084FC' },
-  { key: 'watchdog', icon: Shield, gradientFrom: '#1E3A5F', gradientTo: '#334155' },
-  { key: 'vampire', icon: BarChart3, gradientFrom: '#7C3AED', gradientTo: '#BE185D' },
-  { key: 'echo', icon: AudioLines, gradientFrom: '#06B6D4', gradientTo: '#0891B2' },
-  { key: 'thomas', icon: ClipboardList, gradientFrom: '#64748B', gradientTo: '#475569' },
-  { key: 'godin', icon: PenTool, gradientFrom: '#F97316', gradientTo: '#EF4444' },
+  { key: 'jason', name: 'Jason', image: '/jason-photo.png', isPhoto: true },
+  { key: 'northstar', name: 'North Star', icon: Compass, gradient: 'from-purple-400 to-pink-400' },
+  { key: 'houdini', name: 'Houdini', icon: Wand2, gradient: 'from-cyan-400 to-blue-400' },
+  { key: 'watchdog', name: 'WatchDog', icon: Shield, gradient: 'from-green-400 to-emerald-400' },
+  { key: 'vampire', name: 'Vampire', icon: BarChart3, gradient: 'from-red-400 to-pink-400' },
+  { key: 'echo', name: 'Echo', icon: Megaphone, gradient: 'from-yellow-400 to-orange-400' },
+  { key: 'thomas', name: 'Thomas', icon: ClipboardList, gradient: 'from-indigo-400 to-purple-400' },
+  { key: 'godin', name: 'Godin', icon: PenTool, gradient: 'from-pink-400 to-red-400' },
 ];
 
 export default function TeamPage() {
   const t = useTranslations();
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-zinc-50">
+      <ThemeToggle />
+      <LanguageSwitcher />
 
-      {/* ═══════════════ HEADER ═══════════════ */}
-      <section className="pt-32 pb-14 md:pt-40 md:pb-18 px-6">
-        <div className="max-w-[1000px] mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-          >
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-sm text-[#888] dark:text-[#778] hover:text-primary dark:hover:text-primary-light transition-colors mb-8 group"
-            >
-              <ArrowLeft
-                size={15}
-                className="group-hover:-translate-x-1 transition-transform"
-              />
-              {t('team.backHome')}
-            </Link>
+      {/* Header */}
+      <Section className="pt-24 md:pt-32 pb-8 md:pb-12 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-black">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 font-heading">
+            {t('team.pageHeading')}
+          </h1>
+          <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 mb-8 max-w-2xl mx-auto">
+            {t('team.pageSubtitle')}
+          </p>
+          <Link href="/" className={buttonVariants({ variant: 'outline' })}>
+            <ArrowLeft size={18} className="mr-2" />
+            {t('team.backToHome')}
+          </Link>
+        </motion.div>
+      </Section>
 
-            <div className="section-line mb-6" />
+      {/* Members */}
+      <Section className="bg-white dark:bg-black pt-8 md:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+          {members.map((m, i) => {
+            const Icon = m.icon;
+            return (
+              <motion.div
+                key={m.key}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: i * 0.05 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full border-0 bg-zinc-50/50 dark:bg-white/[0.03] shadow-sm dark:shadow-none">
+                  <CardContent className="p-5 md:p-7">
+                    <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-5">
+                      {/* Avatar */}
+                      <div className="flex-shrink-0">
+                        {m.isPhoto ? (
+                          <Image
+                            src={m.image!}
+                            alt={m.name}
+                            width={88}
+                            height={88}
+                            className="rounded-full object-cover w-[80px] h-[80px] md:w-[88px] md:h-[88px] aspect-square"
+                          />
+                        ) : (
+                          <div className={`w-[80px] h-[80px] md:w-[88px] md:h-[88px] rounded-full bg-gradient-to-br ${m.gradient} flex items-center justify-center`}>
+                            {Icon && <Icon size={36} className="text-white drop-shadow-lg" />}
+                          </div>
+                        )}
+                      </div>
 
-            <h1 className="font-display text-5xl md:text-[clamp(3rem,6vw,4.5rem)] font-extrabold tracking-[-0.03em] leading-[1.05]">
-              {t('team.pageTitle')}
-            </h1>
-            <p className="mt-4 text-lg text-[#666] dark:text-[#8899aa] max-w-lg">
-              {t('team.pageSubtitle')}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ═══════════════ MEMBERS ═══════════════ */}
-      <section className="pb-28 md:pb-36 px-6">
-        <div className="max-w-[1000px] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-5">
-            {members.map((m, i) => {
-              const Icon = m.icon;
-              return (
-                <motion.div
-                  key={m.key}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: i * 0.04,
-                    ease,
-                  }}
-                  viewport={{ once: true }}
-                  className="bg-white dark:bg-[#111827] rounded-2xl p-8 md:p-10 border border-gray-100 dark:border-slate-800 hover:border-gray-200 dark:hover:border-slate-700 transition-all duration-300 card-glow"
-                >
-                  <div className="flex flex-col sm:flex-row items-start gap-6">
-                    {/* Avatar */}
-                    <div className="flex-shrink-0">
-                      {m.isPhoto ? (
-                        <Image
-                          src={m.image!}
-                          alt={t(`members.${m.key}.name`)}
-                          width={200}
-                          height={200}
-                          className="rounded-full object-cover w-[100px] h-[100px] md:w-[130px] md:h-[130px] shadow-md ring-2 ring-gray-100 dark:ring-slate-800"
-                        />
-                      ) : (
-                        <div
-                          className="w-[100px] h-[100px] md:w-[130px] md:h-[130px] rounded-full flex items-center justify-center shadow-md ring-2 ring-gray-100 dark:ring-slate-800"
-                          style={{ background: `linear-gradient(135deg, ${m.gradientFrom}, ${m.gradientTo})` }}
-                        >
-                          {Icon && <Icon size={40} className="text-white" strokeWidth={1.5} />}
-                        </div>
-                      )}
+                      {/* Info */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg md:text-xl font-bold font-heading mb-0.5">{m.name}</h3>
+                        <p className="text-sm md:text-base text-green-600 dark:text-green-400 font-medium mb-2">{t(`members.${m.key}.role`)}</p>
+                        <blockquote className="text-sm md:text-base text-zinc-700 dark:text-zinc-200 italic border-l-2 border-green-500 pl-3 mb-2">
+                          &ldquo;{t(`members.${m.key}.quote`)}&rdquo;
+                        </blockquote>
+                        <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 leading-relaxed">{t(`members.${m.key}.description`)}</p>
+                      </div>
                     </div>
-
-                    {/* Info */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-display text-2xl md:text-[1.65rem] font-bold mb-0.5 tracking-[-0.01em]">
-                        {t(`members.${m.key}.name`)}
-                      </h3>
-                      <p className="text-sm font-semibold text-primary dark:text-primary-light mb-4">
-                        {t(`members.${m.key}.role`)}
-                      </p>
-                      <blockquote className="text-[15px] italic border-l-2 border-primary/30 dark:border-primary-light/30 pl-4 mb-4 text-[#555] dark:text-[#99aabb]">
-                        &ldquo;{t(`members.${m.key}.quote`)}&rdquo;
-                      </blockquote>
-                      <p className="text-sm text-[#666] dark:text-[#8899aa] leading-[1.7]">
-                        {t(`members.${m.key}.bio`)}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
-      </section>
+      </Section>
 
-      {/* ═══════════════ CTA ═══════════════ */}
-      <section className="py-28 md:py-36 px-6 bg-[#F3F4F2] dark:bg-[#0F172A]">
-        <div className="max-w-[1000px] mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">
-              {t('team.ctaHeading')}
-            </h2>
-            <p className="text-lg text-[#666] dark:text-[#8899aa] max-w-xl mx-auto mb-10">
-              {t('team.ctaSubtitle')}
-            </p>
-            <a
-              href="mailto:hello@zonelab.tw"
-              className="inline-flex items-center gap-2 bg-primary dark:bg-primary-light text-white dark:text-[#0B1120] font-semibold text-sm px-8 py-4 rounded-xl hover:opacity-90 hover:scale-[1.02] transition-all duration-150 shadow-md"
-            >
-              <Mail size={16} />
-              {t('team.ctaButton')}
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      {/* CTA */}
+      <Section className="bg-zinc-50 dark:bg-zinc-950 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-4">
+            {t('team.ctaHeading')}
+          </h2>
+          <p className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 mb-8 max-w-xl mx-auto">{t('team.ctaSubtitle')}</p>
+          <a href="mailto:hello@zonelab.tw" className={buttonVariants({ size: 'lg' })}>
+            <Mail size={18} className="mr-2" />
+            {t('team.ctaButton')}
+          </a>
+        </motion.div>
+      </Section>
 
-      {/* ═══════════════ FOOTER ═══════════════ */}
-      <footer className="py-16 md:py-20 px-6 bg-[#111827] dark:bg-[#080D19] text-[#94A3B8]">
-        <div className="max-w-[1000px] mx-auto">
-          <div className="grid md:grid-cols-3 gap-10 mb-14">
+      {/* Footer */}
+      <footer className="py-10 md:py-12 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="flex items-center gap-2.5 mb-4">
-                <Image
-                  src="/zone-lab-logo.png"
-                  alt="Zone Lab"
-                  width={28}
-                  height={28}
-                  className="opacity-80"
-                />
-                <span className="font-display font-bold text-sm text-white/90">zone lab</span>
-              </div>
-              <p className="text-sm leading-relaxed">
-                {t('footer.tagline')}
-              </p>
+              <Image src="/zone-lab-logo.png" alt="zone lab" width={56} height={56} className="mb-3" />
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">{t('footer.tagline')}</p>
             </div>
             <div>
-              <h4 className="font-display font-semibold text-xs uppercase tracking-[0.15em] mb-5 text-[#556]">
-                {t('footer.quickLinks')}
-              </h4>
-              <ul className="space-y-2.5 text-sm">
-                <li>
-                  <Link href="/" className="hover:text-primary-light transition-colors duration-150">
-                    {t('footer.about')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/team" className="hover:text-primary-light transition-colors duration-150">
-                    {t('footer.team')}
-                  </Link>
-                </li>
+              <h4 className="font-bold mb-3 font-heading text-sm">{t('footer.quickLinks')}</h4>
+              <ul className="space-y-2 text-sm text-zinc-500 dark:text-zinc-400">
+                <li><Link href="/" className="hover:text-zinc-900 dark:hover:text-white transition-colors">{t('footer.home')}</Link></li>
+                <li><Link href="/team" className="hover:text-zinc-900 dark:hover:text-white transition-colors">{t('footer.team')}</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-display font-semibold text-xs uppercase tracking-[0.15em] mb-5 text-[#556]">
-                {t('footer.connect')}
-              </h4>
-              <ul className="space-y-2.5 text-sm">
+              <h4 className="font-bold mb-3 font-heading text-sm">{t('footer.connect')}</h4>
+              <ul className="space-y-2 text-sm text-zinc-500 dark:text-zinc-400">
                 <li>
-                  <a
-                    href="https://github.com/zone-lab"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 hover:text-primary-light transition-colors duration-150"
-                  >
+                  <a href="mailto:hello@zonelab.tw" className="inline-flex items-center gap-2 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <Mail size={14} /> Email
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/zone-lab" className="inline-flex items-center gap-2 hover:text-zinc-900 dark:hover:text-white transition-colors">
                     <Github size={14} /> GitHub
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://twitter.com/zonelab"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 hover:text-primary-light transition-colors duration-150"
-                  >
-                    <Twitter size={14} /> X (Twitter)
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:hello@zonelab.tw"
-                    className="inline-flex items-center gap-2 hover:text-primary-light transition-colors duration-150"
-                  >
-                    <Mail size={14} /> hello@zonelab.tw
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-slate-800 pt-8">
-            <p className="text-center text-xs text-[#445]">
-              {t('footer.copyright')}
-            </p>
+          <div className="border-t border-zinc-200 dark:border-zinc-800 pt-6 text-center text-xs text-zinc-400 dark:text-zinc-500">
+            <p>{t('footer.copyright')}</p>
           </div>
         </div>
       </footer>

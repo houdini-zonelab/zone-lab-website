@@ -83,6 +83,40 @@
 - 字體用 `next/font/google`（選什麼字體你決定，但要有個性）
 - Light/Dark Mode 用 next-themes + Tailwind `dark:` modifier
 
+## Layout 規則（所有頁面強制遵守）
+
+### 容器
+- 所有 section 必須用 `<Section>` 元件（`@/components/Section`）包裝
+- 禁止自己寫 padding 和 max-width，`<Section>` 已內建 `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`
+- Section 標題用 `<SectionHeader>` 元件，自帶置中 + 間距 + 字級
+
+### 響應式（強制）
+- mobile (< 768px)：單欄，grid 全部 stack
+- tablet (768-1024px)：可雙欄
+- desktop (> 1024px)：最多 3-4 欄
+- 所有 grid：`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3`（依內容調整）
+- 間距：`gap-4 md:gap-6 lg:gap-8`
+
+### Section 間距
+- section 之間：由 `<Section>` 統一處理（`py-16 md:py-24`）
+- 卡片到 section 標題：由 `<SectionHeader>` 統一處理（`mb-10 md:mb-16`）
+
+### 文字
+- 標題一律 `text-center`（除非有明確設計理由）
+- 段落最大寬度 `max-w-2xl mx-auto`
+- 手機字級不小於 16px（`text-base`）
+
+### 圖片
+- 人像：`aspect-square rounded-full object-cover` + 固定寬高
+- 所有圖片必須有 alt text
+
+### 禁止事項
+- ❌ 不準用固定 px 寬度（用 responsive class）
+- ❌ 不準用 `w-screen` 或 `100vw`
+- ❌ 不準在 mobile 下用超過 2 欄的 grid
+- ❌ 不準內容貼齊螢幕邊緣（最小 padding 16px）
+- ❌ 不準繞過 `<Section>` 自己寫 section container
+
 ## 元件開發原則（zone lab 全公司標準）
 - 優先使用 shadcn/ui 元件，需要客製化時用 shadcn/ui 的 variant 機制擴展
 - 不要從零手寫 Button、Card、Input 等基礎元件

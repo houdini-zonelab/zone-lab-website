@@ -77,8 +77,17 @@
 
 ## 技術棧（已安裝）
 - Next.js 16、Tailwind CSS v4、Framer Motion、next-intl v4、Lucide React、next-themes
+- **UI 元件庫：shadcn/ui** — 所有基礎元件（Button, Card, Dialog, etc.）一律用 shadcn/ui，不自己造輪子
+- **動畫：Framer Motion** — 所有動畫效果統一用 Framer Motion，不用 CSS animation 或其他動畫庫
+- **Icon：Lucide React** — 所有 icon 統一用 Lucide React，不混用其他 icon 庫
 - 字體用 `next/font/google`（選什麼字體你決定，但要有個性）
 - Light/Dark Mode 用 next-themes + Tailwind `dark:` modifier
+
+## 元件開發原則（zone lab 全公司標準）
+- 優先使用 shadcn/ui 元件，需要客製化時用 shadcn/ui 的 variant 機制擴展
+- 不要從零手寫 Button、Card、Input 等基礎元件
+- 動畫統一用 `<motion.div>` 包裝，保持一致的 easing 和 duration
+- Icon 只從 `lucide-react` import，保持視覺一致性
 
 ## 現有架構（保留）
 - i18n 設定已完成（next-intl routing, middleware, navigation）
@@ -90,8 +99,8 @@
 - 確認 `public/zone-lab-logo.png` 和 `public/jason-photo.png` 存在，如果不在，從 `/Users/j.a.s.o.n/.openclaw/workspace-team/assets/` 複製
 - 所有翻譯內容從 spec 讀取，不要自己編
 
-## 完成後
-1. `pnpm build` 確認無錯誤
-2. `git add -A && git commit -m "feat: v2.0 — redesign with frontend-design skill, improved layout and aesthetics"`
-3. `git push origin main`
-4. 完成後執行：`openclaw system event --text "Done: v2.0 redesign complete — improved layout and design" --mode now`
+## 完成後（必須全部執行，不可跳過）
+1. 跑 `pnpm build` — 如果失敗，修好再 build，直到通過
+2. Build 通過後**立刻** commit：`git add -A && git commit -m "feat: <簡短描述改了什麼>"`
+3. **立刻** push：`git push origin main` — 這步不可省略，Jason 需要看到最新版本
+4. Push 成功後執行：`openclaw system event --text "Done: <簡短描述> — 已 push 到 GitHub" --mode now`

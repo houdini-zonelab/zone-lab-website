@@ -50,8 +50,10 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Controls */}
-      <ThemeToggle />
-      <LanguageSwitcher />
+      <div className="fixed top-6 right-6 z-50 flex items-center gap-2">
+        <ThemeToggle />
+        <LanguageSwitcher />
+      </div>
 
       {/* Hero */}
       <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-zinc-50 to-white dark:from-black dark:to-zinc-950">
@@ -131,25 +133,35 @@ export default function Home() {
             viewport={{ once: true, margin: '-80px' }}
             className="grid md:grid-cols-3 gap-6 md:gap-8"
           >
-            {[
-              { icon: Target, title: t('vision.card1Title'), text: t('vision.card1Text'), color: 'purple' },
-              { icon: Zap, title: t('vision.card2Title'), text: t('vision.card2Text'), color: 'cyan' },
-              { icon: Rocket, title: t('vision.card3Title'), text: t('vision.card3Text'), color: 'green' },
-            ].map((card) => (
-              <motion.div
-                key={card.title}
-                variants={fadeInUp}
-                className="glass-card p-8 text-center"
-              >
-                <div className="flex justify-center mb-6">
-                  <div className={`p-5 rounded-2xl bg-${card.color}-500/10 border border-${card.color}-500/20`}>
-                    <card.icon size={28} className={`text-${card.color}-500 dark:text-${card.color}-400`} />
-                  </div>
+            <motion.div variants={fadeInUp} className="glass-card p-8 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="p-5 rounded-2xl bg-purple-500/10 border border-purple-500/20">
+                  <Target size={28} className="text-purple-600 dark:text-purple-400" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 font-heading">{card.title}</h3>
-                <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">{card.text}</p>
-              </motion.div>
-            ))}
+              </div>
+              <h3 className="text-xl font-bold mb-4 font-heading">{t('vision.card1Title')}</h3>
+              <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">{t('vision.card1Text')}</p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="glass-card p-8 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="p-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20">
+                  <Zap size={28} className="text-cyan-600 dark:text-cyan-400" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-4 font-heading">{t('vision.card2Title')}</h3>
+              <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">{t('vision.card2Text')}</p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="glass-card p-8 text-center">
+              <div className="flex justify-center mb-6">
+                <div className="p-5 rounded-2xl bg-green-500/10 border border-green-500/20">
+                  <Rocket size={28} className="text-green-600 dark:text-green-400" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-4 font-heading">{t('vision.card3Title')}</h3>
+              <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">{t('vision.card3Text')}</p>
+            </motion.div>
           </motion.div>
         </div>
       </section>

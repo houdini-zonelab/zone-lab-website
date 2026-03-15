@@ -19,6 +19,8 @@ import {
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 const members = [
   { key: 'jason', isPhoto: true, image: '/jason-photo.png' },
   { key: 'northstar', icon: Compass, gradientFrom: '#06B6D4', gradientTo: '#22D3EE' },
@@ -38,12 +40,12 @@ export default function TeamPage() {
       <Navbar />
 
       {/* ═══════════════ HEADER ═══════════════ */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-6">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="pt-32 pb-14 md:pt-40 md:pb-18 px-6">
+        <div className="max-w-[1000px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease }}
           >
             <Link
               href="/"
@@ -69,8 +71,8 @@ export default function TeamPage() {
       </section>
 
       {/* ═══════════════ MEMBERS ═══════════════ */}
-      <section className="pb-24 md:pb-32 px-6">
-        <div className="max-w-[1100px] mx-auto">
+      <section className="pb-28 md:pb-36 px-6">
+        <div className="max-w-[1000px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-5">
             {members.map((m, i) => {
               const Icon = m.icon;
@@ -82,10 +84,10 @@ export default function TeamPage() {
                   transition={{
                     duration: 0.5,
                     delay: i * 0.04,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease,
                   }}
                   viewport={{ once: true }}
-                  className="bg-white dark:bg-[#111827] rounded-2xl p-7 md:p-8 border border-gray-100 dark:border-slate-800 hover:border-gray-200 dark:hover:border-slate-700 transition-all duration-300 card-glow"
+                  className="bg-white dark:bg-[#111827] rounded-2xl p-8 md:p-10 border border-gray-100 dark:border-slate-800 hover:border-gray-200 dark:hover:border-slate-700 transition-all duration-300 card-glow"
                 >
                   <div className="flex flex-col sm:flex-row items-start gap-6">
                     {/* Avatar */}
@@ -132,8 +134,8 @@ export default function TeamPage() {
       </section>
 
       {/* ═══════════════ CTA ═══════════════ */}
-      <section className="py-24 md:py-32 px-6 bg-[#F3F4F6] dark:bg-[#0F172A]">
-        <div className="max-w-[1100px] mx-auto text-center">
+      <section className="py-28 md:py-36 px-6 bg-[#F3F4F2] dark:bg-[#0F172A]">
+        <div className="max-w-[1000px] mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +150,7 @@ export default function TeamPage() {
             </p>
             <a
               href="mailto:hello@zonelab.tw"
-              className="inline-flex items-center gap-2 bg-primary dark:bg-primary-light text-white dark:text-[#0B1120] font-semibold text-sm px-8 py-3.5 rounded-lg hover:opacity-90 hover:scale-[1.02] transition-all duration-150 shadow-md"
+              className="inline-flex items-center gap-2 bg-primary dark:bg-primary-light text-white dark:text-[#0B1120] font-semibold text-sm px-8 py-4 rounded-xl hover:opacity-90 hover:scale-[1.02] transition-all duration-150 shadow-md"
             >
               <Mail size={16} />
               {t('team.ctaButton')}
@@ -159,7 +161,7 @@ export default function TeamPage() {
 
       {/* ═══════════════ FOOTER ═══════════════ */}
       <footer className="py-16 md:py-20 px-6 bg-[#111827] dark:bg-[#080D19] text-[#94A3B8]">
-        <div className="max-w-[1100px] mx-auto">
+        <div className="max-w-[1000px] mx-auto">
           <div className="grid md:grid-cols-3 gap-10 mb-14">
             <div>
               <div className="flex items-center gap-2.5 mb-4">

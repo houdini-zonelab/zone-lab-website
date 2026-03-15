@@ -13,28 +13,29 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-1 text-sm bg-zinc-100 dark:bg-zinc-900/80 backdrop-blur border border-zinc-300 dark:border-zinc-700 rounded-full px-1 py-1">
+    <div className="flex items-center font-heading text-xs tracking-widest uppercase">
       <button
         onClick={() => switchLocale('en')}
-        className={`px-2.5 py-1 rounded-full transition-colors ${
+        className={`px-2 py-1 transition-colors ${
           locale === 'en'
-            ? 'text-zinc-900 dark:text-white bg-white dark:bg-white/15 shadow-sm'
-            : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200'
+            ? 'text-accent-deep dark:text-accent'
+            : 'text-current/40 hover:text-current/70'
         }`}
         aria-label="Switch to English"
       >
         EN
       </button>
+      <span className="text-current/20">/</span>
       <button
         onClick={() => switchLocale('zh')}
-        className={`px-2.5 py-1 rounded-full transition-colors ${
+        className={`px-2 py-1 transition-colors ${
           locale === 'zh'
-            ? 'text-zinc-900 dark:text-white bg-white dark:bg-white/15 shadow-sm'
-            : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200'
+            ? 'text-accent-deep dark:text-accent'
+            : 'text-current/40 hover:text-current/70'
         }`}
         aria-label="切換至繁體中文"
       >
-        繁中
+        中
       </button>
     </div>
   );

@@ -3,8 +3,22 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
+import { Syne, Crimson_Pro } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
+
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--syne-font',
+  display: 'swap',
+});
+
+const crimsonPro = Crimson_Pro({
+  subsets: ['latin'],
+  variable: '--crimson-font',
+  display: 'swap',
+  style: ['normal', 'italic'],
+});
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -24,7 +38,7 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
       type: 'website',
-      siteName: 'zone lab',
+      siteName: 'Zone Lab',
     },
     robots: 'index, follow',
   };
@@ -41,28 +55,26 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
 
   return (
-    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={`${syne.variable} ${crimsonPro.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/zone-lab-logo.png" />
-        {/* Prevent FOUC: apply theme before paint */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){}})()`,
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-white dark:bg-black text-zinc-900 dark:text-zinc-50 selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-50 dark:selection:text-black overflow-x-hidden transition-colors duration-300">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+      <body className="font-body antialiased bg-[#F5F0E8] dark:bg-[#0A0A0A] text-[#1A1A1A] dark:text-[#F0EDE8] overflow-x-hidden">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
           <NextIntlClientProvider>
             {children}
           </NextIntlClientProvider>

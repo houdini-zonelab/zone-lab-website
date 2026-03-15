@@ -1,60 +1,78 @@
-# CLAUDE.md — Zone Lab 官網 v1.3 開發指令
+# CLAUDE.md — Zone Lab 官網 v2.0 全面重新設計
 
 ## 任務
 
-在現有 v1.2 基礎上新增 **Light/Dark Mode** 支援。不需要從頭重做，只需在現有 code 上加入主題切換功能。
+**全面重新設計** Zone Lab 官網的視覺與前端。不是微調，是從設計層面重做。
+使用你的 `frontend-design` skill（`.claude/skills/frontend-design/SKILL.md`），產出令人驚艷、有記憶點的網站。
 
-## Spec
+## 核心要求
+
+### 品牌定位
+Zone Lab = 前衛科技 × 人性化自我提升。一間精實、有態度的軟體公司。
+網站要傳達：我們不一樣，我們很酷，我們認真做產品。
+
+### 設計方向
+- **禁止**使用 Space Grotesk、Inter、Roboto 等 AI slop 常見字體
+- **禁止**紫色漸層白底、千篇一律的 SaaS landing page 風格
+- 選一個大膽的美學方向並貫徹到底（brutalist? editorial? retro-futuristic? luxury minimal? 你決定）
+- 要有一個讓人記住的視覺記憶點
+- Light/Dark Mode 都要好看（用 next-themes，Tailwind `dark:` modifier）
+- 動畫要有衝擊力，不是隨便 fade-in
+
+### 頁面結構（必須保留）
+1. **Landing Page** (`/[locale]/page.tsx`)
+   - Hero：Zone Lab logo + 標語 + CTA
+   - Vision：我們的理念
+   - Products：Marawanna（主打，有 App Store 連結）+ 2 個佔位產品
+   - Team Preview：8 位成員預覽
+   - Footer
+
+2. **Team Page** (`/[locale]/team/page.tsx`)
+   - 8 位成員詳細介紹（名字、職稱、quote、bio）
+   - Jason 用真實照片（`/public/jason-photo.png`，圓形裁切）
+   - 其他 7 位用漸層 + Lucide icon placeholder
+
+### 雙語 i18n
+- 已有 next-intl 設定，保留 `messages/zh.json` 和 `messages/en.json` 結構
+- 路徑前綴：`/zh/`、`/en/`，預設 `zh`
+- 右上角語言切換 + 主題切換按鈕
+
+## Spec 參考
 
 完整 spec：`/Users/j.a.s.o.n/.openclaw/workspace-team/specs/zone-lab-website-v1.md`
-**重點看 6.4 節**：Light/Dark Mode 支援
 
-## v1.3 新增需求：Light/Dark Mode
+### 團隊成員資料
 
-### 切換機制
-- 切換按鈕放在右上角，語言切換按鈕旁邊
-- 使用太陽/月亮 icon（Sun/Moon from lucide-react）
-- 預設偵測系統偏好（`prefers-color-scheme`）
-- 使用者手動切換後存 `localStorage`，下次記住
-- 切換時有流暢過渡動畫（`transition: background-color 0.3s, color 0.3s`）
+| # | 名字 | 英文名 | 職稱 | Quote |
+|---|------|--------|------|-------|
+| 1 | 李冠廷 | Jason Li | 創辦人暨執行長 | 在混亂中找到秩序，在秩序中創造混亂 |
+| 2 | 林芷萱 | Emily Lin | 產品經理 | 用戶不會告訴你他要什麼，但會告訴你他不要什麼 |
+| 3 | 張竣凱 | Kevin Chang | 全端工程師 | 最好的程式碼是不需要寫的程式碼 |
+| 4 | 王思涵 | Hannah Wang | UI/UX 設計師 | 好設計是隱形的，壞設計無處不在 |
+| 5 | 陳柏宇 | Brian Chen | iOS 工程師 | 每個 pixel 都是一次跟用戶的對話 |
+| 6 | 吳欣怡 | Cindy Wu | 數據分析師 | 數字不會說謊，但會說不同的故事 |
+| 7 | 黃子軒 | Alex Huang | DevOps 工程師 | 自動化一切可以自動化的事 |
+| 8 | 謝宜蓁 | Zoe Hsieh | 行銷專員 | 好故事不需要行銷，但好行銷需要好故事 |
 
-### 色彩系統
+### 產品資料
 
-**Light Mode**：
-- 背景：`#FFFFFF` / `#F9FAFB`
-- 文字：`#111827` / `#1F2937`
-- 強調色：保持 cyan/purple/green，降低飽和度
-- 卡片：淺灰背景 + 細微陰影
+**Marawanna**（主打）：
+- 大麻合法資訊與社群平台
+- App Store：https://apps.apple.com/tw/app/marawanna/id6754880832?l=en-GB
+- 強調：合法教育、去污名化、社群連結
 
-**Dark Mode**（現有風格，維持不變）：
-- 背景：黑 / 深灰
-- 文字：白 / 淺灰
-- 強調色：高對比螢光色
-- Glass morphism 卡片
+**佔位產品 1**：ZoneFlow — AI 生產力工具（開發中）
+**佔位產品 2**：MindPulse — 心理健康追蹤（規劃中）
 
-### 技術實作
-- 使用 Tailwind 的 `dark:` modifier
-- 在 `<html>` 上加 `class="dark"` 控制
-- 避免閃爍：在 `<head>` 裡加 inline script 先套用主題
-- 確保兩種模式都符合 WCAG AA 對比度（4.5:1）
+## 技術棧
+- Next.js 16、Tailwind CSS v4、Framer Motion、next-intl v4、Lucide React、next-themes
+- 字體用 Google Fonts（next/font/google）
+- 不要用動態 Tailwind class（如 `bg-${color}-500`）
 
-### 需要修改的檔案
-1. `src/app/[locale]/layout.tsx` — 加 inline theme script，html class
-2. `src/app/[locale]/page.tsx` — 所有 section 加 light mode 樣式
-3. `src/app/[locale]/team/page.tsx` — 同上
-4. `src/components/LanguageSwitcher.tsx` — 旁邊加 ThemeToggle（或合併成 Header 元件）
-5. `src/app/globals.css` — 加過渡動畫、light mode 的 glass card 樣式
-6. 新增 `src/components/ThemeToggle.tsx`
-
-### 注意事項
-- **不要用動態 Tailwind class**（如 `bg-${color}-500`）
-- Hero 的漸層光球在 light mode 要調整透明度或顏色
-- Grid overlay 在 light mode 要用深色線條
-- Logo 和 Jason 照片在兩種模式下都要清晰
-- 佔位產品卡片在 light mode 的透明度調整
-
-## 技術棧（已安裝）
-- Next.js 16、Tailwind CSS v4、Framer Motion、next-intl v4、Lucide React
+## 資源檔案
+- Logo：`public/zone-lab-logo.png`（已在 public/）
+- Jason 照片：`public/jason-photo.png`（已在 public/）
 
 ## 完成後
-跑 `pnpm build`，確認無錯誤。
+1. 跑 `pnpm build`，確認無錯誤
+2. 用 `git add -A && git commit -m "feat: v2.0 — full redesign with frontend-design skill"` commit

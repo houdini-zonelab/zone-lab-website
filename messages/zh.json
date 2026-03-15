@@ -1,94 +1,113 @@
 {
   "meta": {
-    "title": "Zone Lab — 打造幫助你升級的軟體",
-    "description": "以 AI 驅動的產品工作室，來自台灣。我們打造自我提升的軟體。"
+    "title": "Zone Lab — 打造幫助你進化的軟體",
+    "description": "台灣 AI 驅動產品工作室。我們打造自我提升的軟體工具。"
   },
   "nav": {
-    "about": "關於",
+    "home": "首頁",
     "team": "團隊",
-    "projects": "產品",
-    "contact": "聯絡"
+    "products": "產品"
   },
   "hero": {
-    "heading": "打造幫助你升級的軟體。",
-    "subtitle": "以 AI 驅動的產品工作室，來自台灣。",
+    "heading": "打造幫助你進化的軟體。",
+    "subtitle": "台灣・AI 驅動的產品工作室",
     "ctaTeam": "認識團隊",
-    "ctaProjects": "查看產品"
+    "ctaProducts": "探索產品"
   },
   "vision": {
-    "heading": "有目的的軟體。",
-    "subtitle": "我們打造的每個產品，都圍繞一個問題：這如何幫助使用者成長？",
-    "card1Title": "自我提升，而非分心",
-    "card1Text": "我們相信科技應該讓人變得更好，而不是讓人分心。每個產品都圍繞一個核心問題：「這如何幫助使用者成長？」",
+    "heading": "我們的理念",
+    "subtitle": "每個產品的背後，都是同一個問題：這如何幫助使用者成長？",
+    "card1Title": "自我提升",
+    "card1Text": "科技應該讓人變得更好，而不是更忙。我們打造的每個產品都圍繞一個核心：幫助使用者成為更好的自己。",
     "card2Title": "專注執行",
-    "card2Text": "我們是精實團隊，每個成員都是專家。少即是多——專注做對的事，而不是做很多事。",
-    "card3Title": "快速推出，更快迭代",
-    "card3Text": "我們不做五年計劃。快速推出、收集反饋、持續改進。產品永遠是 beta，因為我們永遠在進化。"
+    "card2Text": "不追逐風口，不盲目擴張。選定方向，全力以赴，做到極致。少即是多。",
+    "card3Title": "快速迭代",
+    "card3Text": "完美是漸進的。先出貨，聽回饋，再改進。產品永遠在進化，因為我們永遠在進化。"
   },
   "products": {
-    "heading": "我們正在打造的東西。",
+    "heading": "我們正在打造的東西",
     "subtitle": "真實產品，真實影響力。從概念到 App Store。",
-    "marawannaDesc": "你的馬拉松私人教練，由數據驅動。",
-    "download": "在 App Store 下載",
-    "comingSoon": "即將推出",
-    "stayTuned": "敬請期待"
+    "marawannaName": "Marawanna",
+    "marawannaDesc": "大麻合法資訊與社群平台",
+    "marawannaDetail": "合法教育・去污名化・社群連結",
+    "marawannaCta": "在 App Store 下載",
+    "marawannaBadge": "上線中",
+    "zoneflowName": "ZoneFlow",
+    "zoneflowDesc": "AI 生產力工具",
+    "zoneflowStatus": "開發中",
+    "mindpulseName": "MindPulse",
+    "mindpulseDesc": "心理健康追蹤",
+    "mindpulseStatus": "規劃中",
+    "comingSoon": "即將推出"
   },
   "team": {
-    "heading": "認識團隊。",
+    "heading": "認識團隊",
     "subtitle": "精實、跨領域、高效執行。每個成員都專注在自己的領域，共同打造有意義的產品。",
     "meetEveryone": "認識所有人",
-    "pageTitle": "團隊成員",
-    "backHome": "返回首頁"
+    "pageTitle": "我們的團隊",
+    "pageSubtitle": "八個人，一個目標：打造幫助人進化的軟體。",
+    "backHome": "返回首頁",
+    "ctaHeading": "想加入我們？",
+    "ctaSubtitle": "我們正在尋找有態度、有實力的人才。如果你認同我們的理念，來聊聊。",
+    "ctaButton": "聯絡我們"
   },
   "members": {
     "jason": {
-      "role": "創辦人",
-      "quote": "我拍板、我負責、我實驗。",
-      "bio": "Zone Lab 的創辦人。相信精實團隊 + 高效協作是未來的工作模式。不做 pitch deck，直接做產品。"
+      "name": "李冠廷",
+      "role": "創辦人暨執行長",
+      "quote": "在混亂中找到秩序，在秩序中創造混亂。",
+      "bio": "從交大資工畢業後，在大型科技公司歷練三年，決定出走創業。相信科技應該幫助人變得更好，而不只是更忙。"
     },
-    "northstar": {
+    "emily": {
+      "name": "林芷萱",
       "role": "產品經理",
-      "quote": "我不只報告市場，我告訴你我們該做什麼。",
-      "bio": "負責市場訊號蒐集與產品方向。有主見、不怕爭議。如果我說「這是下一個機會」，那就是。"
+      "quote": "用戶不會告訴你他要什麼，但會告訴你他不要什麼。",
+      "bio": "六年產品經驗，擅長在用戶需求與技術可行性之間找到平衡。前 Yahoo 產品經理。"
     },
-    "houdini": {
+    "kevin": {
+      "name": "張竣凱",
       "role": "全端工程師",
-      "quote": "我把 spec 變成可以動的東西。",
-      "bio": "負責產品開發，從前端到後端。喜歡乾淨的架構與優雅的解法。如果可以用 10 行解決，絕不寫 100 行。"
+      "quote": "最好的程式碼是不需要寫的程式碼。",
+      "bio": "自學起家的工程師，對優雅的架構有強迫症般的追求。開源社群活躍貢獻者。"
     },
-    "watchdog": {
-      "role": "DevOps 工程師",
-      "quote": "我確保東西不會炸掉。",
-      "bio": "負責基礎設施、部署與監控。你看不到我的工作，因為我做得好就是什麼事都不會發生。"
+    "hannah": {
+      "name": "王思涵",
+      "role": "UI/UX 設計師",
+      "quote": "好設計是隱形的，壞設計無處不在。",
+      "bio": "從平面設計轉入數位領域，堅信設計不是裝飾，而是解決問題的過程。"
     },
-    "vampire": {
+    "brian": {
+      "name": "陳柏宇",
+      "role": "iOS 工程師",
+      "quote": "每個 pixel 都是一次跟用戶的對話。",
+      "bio": "從大學開始寫 iOS app，對 Apple 生態系有近乎偏執的熱愛。注重每一個互動細節。"
+    },
+    "cindy": {
+      "name": "吳欣怡",
       "role": "數據分析師",
-      "quote": "我從數據裡吸取真相。",
-      "bio": "負責產品數據分析與使用者行為洞察。數字不會說謊，但會被誤讀。我的工作是找出真正重要的訊號。"
+      "quote": "數字不會說謊，但會說不同的故事。",
+      "bio": "統計學碩士，用數據驅動每一個產品決策。前 Gogoro 數據團隊成員。"
     },
-    "echo": {
-      "role": "客戶支援",
-      "quote": "我聽使用者在說什麼，也聽他們沒說的。",
-      "bio": "負責使用者回饋收集與支援。每個抱怨背後都有一個產品改進機會。我的工作是不讓那些訊號消失。"
+    "alex": {
+      "name": "黃子軒",
+      "role": "DevOps 工程師",
+      "quote": "自動化一切可以自動化的事。",
+      "bio": "基礎設施即程式碼的信徒。從零建構了 Zone Lab 的整套 CI/CD 與雲端架構。"
     },
-    "thomas": {
-      "role": "營運專員",
-      "quote": "我追蹤進度，你們專心做事。",
-      "bio": "負責營運追蹤與週報彙整。我不催人，但我確保沒有東西被遺忘。"
-    },
-    "godin": {
-      "role": "行銷內容",
-      "quote": "我把產品變成故事。",
-      "bio": "負責行銷內容與對外溝通。好產品需要好故事。我的工作是讓人記住我們為什麼存在。"
+    "zoe": {
+      "name": "謝宜蓁",
+      "role": "行銷專員",
+      "quote": "好故事不需要行銷，但好行銷需要好故事。",
+      "bio": "文字工作者出身，相信好的行銷是說一個真實的故事。負責 Zone Lab 所有對外溝通。"
     }
   },
   "footer": {
-    "tagline": "打造幫助你升級的軟體。",
-    "quickLinks": "快速連結",
+    "tagline": "打造幫助你進化的軟體。",
+    "quickLinks": "連結",
     "home": "首頁",
     "team": "團隊",
     "projects": "產品",
-    "connect": "聯繫我們",
+    "connect": "聯繫",
     "copyright": "© 2026 Zone Lab. All rights reserved."
   }
 }

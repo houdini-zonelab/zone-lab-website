@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "title": "zone lab — Building software that helps you level up",
+    "description": "AI-augmented product studio based in Taiwan. We build software with purpose."
+  },
+  "nav": {
+    "switchLang": "繁中",
+    "switchLangLabel": "切換至繁體中文"
+  },
+  "hero": {
+    "heading": "Building software that helps you level up.",
+    "subtitle": "AI-augmented product studio based in Taiwan.",
+    "ctaTeam": "Meet the Team",
+    "ctaProjects": "View Projects"
+  },
+  "vision": {
+    "heading": "Software with purpose.",
+    "subtitle": "Every line of code serves a greater purpose — helping humans become their better selves.",
+    "card1Title": "Self-improvement, not distraction",
+    "card1Text": "We believe technology should make people better, not more distracted. Every product revolves around one question: \"How does this help the user grow?\"",
+    "card2Title": "Focused execution",
+    "card2Text": "We're a lean team of specialists. Less is more — focus on doing the right things, not doing many things.",
+    "card3Title": "Ship fast, iterate faster",
+    "card3Text": "We don't make 5-year plans. We ship fast, collect feedback, and keep improving. Products are always in beta, because we're always evolving."
+  },
+  "products": {
+    "heading": "What we're building.",
+    "subtitle": "Each product is carefully crafted to solve real problems and create meaningful impact.",
+    "marawannaDesc": "Your personal marathon coach, powered by data.",
+    "download": "Download on App Store",
+    "comingSoon": "Coming Soon",
+    "stayTuned": "Stay Tuned"
+  },
+  "team": {
+    "heading": "Meet the team.",
+    "subtitle": "Lean, cross-disciplinary, and relentlessly focused. Each member is an expert in their domain, building meaningful products together.",
+    "meetEveryone": "Meet everyone",
+    "pageHeading": "The Team",
+    "pageSubtitle": "Each member brings their own superpower to build products that help people become better.",
+    "backToHome": "Back to Home",
+    "ctaHeading": "Want to build meaningful products with us?",
+    "ctaSubtitle": "We're always looking for talented, passionate people.",
+    "ctaButton": "Get in Touch"
+  },
+  "footer": {
+    "tagline": "Building software that helps you level up.",
+    "quickLinks": "Quick Links",
+    "home": "Home",
+    "team": "Team",
+    "projects": "Projects",
+    "connect": "Connect",
+    "copyright": "© 2026 zone lab. All rights reserved."
+  },
+  "members": {
+    "jason": {
+      "role": "Founder",
+      "quote": "I decide, I own it, I experiment.",
+      "description": "Founder of zone lab. Believes lean teams + high-efficiency collaboration is the future of work. No pitch decks — just ship products."
+    },
+    "northstar": {
+      "role": "Product Manager",
+      "quote": "I don't just report the market — I tell you what we should do.",
+      "description": "Responsible for market signals and product direction. Opinionated and fearless. When I say \"this is the next opportunity,\" it is."
+    },
+    "houdini": {
+      "role": "Full-Stack Engineer",
+      "quote": "I turn specs into things that work.",
+      "description": "Handles product development, front to back. Loves clean architecture and elegant solutions. If it can be done in 10 lines, never write 100."
+    },
+    "watchdog": {
+      "role": "DevOps Engineer",
+      "quote": "I make sure nothing blows up.",
+      "description": "Handles infrastructure, deployment, and monitoring. You don't see my work — because when I do it well, nothing happens."
+    },
+    "vampire": {
+      "role": "Data Analyst",
+      "quote": "I extract truth from data.",
+      "description": "Handles product analytics and user behavior insights. Numbers don't lie, but they can be misread. My job is finding the signals that matter."
+    },
+    "echo": {
+      "role": "Customer Support",
+      "quote": "I hear what users say — and what they don't.",
+      "description": "Collects user feedback and provides support. Every complaint hides a product improvement opportunity. My job is making sure those signals don't disappear."
+    },
+    "thomas": {
+      "role": "Operations",
+      "quote": "I track progress so you can focus on building.",
+      "description": "Handles ops tracking and weekly reports. I don't rush people, but I make sure nothing gets forgotten."
+    },
+    "godin": {
+      "role": "Marketing & Content",
+      "quote": "I turn products into stories.",
+      "description": "Handles marketing content and external communications. Great products need great stories. My job is making people remember why we exist."
+    }
+  }
+}

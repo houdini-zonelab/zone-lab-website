@@ -1,178 +1,135 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
 import {
-  ArrowLeft,
-  Compass,
-  Wand2,
-  Shield,
-  BarChart3,
-  Megaphone,
-  ClipboardList,
-  PenTool,
-  Mail,
-  Github,
+  Compass, Wand2, Shield, BarChart3,
+  Ear, ClipboardList, PenTool, ArrowLeft,
 } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { Link } from '@/i18n/navigation';
 
-const members = [
-  { key: 'jason', name: 'Jason', image: '/jason-photo.png', isPhoto: true },
-  { key: 'northstar', name: 'North Star', icon: Compass, gradient: 'from-purple-400 to-pink-400' },
-  { key: 'houdini', name: 'Houdini', icon: Wand2, gradient: 'from-cyan-400 to-blue-400' },
-  { key: 'watchdog', name: 'WatchDog', icon: Shield, gradient: 'from-green-400 to-emerald-400' },
-  { key: 'vampire', name: 'Vampire', icon: BarChart3, gradient: 'from-red-400 to-pink-400' },
-  { key: 'echo', name: 'Echo', icon: Megaphone, gradient: 'from-yellow-400 to-orange-400' },
-  { key: 'thomas', name: 'Thomas', icon: ClipboardList, gradient: 'from-indigo-400 to-purple-400' },
-  { key: 'godin', name: 'Godin', icon: PenTool, gradient: 'from-pink-400 to-red-400' },
-];
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
+};
+
+const stagger = {
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const TEAM_MEMBERS = [
+  { key: 'jason', icon: null, gradient: '', color: '#06b6d4' },
+  { key: 'northstar', icon: Compass, gradient: 'from-cyan-500 to-blue-600', color: '#06b6d4' },
+  { key: 'houdini', icon: Wand2, gradient: 'from-purple-500 to-pink-600', color: '#a855f7' },
+  { key: 'watchdog', icon: Shield, gradient: 'from-amber-500 to-orange-600', color: '#f59e0b' },
+  { key: 'vampire', icon: BarChart3, gradient: 'from-red-500 to-rose-700', color: '#ef4444' },
+  { key: 'echo', icon: Ear, gradient: 'from-emerald-500 to-teal-600', color: '#10b981' },
+  { key: 'thomas', icon: ClipboardList, gradient: 'from-sky-500 to-indigo-600', color: '#0ea5e9' },
+  { key: 'godin', icon: PenTool, gradient: 'from-fuchsia-500 to-violet-600', color: '#d946ef' },
+] as const;
 
 export default function TeamPage() {
   const t = useTranslations();
 
   return (
-    <div className="min-h-screen bg-black text-zinc-50">
-      <LanguageSwitcher />
-
+    <>
       {/* Header */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-6 text-center">
-        <div className="max-w-[1280px] mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-[-0.02em] mb-4 font-heading">
-              {t('team.pageHeading')}
-            </h1>
-            <p className="text-lg text-zinc-400 mb-8 max-w-2xl mx-auto">
-              {t('team.pageSubtitle')}
-            </p>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(12px)' }}>
+        <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/zone-lab-logo.png" alt="Zone Lab logo" width={36} height={36} />
+            <span className="font-heading text-lg font-semibold tracking-tight">Zone Lab</span>
+          </Link>
+          <LanguageSwitcher />
+        </nav>
+      </header>
+
+      <main className="pt-24 pb-20 md:pb-30">
+        <div className="mx-auto max-w-[1280px] px-6">
+          {/* Back link */}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 border border-zinc-700 text-zinc-50 font-semibold px-6 py-3 rounded-xl hover:bg-zinc-900 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
             >
-              <ArrowLeft size={18} />
-              {t('team.backToHome')}
+              <ArrowLeft size={16} />
+              {t('team.backHome')}
             </Link>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Members */}
-      <section className="pb-20 md:pb-30 px-6">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-6">
-            {members.map((m, i) => {
-              const Icon = m.icon;
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-heading text-5xl font-bold leading-[1.2] tracking-[-0.02em] md:text-7xl lg:text-[72px]"
+          >
+            {t('team.pageTitle')}
+          </motion.h1>
+
+          {/* Team cards */}
+          <motion.div
+            className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 md:gap-8"
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+          >
+            {TEAM_MEMBERS.map((member) => {
+              const MemberIcon = member.icon;
               return (
-                <motion.div
-                  key={m.key}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.06 }}
-                  viewport={{ once: true }}
-                  className="glass-card p-6 md:p-8"
+                <motion.article
+                  key={member.key}
+                  variants={fadeInUp}
+                  className="glass-card flex gap-6 p-6 transition-transform hover:-translate-y-1 md:p-8"
                 >
-                  <div className="flex flex-col sm:flex-row items-start gap-5">
-                    {/* Avatar */}
-                    <div className="flex-shrink-0">
-                      {m.isPhoto ? (
-                        <Image
-                          src={m.image!}
-                          alt={m.name}
-                          width={100}
-                          height={100}
-                          className="rounded-full object-cover w-[100px] h-[100px]"
-                        />
-                      ) : (
-                        <div
-                          className={`w-[100px] h-[100px] rounded-full bg-gradient-to-br ${m.gradient} flex items-center justify-center`}
-                        >
-                          {Icon && <Icon size={40} className="text-white drop-shadow-lg" />}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Info */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-xl md:text-2xl font-bold font-heading mb-1">{m.name}</h3>
-                      <p className="text-green-400 font-medium mb-3">{t(`members.${m.key}.role`)}</p>
-                      <blockquote className="text-zinc-200 italic border-l-2 border-green-500 pl-4 mb-3">
-                        &ldquo;{t(`members.${m.key}.quote`)}&rdquo;
-                      </blockquote>
-                      <p className="text-zinc-400 leading-relaxed">{t(`members.${m.key}.description`)}</p>
-                    </div>
+                  {/* Avatar */}
+                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full md:h-24 md:w-24">
+                    {member.key === 'jason' ? (
+                      <Image
+                        src="/jason-photo.png"
+                        alt="Jason"
+                        fill
+                        className="object-cover"
+                        sizes="96px"
+                      />
+                    ) : (
+                      <div className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${member.gradient}`}>
+                        {MemberIcon && <MemberIcon size={36} className="text-white/90" />}
+                      </div>
+                    )}
                   </div>
-                </motion.div>
+
+                  {/* Info */}
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-baseline gap-3">
+                      <h2 className="font-heading text-xl font-semibold md:text-2xl">
+                        {t(`team.members.${member.key}.name`)}
+                      </h2>
+                      <span className="text-sm text-white/40">
+                        {t(`team.members.${member.key}.role`)}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm italic md:text-base" style={{ color: member.color }}>
+                      &ldquo;{t(`team.members.${member.key}.quote`)}&rdquo;
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-white/60 md:text-base">
+                      {t(`team.members.${member.key}.bio`)}
+                    </p>
+                  </div>
+                </motion.article>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 md:py-30 px-6 text-center">
-        <div className="max-w-[1280px] mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold font-heading mb-4">
-              {t('team.ctaHeading')}
-            </h2>
-            <p className="text-lg text-zinc-400 mb-8 max-w-xl mx-auto">{t('team.ctaSubtitle')}</p>
-            <a
-              href="mailto:hello@zonelab.tw"
-              className="inline-flex items-center gap-2 bg-zinc-50 text-black font-semibold px-8 py-4 rounded-xl hover:bg-zinc-200 transition-colors"
-            >
-              <Mail size={18} />
-              {t('team.ctaButton')}
-            </a>
           </motion.div>
         </div>
-      </section>
+      </main>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-zinc-800">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="grid md:grid-cols-3 gap-10 mb-10">
-            <div>
-              <Image src="/zone-lab-logo.png" alt="zone lab" width={64} height={64} className="mb-4" />
-              <p className="text-zinc-400">{t('footer.tagline')}</p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 font-heading">{t('footer.quickLinks')}</h4>
-              <ul className="space-y-3 text-zinc-400">
-                <li><Link href="/" className="hover:text-white transition-colors">{t('footer.home')}</Link></li>
-                <li><Link href="/team" className="hover:text-white transition-colors">{t('footer.team')}</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 font-heading">{t('footer.connect')}</h4>
-              <ul className="space-y-3 text-zinc-400">
-                <li>
-                  <a href="mailto:hello@zonelab.tw" className="inline-flex items-center gap-2 hover:text-white transition-colors">
-                    <Mail size={16} /> Email
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/zone-lab" className="inline-flex items-center gap-2 hover:text-white transition-colors">
-                    <Github size={16} /> GitHub
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-zinc-800 pt-8 text-center text-zinc-500">
-            <p>{t('footer.copyright')}</p>
-          </div>
+      <footer className="border-t border-white/5 py-8">
+        <div className="mx-auto max-w-[1280px] px-6 text-center text-xs text-white/30">
+          {t('footer.rights')}
         </div>
       </footer>
-    </div>
+    </>
   );
 }

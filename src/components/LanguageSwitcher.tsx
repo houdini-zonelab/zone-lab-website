@@ -1,26 +1,42 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const t = useTranslations('nav');
 
-  const switchLocale = () => {
-    const next = locale === 'zh' ? 'en' : 'zh';
-    router.replace(pathname, { locale: next });
-  };
+  function switchLocale(newLocale: 'zh' | 'en') {
+    router.replace(pathname, { locale: newLocale });
+  }
 
   return (
-    <button
-      onClick={switchLocale}
-      aria-label={t('switchLangLabel')}
-      className="fixed top-6 right-6 z-50 px-4 py-2 text-sm font-semibold bg-zinc-900/80 backdrop-blur border border-zinc-700 rounded-full text-zinc-200 hover:bg-zinc-800 hover:text-white transition-colors"
-    >
-      {t('switchLang')}
-    </button>
+    <div className="flex items-center gap-1 text-sm">
+      <button
+        onClick={() => switchLocale('en')}
+        className={`px-2 py-1 rounded transition-colors ${
+          locale === 'en'
+            ? 'text-white bg-white/10'
+            : 'text-white/50 hover:text-white/80'
+        }`}
+        aria-label="Switch to English"
+      >
+        EN
+      </button>
+      <span className="text-white/30">|</span>
+      <button
+        onClick={() => switchLocale('zh')}
+        className={`px-2 py-1 rounded transition-colors ${
+          locale === 'zh'
+            ? 'text-white bg-white/10'
+            : 'text-white/50 hover:text-white/80'
+        }`}
+        aria-label="切換至繁體中文"
+      >
+        繁中
+      </button>
+    </div>
   );
 }

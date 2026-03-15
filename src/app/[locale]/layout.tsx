@@ -1,31 +1,24 @@
-import type { Metadata } from 'next';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'meta' });
+  const title = locale === 'zh' ? 'Zone Lab — 打造幫助你升級的軟體' : 'Zone Lab — Building software that helps you level up';
+  const description = locale === 'zh'
+    ? '以 AI 驅動的產品工作室，來自台灣。'
+    : 'AI-augmented product studio based in Taiwan.';
+
   return {
-    title: t('title'),
-    description: t('description'),
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-      type: 'website',
-      siteName: 'zone lab',
-    },
-    robots: 'index, follow',
+    title,
+    description,
+    icons: { icon: '/favicon.ico' },
   };
 }
 
@@ -37,25 +30,25 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) notFound();
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
 
   return (
-    <html lang={locale} className="scroll-smooth">
+    <html lang={locale} className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/zone-lab-logo.png" />
       </head>
-      <body className="font-sans antialiased bg-black text-zinc-50 selection:bg-zinc-50 selection:text-black overflow-x-hidden">
-        <NextIntlClientProvider>
+      <body>
+        <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
       </body>

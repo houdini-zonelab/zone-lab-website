@@ -8,17 +8,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { ExternalLink, Triangle, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const appStoreLinks: Record<string, string> = {
   Marawanna: "https://apps.apple.com/tw/app/marawanna/id6754880832?l=en-GB",
   Summur: "https://apps.apple.com/tw/app/summur-cat-dog-care/id6730121236?l=en-GB",
 };
 
-const productIcons = [
-  { bg: "from-cyan-500 to-blue-600", icon: "M" },
-  { bg: "from-orange-400 to-amber-500", icon: "S" },
-  { bg: "from-gray-400 to-slate-500", Icon: Circle },
-  { bg: "from-gray-400 to-slate-500", Icon: Triangle },
+type ProductIcon =
+  | { type: "image"; src: string; alt: string }
+  | { type: "placeholder"; bg: string; Icon: React.ComponentType<{ className?: string }> };
+
+const productIcons: ProductIcon[] = [
+  { type: "image", src: "/marawanna-icon.png", alt: "Marawanna" },
+  { type: "image", src: "/summur-icon.png", alt: "Summur" },
+  { type: "placeholder", bg: "from-gray-400 to-slate-500", Icon: Circle },
+  { type: "placeholder", bg: "from-gray-400 to-slate-500", Icon: Triangle },
 ];
 
 export function ProductsSection() {
@@ -53,15 +58,21 @@ export function ProductsSection() {
                 isLive && "ring-2 ring-cyan-500/50 shadow-lg shadow-cyan-500/10 md:scale-105"
               )}>
                 <CardContent className="flex flex-col items-center p-6 text-center md:p-8">
-                  <div
-                    className={`flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${product.bg} mb-4 text-white shadow-lg`}
-                  >
-                    {product.icon ? (
-                      <span className="text-2xl font-bold">{product.icon}</span>
-                    ) : product.Icon ? (
-                      <product.Icon className="h-8 w-8" />
-                    ) : null}
-                  </div>
+                  {product.type === "image" ? (
+                    <Image
+                      src={product.src}
+                      alt={product.alt}
+                      width={80}
+                      height={80}
+                      className="mb-4 rounded-2xl shadow-lg"
+                    />
+                  ) : (
+                    <div
+                      className={`flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${product.bg} mb-4 text-white shadow-lg`}
+                    >
+                      {product.type === "placeholder" && <product.Icon className="h-8 w-8" />}
+                    </div>
+                  )}
 
                   <h3 className="text-lg font-bold md:text-xl">
                     {t(`items.${i}.name`)}

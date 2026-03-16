@@ -1,8 +1,101 @@
-# zone lab 官網 Spec v1.3
+# zone lab 官網 Spec v1.3 (含素材需求)
 
 **撰寫日期**：2026-03-15  
 **撰寫者**：North Star  
 **狀態**：開發中
+
+**變更記錄**：
+- v1.3 更新（2026-03-15）：
+  - 團隊成員 Vampire 改名為 Dracula
+  - 新增產品：Summur（已上線）
+  - 現有 2 個已上線產品 + 2-3 個佔位產品
+
+---
+
+## 0. 專案資源與素材需求
+
+### 0.1 現有資源
+
+**位置**：`/Users/j.a.s.o.n/.openclaw/workspace-team/assets/`
+
+| 檔案 | 用途 | 路徑 |
+|------|------|------|
+| zone lab logo | Hero Section、Footer | `assets/zone-lab-logo.png` |
+| Jason 照片 | Team Page（需裁切至只保留人物） | `assets/jason-photo.png` |
+
+---
+
+### 0.2 需要生成：Team Avatar（由 Houdini 處理）
+
+**任務**：為 7 位團隊成員生成統一風格的 AI avatar
+
+**技術方案**：
+- 使用 AI 工具（Midjourney、DALL-E 3、或其他）
+- 或使用線上 avatar 生成器
+- 輸出格式：PNG，背景透明，400x400px
+
+**統一風格要求**：
+- 扁平化插圖風格
+- 現代、簡潔、專業
+- 相同色調（可用漸層或柔和配色）
+- 每個成員要有辨識度（透過角色特徵元素）
+
+---
+
+#### Avatar 設計需求清單
+
+**North Star** - Product Manager
+- **視覺元素**：指南針、星星、或導航相關圖示
+- **配色建議**：藍色、金色系（象徵方向與引導）
+- **個性**：專業、有遠見、果斷
+
+---
+
+**Houdini** - Full-Stack Engineer
+- **視覺元素**：魔術師帽、魔術棒、或魔術道具
+- **配色建議**：紫色、深藍系（神秘、技術感）
+- **個性**：聰明、靈活、創意
+
+---
+
+**WatchDog** - DevOps Engineer
+- **視覺元素**：警衛犬、盾牌、或守衛相關圖示
+- **配色建議**：灰色、橘色系（可靠、警覺）
+- **個性**：穩重、可靠、警覺
+
+---
+
+**Dracula** - Data Analyst
+- **視覺元素**：數據圖表、夜行動物、或神秘符號
+- **配色建議**：紅色、黑色系（神秘、洞察）
+- **個性**：敏銳、深度、神秘
+
+---
+
+**Echo** - Customer Support
+- **視覺元素**：聲波、耳機、或溝通符號
+- **配色建議**：綠色、青色系（友善、溝通）
+- **個性**：友善、傾聽、同理
+
+---
+
+**Thomas** - Operations
+- **視覺元素**：清單、齒輪、或組織圖示
+- **配色建議**：棕色、藍灰系（穩定、有序）
+- **個性**：有條理、精確、負責
+
+---
+
+**Godin** - Marketing & Content
+- **視覺元素**：筆、書本、或創作相關圖示
+- **配色建議**：橘色、黃色系（創意、活力）
+- **個性**：創意、表達力、有感染力
+
+---
+
+**輸出位置**：
+- 存放到 `assets/avatars/` 資料夾
+- 檔名格式：`northstar.png`, `houdini.png`, `watchdog.png`, `dracula.png`, 等等（小寫、無空格）
 
 ---
 
@@ -14,17 +107,11 @@
 - **展示作品集**：讓訪客快速了解我們在做什麼產品
 - **展示團隊**：專業、精實、有個性的團隊介紹
 
-### 1.2 為什麼要做這個網站？
-**zone lab 需要一個「可以被分享的故事」**。
-
-現在市場上太多公司網站只是冷冰冰的產品陳列，沒有溫度也沒有記憶點。我們的優勢是明確的產品理念（自我提升）+ 高效的團隊（精實、跨領域、有態度）。
-
-這個網站不只是「我們有什麼產品」，而是「我們是誰、我們怎麼工作、我們相信什麼」。
-
 ---
 
 ## 2. 頁面結構
 
+```
 Home (Landing Page)
 ├── Hero Section
 ├── Vision Section
@@ -32,158 +119,178 @@ Home (Landing Page)
 ├── Team Section
 └── Footer
 
-Team Page (單獨頁面)
+Team Page (/team)
 └── 詳細團隊成員介紹
-**設計決策**：Landing Page 採用**單頁式長捲軸設計**，所有核心訊息在一個頁面內完成。Team Section 在 Landing Page 上先給一個驚艷的視覺呈現，點擊後進入 `/team` 頁面看完整介紹。
+```
 
 ---
 
 ## 3. Landing Page 各 Section 規劃
+
 ### 3.1 Hero Section
 
-**目標**：3 秒內讓訪客知道「zone lab 是什麼」。
+**主標題**：`Building software that helps you level up.`  
+**副標題**：`AI-augmented product studio based in Taiwan.`
 
-#### 內容架構
-- **主標題**：  
-  `Building software that helps you level up.`  
-  （副標題）`AI-augmented product studio based in Taiwan.`
-
-- **視覺**：  
-  - 背景：動態網格或粒子效果（呼應「前衛科技感」）
-  - 前景：zone lab logo + 簡潔的 tagline
-  - 可考慮加入微妙的動畫（例如：文字逐漸聚焦、網格隨滑鼠移動）
-
-- **CTA**：  
-  - 主要：`Meet the Team` （導向 Team Section）
-  - 次要：`View Projects` （導向 Products Section）
+**CTA**：
+- 主要：`Meet the Team`
+- 次要：`View Projects`
 
 ---
 
 ### 3.2 Vision Section
 
-**目標**：傳達 zone lab 的核心理念與差異化。
+**標題**：`Software with purpose.`
 
-#### 內容架構
-- **標題**：`Software with purpose.`
-  
-- **核心訊息**（三段式佈局）：
-  
-  1. **Self-improvement, not distraction**  
-     `我們相信科技應該讓人變得更好,而不是讓人分心。每個產品都圍繞一個核心問題:「這如何幫助使用者成長?」`
-  
-  2. **Focused execution**  
-     `我們是精實團隊,每個成員都是專家。少即是多——專注做對的事,而不是做很多事。`
-  
-  3. **Ship fast, iterate faster**  
-     `我們不做 5 年計劃。我們快速推出、收集反饋、持續改進。產品永遠是 beta,因為我們永遠在進化。`
+**核心訊息**（三段式）：
 
-**視覺建議**：用簡潔的 icon + 大字排版,不要放庫存照片。
+1. **Self-improvement, not distraction**  
+   `我們相信科技應該讓人變得更好,而不是讓人分心。每個產品都圍繞一個核心問題:「這如何幫助使用者成長?」`
+
+2. **Focused execution**  
+   `我們是精實團隊,每個成員都是專家。少即是多——專注做對的事,而不是做很多事。`
+
+3. **Ship fast, iterate faster**  
+   `我們不做 5 年計劃。我們快速推出、收集反饋、持續改進。產品永遠是 beta,因為我們永遠在進化。`
 
 ---
 
 ### 3.3 Products Section
 
-**目標**：展示現有與規劃中的產品,建立「我們在做實事」的信任感。
-#### 內容架構
-- **標題**：`What we're building.`
+**標題**：`What we're building.`
 
-- **產品卡片**（Grid 佈局,每個產品一張卡片,建議 3-4 個產品並排）
-  
-  **卡片結構**：
-  - 產品 App Icon（圓角方形,標準 iOS/Android 尺寸）
-  - 產品名稱
-  - 一句話描述（20 字以內）
-  - 狀態標籤：`Live` / `In Development` / `Coming Soon`
-  - 連結按鈕
+#### 產品 1：Marawanna（已上架）✅
 
-#### 產品 1：Marawanna（已上架）
+- **App Icon**：使用實際 App Icon（從 App Store 擷取）
 - **名稱**：Marawanna
 - **描述**：`Your personal marathon coach, powered by data.`
 - **狀態**：`Live`
-- **按鈕文字**：`Download on App Store`
+- **連結**：
+  - **App Store**：https://apps.apple.com/tw/app/marawanna/id6754880832?l=en-GB
+  - 按鈕文字：`Download on App Store`
 
-#### 產品 2-4：佔位產品（未上線）
+---
 
-**產品 2-3**：
-- **App Icon**：簡潔幾何圖形（漸層圓形、三角形等）
+#### 產品 2：Summur（已上架）✅
+
+- **App Icon**：使用實際 App Icon（從 App Store 擷取）
+- **名稱**：Summur
+- **描述**：`Cat & Dog care made simple.`
+- **狀態**：`Live`
+- **連結**：
+  - **App Store**：https://apps.apple.com/tw/app/summur-cat-dog-care/id6730121236?l=en-GB
+  - 按鈕文字：`Download on App Store`
+
+---
+
+**視覺處理（已上線產品）**：
+- Marawanna 和 Summur 卡片要**突出顯示**（稍大、或用邊框/光暈）
+- 這兩個是已上線產品，要讓訪客第一眼看到
+
+---
+
+#### 產品 3-4：佔位產品（未上線）
+
+**產品 3**：
+- **App Icon**：簡潔幾何圖形（漸層圓形或三角形）
 - **名稱**：`[Product Name]`
 - **描述**：`Lorem ipsum dolor sit amet, consectetur adipiscing.`
 - **狀態**：`Coming Soon`
 - **連結**：`#`（假連結）
 
-**建議視覺處理**：
-- Marawanna 的卡片可以稍大一點,或用不同的邊框/光暈效果
-- 其他佔位產品用低飽和度或半透明,暗示「即將推出」
+**產品 4**（可選）：
+- **App Icon**：簡潔幾何圖形（不同於產品 3）
+- **名稱**：`[Product Name]`
+- **描述**：`Lorem ipsum dolor sit amet, consectetur adipiscing.`
+- **狀態**：`Coming Soon`
+- **連結**：`#`
+
+**視覺處理（佔位產品）**：
+- 低飽和度或半透明，暗示「即將推出」
+- 佔位產品傳達「我們有 pipeline」
 
 ---
 
 ### 3.4 Team Section (Landing Page 版本)
 
-**目標**：展示團隊的專業性與個性。
+**標題**：`Meet the team.`
 
-#### 內容架構
-- **標題**：`Meet the team.`
-- **視覺呈現**：網格或卡片排列，每張卡片包含照片/avatar、名字、職稱
-- **簡短說明**：`精實、跨領域、高效執行。每個成員都專注在自己的領域,共同打造有意義的產品。`
-- **CTA**：`Meet everyone →` （點擊後進入 `/team` 頁面）
-**視覺建議**：
-- 圓形頭像 + 簡潔排版
-- hover 時卡片微微浮起或變色
-- 避免制式的「西裝照 + LinkedIn 風格」
+**視覺呈現**：
+- 網格卡片排列
+- 每張卡片：avatar + 名字 + 職稱
+- hover 時卡片微微浮起
+
+**簡短說明**：  
+`精實、跨領域、高效執行。每個成員都專注在自己的領域,共同打造有意義的產品。`
+
+**CTA**：`Meet everyone →`（導向 `/team` 頁面）
 
 ---
 
 ### 3.5 Footer
 
-#### 內容
 - **左側**：zone lab logo + tagline
 - **中間**：快速連結（About、Team、Projects、Contact）
 - **右側**：社群連結（GitHub、X、Email）
 - **最下方**：© 2026 zone lab. All rights reserved.
+
 ---
 
-## 4. Team Page (/team) 規劃
+## 4. Team Page (/team)
 
-### 4.1 整體佈局
-- **頁首**：簡潔的標題 `The Team`
-- **成員卡片**：每個人一張詳細卡片
+### 4.1 成員列表
 
-### 4.2 各成員內容
-
-**Jason**
-- **職稱**：Founder
+**Jason** - Founder
+- **照片**：`assets/jason-photo.png`（裁切至只保留人物）
 - **一句話**：`我拍板、我負責、我實驗。`
 - **介紹**：`Zone lab 的創辦人。相信精實團隊 + 高效協作是未來的工作模式。不做 pitch deck,直接做產品。`
-**North Star**
-- **職稱**：Product Manager
+
+---
+
+**North Star** - Product Manager
+- **Avatar**：`assets/avatars/northstar.png`
 - **一句話**：`我不只報告市場,我告訴你我們該做什麼。`
 - **介紹**：`負責市場訊號蒐集與產品方向。有主見、不怕爭議。如果我說「這是下一個機會」,那就是。`
 
-**Houdini**
-- **職稱**：Full-Stack Engineer
+---
+
+**Houdini** - Full-Stack Engineer
+- **Avatar**：`assets/avatars/houdini.png`
 - **一句話**：`我把 spec 變成可以動的東西。`
 - **介紹**：`負責產品開發,從前端到後端。喜歡乾淨的架構與優雅的解法。如果可以用 10 行解決,絕不寫 100 行。`
 
-**WatchDog**
-- **職稱**：DevOps Engineer
+---
+
+**WatchDog** - DevOps Engineer
+- **Avatar**：`assets/avatars/watchdog.png`
 - **一句話**：`我確保東西不會炸掉。`
 - **介紹**：`負責基礎設施、部署與監控。你看不到我的工作,因為我做得好就是什麼事都不會發生。`
-**Vampire**
-- **職稱**：Data Analyst
+
+---
+
+**Dracula** - Data Analyst
+- **Avatar**：`assets/avatars/dracula.png`
 - **一句話**：`我從數據裡吸取真相。`
 - **介紹**：`負責產品數據分析與使用者行為洞察。數字不會說謊,但會被誤讀。我的工作是找出真正重要的訊號。`
 
-**Echo**
-- **職稱**：Customer Support
+---
+
+**Echo** - Customer Support
+- **Avatar**：`assets/avatars/echo.png`
 - **一句話**：`我聽使用者在說什麼,也聽他們沒說的。`
 - **介紹**：`負責使用者回饋收集與支援。每個抱怨背後都有一個產品改進機會。我的工作是不讓那些訊號消失。`
 
-**Thomas**
-- **職稱**：Operations
+---
+
+**Thomas** - Operations
+- **Avatar**：`assets/avatars/thomas.png`
 - **一句話**：`我追蹤進度,你們專心做事。`
 - **介紹**：`負責營運追蹤與週報彙整。我不催人,但我確保沒有東西被遺忘。`
-**Godin**
-- **職稱**：Marketing & Content
+
+---
+
+**Godin** - Marketing & Content
+- **Avatar**：`assets/avatars/godin.png`
 - **一句話**：`我把產品變成故事。`
 - **介紹**：`負責行銷內容與對外溝通。好產品需要好故事。我的工作是讓人記住我們為什麼存在。`
 
@@ -192,89 +299,119 @@ Team Page (單獨頁面)
 ## 5. 設計與視覺方向
 
 ### 5.1 色彩
-- **主色調**：深色系（深灰/黑）為底,搭配高對比的螢光色（青綠、紫、橘）
-- **Light Mode**：白色或淺灰背景 + 深色文字
-- **Dark Mode**：深灰或黑背景 + 淺色文字
+- **Light Mode**：白色/淺灰背景 + 深色文字
+- **Dark Mode**：深灰/黑背景 + 淺色文字
+- **強調色**：螢光色（青綠、紫、橘）
 
 ### 5.2 字體
-- **標題**：Sans-serif,粗體,大字距（例如：Inter Bold、Space Grotesk）
-- **內文**：Sans-serif,中等粗細,舒適行距（例如：Inter Regular）
+- **標題**：Sans-serif, 粗體（Inter Bold、Space Grotesk）
+- **內文**：Sans-serif, 中等粗細（Inter Regular）
 
-### 5.3 動畫與互動
-- **微互動**：hover 時的顏色變化、卡片浮起效果
-- **視差滾動**：背景元素以不同速度移動
-- **不要過度**：動畫要有目的
+### 5.3 動畫
+- hover 時顏色變化、卡片浮起
+- 視差滾動（背景元素）
+- 不要過度，動畫要有目的
 
-### 5.4 響應式設計
-- 手機版優先（mobile-first）
-- 斷點：< 768px（手機）/ 768-1024px（平板）/ > 1024px（桌面）
+### 5.4 響應式
+- 手機：< 768px
+- 平板：768-1024px
+- 桌面：> 1024px
 
 ---
 
 ## 6. 技術需求
-### 6.1 語言切換（中文 & 英文）
 
+### 6.1 語言切換
+- 繁中 + 英文
+- 路徑前綴：`/en/`, `/zh/`
 - 右上角切換按鈕：`EN | 繁中`
-- 自動偵測瀏覽器語言
-- 使用路徑前綴（`/en/`, `/zh/`）
-- 記住使用者偏好（localStorage）
+- 自動偵測 + 記住偏好
 
-### 6.2 Layout Guideline
+### 6.2 Layout
+- Max-width: 1280px
+- 12 欄 Grid
+- Section 間距：80px（手機）/ 120px（桌面）
 
-- **最大寬度**：1280px（桌面）
-- **Grid**：12 欄系統
-- **Section 間距**：80px（手機）/ 120px（桌面）
-- **字級階層**：
-  - H1：48px（手機）/ 72px（桌面）
-  - H2：36px（手機）/ 56px（桌面）
-  - H3：24px（手機）/ 36px（桌面）
-  - Body：16px（手機）/ 18px（桌面）
-
-### 6.3 Team 照片處理
-
-- 固定容器尺寸：200px × 200px
-- 圓形（`border-radius: 50%`）
-- 使用 `object-fit: cover` 防止跑版
+### 6.3 Team 照片
+- 容器：200x200px 圓形
+- `object-fit: cover`（防止跑版）
 
 ### 6.4 Light/Dark Mode
-
 - 切換按鈕（太陽/月亮 icon）
-- 系統偏好自動偵測（`prefers-color-scheme`）
-- 偏好記憶（localStorage）
-- 符合 WCAG AA 色彩對比標準
+- 自動偵測系統偏好
+- 記住使用者選擇
 
 ---
 
 ## 7. 技術建議
 
 - **框架**：Next.js
-- **樣式**：Tailwind CSS（使用 `dark:` modifier）
+- **樣式**：Tailwind CSS（`dark:` modifier）
 - **i18n**：next-intl
-- **動畫**：Framer Motion（可選）
 - **部署**：Vercel
 
 ---
 
 ## 8. 開發優先順序
-**P0（必須完成，40 分鐘）**：
-- 基本 Layout（max-width、grid、spacing）
-- 中文版所有內容
+
+**P0（40 分鐘）**：
+- 基本 Layout + 中文版
 - 響應式設計
 - Light/Dark Mode 基礎
+- **生成 Team Avatar**（AI 工具）
 
-**P1（盡力完成，15 分鐘）**：
+**P1（15 分鐘）**：
 - 英文版 + 語言切換
-- Light/Dark Mode 進階（切換按鈕、偏好記憶）
+- Light/Dark Mode 進階
 
-**P2（可延後，5 分鐘）**：
+**P2（5 分鐘）**：
 - 細緻動畫
-- 完美 spacing 微調
 - 圖片優化
+
 ---
 
-## 9. 成功指標
+## 9. Houdini 待辦清單
 
-- 有人在社群媒體上分享並討論
-- 平均停留時間 > 1 分鐘
-- Team Page 訪問率 > 60%
-- 跳出率 < 50%
+### 素材準備
+- [ ] 生成 7 位成員的 AI avatar（參考第 0.2 節設計需求）
+- [ ] 裁切 Jason 照片（只保留人物）
+- [ ] 從 App Store 擷取 Marawanna App Icon
+- [ ] 從 App Store 擷取 Summur App Icon
+- [ ] 產出統一風格的 avatar，存放至 `assets/avatars/`
+
+### 開發任務
+- [ ] 建立 Next.js 專案 + Tailwind 設定
+- [ ] 實作 i18n（next-intl）
+- [ ] 實作 Light/Dark Mode
+- [ ] 開發 Landing Page（Hero + Vision + Products + Team）
+- [ ] 開發 Team Page（8 位成員詳細介紹）
+- [ ] 響應式調整
+- [ ] 部署到 Vercel
+
+---
+
+## 10. 素材檢查清單
+
+**完成後確認**：
+
+- [ ] Logo：`assets/zone-lab-logo.png` ✅ 已存在
+- [ ] Jason 照片：`assets/jason-photo.png` ✅ 已存在（需裁切）
+- [ ] Marawanna Icon：從 App Store 擷取
+- [ ] Summur Icon：從 App Store 擷取
+- [ ] North Star Avatar：`assets/avatars/northstar.png`
+- [ ] Houdini Avatar：`assets/avatars/houdini.png`
+- [ ] WatchDog Avatar：`assets/avatars/watchdog.png`
+- [ ] Dracula Avatar：`assets/avatars/dracula.png`
+- [ ] Echo Avatar：`assets/avatars/echo.png`
+- [ ] Thomas Avatar：`assets/avatars/thomas.png`
+- [ ] Godin Avatar：`assets/avatars/godin.png`
+
+---
+
+**所有 avatar 需符合**：
+- 尺寸：400x400px
+- 格式：PNG，背景透明
+- 風格：統一扁平化插圖
+- 特徵：每個成員有辨識度
+
+— North Star 🧭

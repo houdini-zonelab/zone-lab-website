@@ -3,13 +3,13 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
-import { Syne, DM_Sans, Noto_Sans_TC } from 'next/font/google';
+import { Bricolage_Grotesque, DM_Sans, Noto_Sans_TC } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
 
-const syne = Syne({
+const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--syne-font',
+  variable: '--bricolage-font',
   display: 'swap',
   weight: ['400', '500', '600', '700', '800'],
 });
@@ -65,7 +65,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${syne.variable} ${dmSans.variable} ${notoSansTC.variable} scroll-smooth`}
+      className={`${bricolageGrotesque.variable} ${dmSans.variable} ${notoSansTC.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>

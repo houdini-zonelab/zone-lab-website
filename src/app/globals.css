@@ -5,8 +5,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-sans: var(--font-sans);
-  --font-display: var(--syne-font), "Noto Sans TC", -apple-system, system-ui, sans-serif;
+  --font-sans: var(--dm-sans-font), var(--noto-sans-tc-font), -apple-system, system-ui, sans-serif;
+  --font-display: var(--bricolage-font), var(--noto-sans-tc-font), -apple-system, system-ui, sans-serif;
   --color-primary: #06B6D4;
   --color-primary-light: #22D3EE;
   --color-secondary: #A855F7;

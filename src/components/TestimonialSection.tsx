@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { Section } from "./Section";
 
 const TESTIMONIAL_COUNT = 10;
 const AUTO_PLAY_INTERVAL = 5000;
@@ -55,120 +54,182 @@ function Avatar({ name, colorClass }: { name: string; colorClass: string }) {
   );
 }
 
+function getIndex(i: number) {
+  return ((i % TESTIMONIAL_COUNT) + TESTIMONIAL_COUNT) % TESTIMONIAL_COUNT;
+}
+
 export function TestimonialSection() {
   const t = useTranslations("testimonials");
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % TESTIMONIAL_COUNT);
+    }, AUTO_PLAY_INTERVAL);
+  }, []);
 
   const next = useCallback(() => {
-    setDirection(1);
     setCurrent((prev) => (prev + 1) % TESTIMONIAL_COUNT);
-  }, []);
+    resetTimer();
+  }, [resetTimer]);
 
   const prev = useCallback(() => {
-    setDirection(-1);
     setCurrent((prev) => (prev - 1 + TESTIMONIAL_COUNT) % TESTIMONIAL_COUNT);
-  }, []);
+    resetTimer();
+  }, [resetTimer]);
+
+  const goTo = useCallback(
+    (i: number) => {
+      setCurrent(i);
+      resetTimer();
+    },
+    [resetTimer]
+  );
 
   useEffect(() => {
-    const timer = setInterval(next, AUTO_PLAY_INTERVAL);
-    return () => clearInterval(timer);
-  }, [next]);
+    resetTimer();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [resetTimer]);
 
-  const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 300 : -300,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -300 : 300,
-      opacity: 0,
-    }),
-  };
+  // Visible indices: prev, current, next
+  const visibleIndices = [
+    getIndex(current - 1),
+    current,
+    getIndex(current + 1),
+  ];
 
   return (
-    <Section id="testimonials">
-      <h2 className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl">
-        {t("title")}
-      </h2>
+    <motion.section
+      id="testimonials"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+      className="py-16 md:py-24"
+    >
+      <div className="mx-auto w-[90%] max-w-[1400px]">
+        <h2 className="mb-12 text-center text-3xl font-bold tracking-tight md:text-4xl">
+          {t("title")}
+        </h2>
 
-      <div className="relative mx-auto max-w-2xl">
-        {/* Navigation arrows */}
-        <button
-          onClick={prev}
-          className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-card p-2 shadow-md transition-colors hover:bg-accent md:-left-12"
-          aria-label="Previous testimonial"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
-          onClick={next}
-          className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-card p-2 shadow-md transition-colors hover:bg-accent md:-right-12"
-          aria-label="Next testimonial"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
+        <div className="relative">
+          {/* Navigation arrows - hidden on mobile */}
+          <button
+            onClick={prev}
+            className="absolute -left-2 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-card/80 p-2 shadow-md backdrop-blur-sm transition-all hover:bg-card sm:block md:-left-5"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute -right-2 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-card/80 p-2 shadow-md backdrop-blur-sm transition-all hover:bg-card sm:block md:-right-5"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
 
-        {/* Card */}
-        <div className="overflow-hidden rounded-2xl">
-          <AnimatePresence mode="wait" custom={direction}>
+          {/* Peek carousel */}
+          <div className="overflow-hidden">
             <motion.div
-              key={current}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
+              className="flex items-center justify-center gap-4 md:gap-6"
+              animate={{ x: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="rounded-2xl border border-border/50 bg-card p-8 shadow-sm"
             >
-              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
-                <Avatar
-                  name={t(`items.${current}.name`)}
-                  colorClass={avatarColors[current]}
-                />
-                <div className="flex flex-1 flex-col gap-2">
-                  <StarRating rating={ratings[current]} />
-                  <p className="text-base leading-relaxed text-muted-foreground">
-                    &ldquo;{t(`items.${current}.content`)}&rdquo;
-                  </p>
-                  <div className="mt-2">
-                    <p className="font-semibold">
-                      {t(`items.${current}.name`)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {t(`items.${current}.role`)}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {visibleIndices.map((idx, pos) => {
+                const isCurrent = pos === 1;
+                return (
+                  <motion.div
+                    key={`${current}-${pos}`}
+                    initial={
+                      isCurrent
+                        ? { opacity: 0.7, scale: 0.95 }
+                        : { opacity: 0, scale: 0.85 }
+                    }
+                    animate={{
+                      opacity: isCurrent ? 1 : 0.55,
+                      scale: isCurrent ? 1 : 0.92,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className={`shrink-0 ${
+                      isCurrent ? "z-10" : "z-0"
+                    } ${
+                      isCurrent
+                        ? "w-[300px] sm:w-[400px] md:w-[600px] lg:w-[650px]"
+                        : "hidden w-[60px] sm:block sm:w-[80px] md:w-[150px] lg:w-[195px]"
+                    }`}
+                    onClick={
+                      !isCurrent
+                        ? () => goTo(idx)
+                        : undefined
+                    }
+                    style={!isCurrent ? { cursor: "pointer" } : undefined}
+                  >
+                    <div
+                      className={`rounded-2xl border border-border/50 bg-card p-6 sm:p-8 transition-transform duration-300 ${
+                        isCurrent
+                          ? "shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:-translate-y-1"
+                          : "shadow-sm"
+                      }`}
+                    >
+                      <div
+                        className={`flex flex-col items-center gap-4 text-center ${
+                          isCurrent
+                            ? "sm:flex-row sm:items-start sm:text-left"
+                            : ""
+                        }`}
+                      >
+                        <Avatar
+                          name={t(`items.${idx}.name`)}
+                          colorClass={avatarColors[idx]}
+                        />
+                        <div className="flex flex-1 flex-col gap-2 overflow-hidden">
+                          <StarRating rating={ratings[idx]} />
+                          <p
+                            className={`text-base leading-relaxed text-muted-foreground ${
+                              !isCurrent ? "line-clamp-2" : ""
+                            }`}
+                          >
+                            &ldquo;{t(`items.${idx}.content`)}&rdquo;
+                          </p>
+                          <div className="mt-2">
+                            <p className="font-semibold">
+                              {t(`items.${idx}.name`)}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              {t(`items.${idx}.role`)}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </motion.div>
-          </AnimatePresence>
-        </div>
+          </div>
 
-        {/* Dots indicator */}
-        <div className="mt-6 flex justify-center gap-2">
-          {Array.from({ length: TESTIMONIAL_COUNT }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                setDirection(i > current ? 1 : -1);
-                setCurrent(i);
-              }}
-              className={`h-2 w-2 rounded-full transition-all ${
-                i === current
-                  ? "w-6 bg-primary"
-                  : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-              }`}
-              aria-label={`Go to testimonial ${i + 1}`}
-            />
-          ))}
+          {/* Dots indicator */}
+          <div className="mt-6 flex justify-center gap-2">
+            {Array.from({ length: TESTIMONIAL_COUNT }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`h-2 rounded-full transition-all hover:scale-125 ${
+                  i === current
+                    ? "w-6 bg-primary"
+                    : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </Section>
+    </motion.section>
   );
 }

@@ -6,9 +6,8 @@
 
 ## 本次更新重點
 
-1. **Vampire → Dracula**：所有出現 Vampire 的地方改為 Dracula（元件、i18n JSON、avatar icon）
-2. **新增產品 Summur**：已上線產品，App Store 連結 https://apps.apple.com/tw/app/summur-cat-dog-care/id6730121236?l=en-GB ，描述 `Cat & Dog care made simple.`，狀態 `Live`
-3. Products Section 現在是 **2 個已上線 + 2 個佔位**
+1. **使用真實 App Icon**：`public/marawanna-icon.png` 和 `public/summur-icon.png` 已就位，替換掉 Products Section 中 Marawanna 和 Summur 的佔位 icon（Lucide icon 或漸層色塊）
+2. 確認兩個 Live 產品卡片都用 `<Image src="/marawanna-icon.png">` 和 `<Image src="/summur-icon.png">`（圓角方形，標準 app icon 樣式）
 
 ## 開發前必讀
 
@@ -33,6 +32,6 @@
 ## 完成後（必須全部執行）
 
 1. `pnpm build` — 如果失敗，修好再 build
-2. `git add -A && git commit -m "feat: add Summur product, rename Vampire to Dracula"`
+2. `git add -A && git commit -m "feat: use real app icons for Marawanna and Summur"`
 3. `git push origin main`
-4. `openclaw system event --text "Done: Zone lab website updated — Summur added, Vampire→Dracula" --mode now`
+4. `openclaw system event --text "Done: Zone lab website updated — real app icons for Marawanna & Summur" --mode now`

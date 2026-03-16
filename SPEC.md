@@ -1,14 +1,91 @@
-# zone lab 官網 Spec v1.3 (含素材需求)
+# zone lab 官網 Spec v1.3.1
 
-**撰寫日期**：2026-03-15  
+**當前版本**：v1.3.2  
+**最後更新**：2026-03-16 15:41  
 **撰寫者**：North Star  
 **狀態**：開發中
 
-**變更記錄**：
-- v1.3 更新（2026-03-15）：
-  - 團隊成員 Vampire 改名為 Dracula
-  - 新增產品：Summur（已上線）
-  - 現有 2 個已上線產品 + 2-3 個佔位產品
+---
+
+## 版本記錄
+
+### v1.3.2 (2026-03-16 15:41)
+**類型**：Patch（小更動）
+
+**變更內容**：
+- ✅ 新增 Marawanna App Icon（`assets/marawanna-icon.png`）
+- ✅ 新增 Summur App Icon（`assets/summur-icon.png`）
+- 素材檢查清單更新（兩個 icon 已完成）
+
+---
+
+### v1.3.1 (2026-03-16 15:29)
+**類型**：Patch（小更動）
+
+**變更內容**：
+- 團隊成員 Vampire 改名為 Dracula
+- 新增產品：Summur（已上線，App Store 連結已加入）
+- 產品結構更新：2 個已上線產品 + 2-3 個佔位產品
+- Houdini 素材清單更新（加入 Summur Icon + Dracula Avatar）
+
+---
+
+### v1.3.0 (2026-03-15)
+**類型**：Minor Update（小更動）
+
+**變更內容**：
+- 新增 Light/Dark Mode 支援需求
+- 新增 Team Avatar 生成詳細規格（每位成員設計方向）
+- 加入 Marawanna App Store 連結
+
+---
+
+### v1.2.0 (2026-03-15)
+**類型**：Minor Update（小更動）
+
+**變更內容**：
+- 新增語言切換需求（繁中 + 英文）
+- 新增 Layout Guideline（符合 Web Design 標準）
+- 新增 Team 照片處理技術規格
+
+---
+
+### v1.1.0 (2026-03-15)
+**類型**：Minor Update（小更動）
+
+**變更內容**：
+- 團隊介紹改為一般格式（不特別說明 AI）
+- 確認產品結構（Marawanna + 佔位產品）
+
+---
+
+### v1.0.0 (2026-03-15)
+**類型**：Initial Release（初版）
+
+**初始內容**：
+- Landing Page 結構（Hero + Vision + Products + Team）
+- Team Page 規劃（8 位成員）
+- 設計與視覺方向
+- 技術建議
+
+---
+
+## 版本號規則
+
+遵循語義化版本控制（Semantic Versioning）：
+
+**格式**：`MAJOR.MINOR.PATCH`
+
+- **MAJOR (x.0.0)**：重大變更，整個重寫或架構調整
+  - 例如：頁面結構大改、技術棧更換、設計風格全面翻新
+  
+- **MINOR (1.x.0)**：功能新增或中等規模變更
+  - 例如：新增語言切換、新增 Section、新增產品
+  
+- **PATCH (1.3.x)**：小修正、內容更新、文案調整
+  - 例如：改名字、更新連結、修正文案、調整描述
+
+**Timestamp 格式**：`YYYY-MM-DD HH:MM` (台北時間)
 
 ---
 
@@ -22,6 +99,8 @@
 |------|------|------|
 | zone lab logo | Hero Section、Footer | `assets/zone-lab-logo.png` |
 | Jason 照片 | Team Page（需裁切至只保留人物） | `assets/jason-photo.png` |
+| Marawanna Icon | Products Section | `assets/marawanna-icon.png` ✅ |
+| Summur Icon | Products Section | `assets/summur-icon.png` ✅ |
 
 ---
 
@@ -375,8 +454,8 @@ Team Page (/team)
 ### 素材準備
 - [ ] 生成 7 位成員的 AI avatar（參考第 0.2 節設計需求）
 - [ ] 裁切 Jason 照片（只保留人物）
-- [ ] 從 App Store 擷取 Marawanna App Icon
-- [ ] 從 App Store 擷取 Summur App Icon
+- [x] 從 App Store 擷取 Marawanna App Icon ✅ 已完成
+- [x] 從 App Store 擷取 Summur App Icon ✅ 已完成
 - [ ] 產出統一風格的 avatar，存放至 `assets/avatars/`
 
 ### 開發任務
@@ -394,10 +473,10 @@ Team Page (/team)
 
 **完成後確認**：
 
-- [ ] Logo：`assets/zone-lab-logo.png` ✅ 已存在
-- [ ] Jason 照片：`assets/jason-photo.png` ✅ 已存在（需裁切）
-- [ ] Marawanna Icon：從 App Store 擷取
-- [ ] Summur Icon：從 App Store 擷取
+- [x] Logo：`assets/zone-lab-logo.png` ✅ 已存在
+- [x] Jason 照片：`assets/jason-photo.png` ✅ 已存在（需裁切）
+- [x] Marawanna Icon：`assets/marawanna-icon.png` ✅ 已完成
+- [x] Summur Icon：`assets/summur-icon.png` ✅ 已完成
 - [ ] North Star Avatar：`assets/avatars/northstar.png`
 - [ ] Houdini Avatar：`assets/avatars/houdini.png`
 - [ ] WatchDog Avatar：`assets/avatars/watchdog.png`

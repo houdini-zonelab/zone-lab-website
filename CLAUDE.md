@@ -6,8 +6,16 @@
 
 ## 本次更新重點
 
-1. **使用真實 App Icon**：`public/marawanna-icon.png` 和 `public/summur-icon.png` 已就位，替換掉 Products Section 中 Marawanna 和 Summur 的佔位 icon（Lucide icon 或漸層色塊）
-2. 確認兩個 Live 產品卡片都用 `<Image src="/marawanna-icon.png">` 和 `<Image src="/summur-icon.png">`（圓角方形，標準 app icon 樣式）
+**Team Page 結構調整**（見 SPEC.md §4.2 和 §4.3）：
+
+1. **Founder Section**：Jason 獨立為大區塊（左照片 + 右介紹），包含：
+   - 更長的介紹文案（兩段，見 spec）
+   - Experience 列表（🎓🏢🤖🚀 四項）
+   - LinkedIn 按鈕（https://www.linkedin.com/in/qazwsx521943）
+   - Email 按鈕（jasonchungdev@gmail.com）
+   - 用不同背景色與 Team Members 區分
+2. **Team Members Section**：其他 7 位成員維持原本卡片格式，標題改為 `The Team`
+3. 更新 `zh.json` 和 `en.json` 的 team page 相關文案
 
 ## 開發前必讀
 
@@ -32,6 +40,6 @@
 ## 完成後（必須全部執行）
 
 1. `pnpm build` — 如果失敗，修好再 build
-2. `git add -A && git commit -m "feat: use real app icons for Marawanna and Summur"`
+2. `git add -A && git commit -m "feat: founder section with full bio, links, experience"`
 3. `git push origin main`
-4. `openclaw system event --text "Done: Zone lab website updated — real app icons for Marawanna & Summur" --mode now`
+4. `openclaw system event --text "Done: Zone lab website — Founder section added with bio, LinkedIn, email" --mode now`

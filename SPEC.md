@@ -1,13 +1,24 @@
 # zone lab 官網 Spec v1.3.1
 
-**當前版本**：v1.3.2  
-**最後更新**：2026-03-16 15:41  
+**當前版本**：v1.3.3  
+**最後更新**：2026-03-16 15:53  
 **撰寫者**：North Star  
 **狀態**：開發中
 
 ---
 
 ## 版本記錄
+
+### v1.3.3 (2026-03-16 15:53)
+**類型**：Patch（小更動）
+
+**變更內容**：
+- ✅ Founder (Jason) 獨立為特殊區塊，與其他團隊成員區分
+- ✅ Founder 新增完整介紹：LinkedIn、Email、Experience
+- ✅ Experience 文案修飾（更有故事性）
+- Team Page 結構調整：Founder Section + Team Members Section
+
+---
 
 ### v1.3.2 (2026-03-16 15:41)
 **類型**：Patch（小更動）
@@ -317,12 +328,61 @@ Team Page (/team)
 
 ## 4. Team Page (/team)
 
-### 4.1 成員列表
+### 4.1 頁面結構
 
-**Jason** - Founder
-- **照片**：`assets/jason-photo.png`（裁切至只保留人物）
-- **一句話**：`我拍板、我負責、我實驗。`
-- **介紹**：`Zone lab 的創辦人。相信精實團隊 + 高效協作是未來的工作模式。不做 pitch deck,直接做產品。`
+**雙區塊設計**：
+1. **Founder Section**：Jason 獨立區塊，更豐富的介紹與連結
+2. **Team Members Section**：其他 7 位成員，統一格式卡片
+
+---
+
+### 4.2 Founder Section
+
+**Jason** - Founder & CEO
+
+**版面設計**：
+- 獨立的大區塊（佔整個螢幕寬度）
+- 左側：照片（大尺寸，300x300px 或更大）
+- 右側：完整介紹 + 連結
+
+---
+
+**照片**：`assets/jason-photo.png`（裁切至只保留人物）
+
+**一句話**：  
+`我拍板、我負責、我實驗。`
+
+**完整介紹**：  
+`Zone lab 的創辦人。畢業於中山大學，自學轉職成為 iOS 工程師，在蘋果生態系打磨多年後，遇上 AI 浪潮——決定不再只是「寫別人的 app」，而是建立自己的產品工作室。`
+
+`相信小團隊 + AI 協作能做出不輸大公司的產品。不做 pitch deck，直接做產品；不追風口，只做真正幫助人成長的軟體。Zone lab 是一場實驗，也是一種生活方式。`
+
+**經歷 (Experience)**：  
+- 🎓 中山大學畢業
+- 💻 自學轉職 iOS 工程師
+- 🤖 擁抱 AI 浪潮，創立 Zone lab
+- 🚀 從工程師到產品創辦人
+
+**連結 (Links)**：  
+- **LinkedIn**：https://www.linkedin.com/in/qazwsx521943  
+  （按鈕文字：`Connect on LinkedIn`）
+  
+- **Email**：jasonchungdev@gmail.com  
+  （按鈕文字：`Get in touch`）
+
+**視覺建議**：
+- Founder Section 用不同的背景色（淺灰或漸層）與其他區塊區分
+- 照片可以稍大、更突出
+- 連結按鈕用明顯的視覺設計（LinkedIn 藍色、Email 主題色）
+
+---
+
+### 4.3 Team Members Section
+
+**標題**：`The Team`
+
+**簡短說明**：  
+`精實、跨領域、高效執行。每個成員都是專家，專注在自己的領域，共同打造有意義的產品。`
 
 ---
 
@@ -372,6 +432,27 @@ Team Page (/team)
 - **Avatar**：`assets/avatars/godin.png`
 - **一句話**：`我把產品變成故事。`
 - **介紹**：`負責行銷內容與對外溝通。好產品需要好故事。我的工作是讓人記住我們為什麼存在。`
+
+---
+
+### 4.4 我的建議
+
+**為什麼 Founder 要獨立出來？**
+
+大部分公司網站的 Team Page 都是「一排整齊的頭像 + 名字 + 職稱」，很死板。我們的優勢是 Jason 本人就是一個有故事的創辦人——從工程師到產品創辦人、擁抱 AI、建立精實工作室。這些都值得好好呈現。
+
+**把 Founder 獨立成大區塊**，訪客可以：
+1. 快速了解「這個工作室是誰創立的、為什麼存在」
+2. 有興趣的人可以直接透過 LinkedIn 或 Email 聯繫
+3. 感受到「這不是一個冰冷的公司，而是一個有人性的團隊」
+
+**Team Members Section 保持簡潔統一**，展現專業性與團隊多樣性。
+
+**視覺層次**：
+- Founder Section：佔 60-70% 的視覺重量（大照片、完整介紹、明顯的連結按鈕）
+- Team Members Section：網格卡片（簡潔、一致、易掃描）
+
+**成功指標**：訪客看完 Founder Section 後會想「這個人有意思，我想知道他會做出什麼」，看完 Team Members 後會想「這團隊有實力」。
 
 ---
 

@@ -61,13 +61,24 @@
     "subtitle": "Lean, cross-disciplinary, and high-execution. Every member focuses on their domain, together building products that matter.",
     "cta": "Meet everyone →",
     "page_title": "The Team",
+    "founder": {
+      "name": "Jason",
+      "role": "Founder & CEO",
+      "tagline": "I decide, I own it, I experiment.",
+      "bio_1": "Founder of Zone lab. Graduated from National Sun Yat-sen University, self-taught iOS engineer who spent years polishing craft in the Apple ecosystem — until the AI wave hit. Decided to stop building other people's apps and start his own product studio.",
+      "bio_2": "Believes small teams + AI collaboration can build products that rival big companies. No pitch decks — just ship products. No chasing trends — only building software that truly helps people grow. Zone lab is an experiment and a way of life.",
+      "experience": [
+        "🎓 Graduated from National Sun Yat-sen University",
+        "💻 Self-taught iOS Engineer",
+        "🤖 Embraced AI, founded Zone lab",
+        "🚀 From engineer to product founder"
+      ],
+      "linkedin_label": "Connect on LinkedIn",
+      "email_label": "Get in touch"
+    },
+    "team_section_title": "The Team",
+    "team_section_subtitle": "Lean, cross-disciplinary, and high-execution. Every member is an expert, focused on their domain, together building products that matter.",
     "members": [
-      {
-        "name": "Jason",
-        "role": "Founder",
-        "tagline": "I decide, I own it, I experiment.",
-        "bio": "Founder of zone lab. Believes lean teams + efficient collaboration is the future of work. No pitch decks — just ship products."
-      },
       {
         "name": "North Star",
         "role": "Product Manager",

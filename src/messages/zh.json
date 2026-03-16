@@ -61,13 +61,24 @@
     "subtitle": "精實、跨領域、高效執行。每個成員都專注在自己的領域，共同打造有意義的產品。",
     "cta": "Meet everyone →",
     "page_title": "The Team",
+    "founder": {
+      "name": "Jason",
+      "role": "Founder & CEO",
+      "tagline": "我拍板、我負責、我實驗。",
+      "bio_1": "Zone lab 的創辦人。畢業於中山大學，自學轉職成為 iOS 工程師，在蘋果生態系打磨多年後，遇上 AI 浪潮——決定不再只是「寫別人的 app」，而是建立自己的產品工作室。",
+      "bio_2": "相信小團隊 + AI 協作能做出不輸大公司的產品。不做 pitch deck，直接做產品；不追風口，只做真正幫助人成長的軟體。Zone lab 是一場實驗，也是一種生活方式。",
+      "experience": [
+        "🎓 中山大學畢業",
+        "💻 自學轉職 iOS 工程師",
+        "🤖 擁抱 AI 浪潮，創立 Zone lab",
+        "🚀 從工程師到產品創辦人"
+      ],
+      "linkedin_label": "Connect on LinkedIn",
+      "email_label": "Get in touch"
+    },
+    "team_section_title": "The Team",
+    "team_section_subtitle": "精實、跨領域、高效執行。每個成員都是專家，專注在自己的領域，共同打造有意義的產品。",
     "members": [
-      {
-        "name": "Jason",
-        "role": "Founder",
-        "tagline": "我拍板、我負責、我實驗。",
-        "bio": "Zone lab 的創辦人。相信精實團隊 + 高效協作是未來的工作模式。不做 pitch deck，直接做產品。"
-      },
       {
         "name": "North Star",
         "role": "Product Manager",

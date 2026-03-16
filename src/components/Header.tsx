@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Globe } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -63,11 +63,12 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
-            size="icon"
+            size="sm"
             onClick={toggleLocale}
             aria-label="Toggle language"
+            className="text-xs font-medium"
           >
-            <Globe className="h-4 w-4" />
+            {locale === "zh" ? "EN" : "繁中"}
           </Button>
           {mounted && (
             <Button

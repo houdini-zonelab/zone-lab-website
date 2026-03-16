@@ -42,7 +42,10 @@ export function ProductsSection() {
               }}
               className={!isLive ? "opacity-60" : undefined}
             >
-              <Card className="group h-full transition-shadow hover:shadow-lg">
+              <Card className={cn(
+                "group h-full transition-shadow hover:shadow-lg",
+                isLive && "ring-2 ring-cyan-500/50 shadow-lg shadow-cyan-500/10 md:scale-105"
+              )}>
                 <CardContent className="flex flex-col items-center p-6 text-center md:p-8">
                   <div
                     className={`flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${product.bg} mb-4 text-white shadow-lg`}
@@ -70,7 +73,7 @@ export function ProductsSection() {
 
                   {isLive && (
                     <a
-                      href="#"
+                      href="https://apps.apple.com/tw/app/marawanna/id6754880832?l=en-GB"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={cn(

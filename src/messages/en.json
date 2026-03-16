@@ -31,6 +31,7 @@
     "title": "What we're building.",
     "download": "Download on App Store",
     "coming_soon": "Coming Soon",
+    "archived": "Archived",
     "live": "Live",
     "items": [
       {
@@ -44,14 +45,19 @@
         "status": "live"
       },
       {
-        "name": "[Product Name]",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-        "status": "coming_soon"
+        "name": "Poop Hub",
+        "description": "Track your digestive health with data.",
+        "status": "archived"
       },
       {
-        "name": "[Product Name]",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-        "status": "coming_soon"
+        "name": "ReCycle",
+        "description": "Cycling tracker for your rides.",
+        "status": "archived"
+      },
+      {
+        "name": "FlavorFlash",
+        "description": "Capture your taste memories.",
+        "status": "archived"
       }
     ]
   },

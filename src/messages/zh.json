@@ -31,6 +31,7 @@
     "title": "我們在做什麼",
     "download": "前往 App Store",
     "coming_soon": "即將推出",
+    "archived": "已封存",
     "live": "已上線",
     "items": [
       {
@@ -44,14 +45,19 @@
         "status": "live"
       },
       {
-        "name": "[Product Name]",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-        "status": "coming_soon"
+        "name": "Poop Hub",
+        "description": "用數據記錄你的腸道健康",
+        "status": "archived"
       },
       {
-        "name": "[Product Name]",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-        "status": "coming_soon"
+        "name": "ReCycle",
+        "description": "記錄每一趟騎行旅程",
+        "status": "archived"
+      },
+      {
+        "name": "FlavorFlash",
+        "description": "捕捉你的味蕾記憶",
+        "status": "archived"
       }
     ]
   },

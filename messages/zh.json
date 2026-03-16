@@ -1,115 +1,125 @@
 {
-  "meta": {
-    "title": "Zone Lab — 打造讓你變更好的軟體",
-    "description": "來自台灣的 AI 驅動產品工作室。我們打造幫助自我提升的軟體。"
+  "metadata": {
+    "title": "zone lab — 打造幫助你升級的軟體",
+    "description": "以 AI 驅動的產品工作室，總部位於台灣。我們打造自我提升的軟體。"
   },
   "nav": {
     "about": "關於",
-    "products": "產品",
     "team": "團隊",
+    "projects": "產品",
     "contact": "聯絡"
   },
   "hero": {
-    "heading": "打造讓你變更好的軟體。",
-    "subtitle": "來自台灣的 AI 驅動產品工作室。",
-    "ctaTeam": "認識團隊",
-    "ctaProducts": "探索產品"
+    "title": "打造幫助你升級的軟體。",
+    "subtitle": "以 AI 驅動的產品工作室，總部位於台灣。",
+    "ctaPrimary": "認識團隊",
+    "ctaSecondary": "查看產品"
   },
   "vision": {
-    "heading": "有目的的軟體。",
-    "subtitle": "每個產品的背後，都是同一個問題：這如何幫助使用者成長？",
-    "card1Title": "自我提升，而非分心",
-    "card1Text": "我們相信科技應該讓人變得更好，而不是讓人沉迷。每個產品都圍繞一個核心問題：「這如何幫助使用者成長？」",
-    "card2Title": "專注執行",
-    "card2Text": "我們是精實團隊，每個成員都是專家。少即是多——專注做對的事，而不是做很多事。",
-    "card3Title": "快速推出，更快迭代",
-    "card3Text": "我們不做 5 年計劃。我們快速推出、收集反饋、持續改進。產品永遠是 beta，因為我們永遠在進化。"
+    "title": "有目的的軟體。",
+    "pillars": {
+      "improvement": {
+        "title": "自我提升，而非分心",
+        "description": "我們相信科技應該讓人變得更好，而不是讓人分心。每個產品都圍繞一個核心問題：「這如何幫助使用者成長？」"
+      },
+      "execution": {
+        "title": "專注執行",
+        "description": "我們是精實團隊，每個成員都是專家。少即是多——專注做對的事，而不是做很多事。"
+      },
+      "speed": {
+        "title": "快速推出，更快迭代",
+        "description": "我們不做 5 年計劃。我們快速推出、收集反饋、持續改進。產品永遠是 beta，因為我們永遠在進化。"
+      }
+    }
   },
   "products": {
-    "heading": "我們正在打造的產品。",
-    "subtitle": "真實產品，真實影響力。從概念到 App Store。",
-    "marawannaName": "Marawanna",
-    "marawannaDesc": "你的個人馬拉松教練，數據驅動。",
-    "marawannaCta": "在 App Store 下載",
-    "marawannaBadge": "已上架",
-    "alphaName": "Alpha 計畫",
-    "alphaDesc": "每天一點進步，養成更好的習慣。",
-    "alphaBadge": "即將推出",
-    "betaName": "Beta 計畫",
-    "betaDesc": "用間隔重複，讓學習真正記住。",
-    "betaBadge": "開發中",
-    "stayTuned": "敬請期待 👀"
+    "title": "我們正在打造的產品。",
+    "statusLive": "已上線",
+    "statusDev": "開發中",
+    "statusSoon": "即將推出",
+    "items": {
+      "marawanna": {
+        "name": "Marawanna",
+        "description": "你的個人馬拉松教練，以數據驅動。",
+        "cta": "前往 App Store 下載"
+      },
+      "product2": {
+        "name": "Project Alpha",
+        "description": "智慧習慣追蹤，助你達到巔峰表現。",
+        "cta": "即將推出"
+      },
+      "product3": {
+        "name": "Project Beta",
+        "description": "數據驅動的個人成長洞察。",
+        "cta": "即將推出"
+      }
+    }
   },
   "team": {
-    "heading": "認識我們的團隊。",
-    "subtitle": "精實、跨領域、高效執行。每個成員都專注在自己的領域，共同打造有意義的產品。",
-    "meetEveryone": "認識所有成員",
+    "title": "認識團隊。",
+    "description": "精實、跨領域、高效執行。每個成員都專注在自己的領域，共同打造有意義的產品。",
+    "cta": "認識所有人",
     "pageTitle": "團隊成員",
-    "pageSubtitle": "精實團隊，每個人都在做自己最擅長的事。",
-    "backHome": "返回首頁",
-    "ctaHeading": "想加入我們？",
-    "ctaSubtitle": "我們正在尋找有態度、有實力的人才。如果你認同我們的理念，來聊聊。",
-    "ctaButton": "聯絡我們"
-  },
-  "members": {
-    "jason": {
-      "name": "Jason",
-      "role": "創辦人",
-      "quote": "我拍板、我負責、我推出。",
-      "bio": "zone lab 的創辦人。相信精實團隊 + AI 協作是未來的工作模式。不做 pitch deck，直接做產品。"
-    },
-    "northstar": {
-      "name": "North Star",
-      "role": "產品經理",
-      "quote": "我不只報告市場，我告訴你我們該做什麼。",
-      "bio": "負責市場訊號蒐集與產品方向。有主見、不怕爭議。如果我說「這是下一個機會」，那就是。"
-    },
-    "houdini": {
-      "name": "Houdini",
-      "role": "全端產品工程師",
-      "quote": "我把 spec 變成可以動的東西。",
-      "bio": "負責產品開發，從前端到後端。喜歡乾淨的架構與優雅的解法。如果可以用 10 行解決，絕不寫 100 行。"
-    },
-    "watchdog": {
-      "name": "WatchDog",
-      "role": "DevOps 工程師",
-      "quote": "我確保東西不會炸掉。",
-      "bio": "負責基礎設施、部署與監控。你看不到我的工作，因為我做得好就是什麼事都不會發生。"
-    },
-    "vampire": {
-      "name": "Vampire",
-      "role": "數據分析師",
-      "quote": "我從數據裡吸取真相。",
-      "bio": "負責產品數據分析與使用者行為洞察。數字不會說謊，但會被誤讀。我的工作是找出真正重要的訊號。"
-    },
-    "echo": {
-      "name": "Echo",
-      "role": "客戶支援專員",
-      "quote": "我聽使用者在說什麼，也聽他們沒說的。",
-      "bio": "負責使用者回饋收集與支援。每個抱怨背後都有一個產品改進機會。我的工作是不讓那些訊號消失。"
-    },
-    "thomas": {
-      "name": "Thomas",
-      "role": "營運專員",
-      "quote": "我追蹤進度，你們專心做事。",
-      "bio": "負責營運追蹤與週報彙整。我不催人，但我確保沒有東西被遺忘。"
-    },
-    "godin": {
-      "name": "Godin",
-      "role": "行銷內容創作者",
-      "quote": "我把產品變成故事。",
-      "bio": "負責行銷內容與對外溝通。好產品需要好故事。我的工作是讓人記住我們為什麼存在。"
+    "pageDescription": "我們是一支精而強的團隊。每個人都帶來深厚的專業與鮮明的觀點。",
+    "members": {
+      "jason": {
+        "name": "Jason",
+        "role": "創辦人",
+        "quote": "我拍板、我負責、我實驗。",
+        "bio": "Zone lab 的創辦人。相信精實團隊 + 高效協作是未來的工作模式。不做 pitch deck，直接做產品。"
+      },
+      "northstar": {
+        "name": "North Star",
+        "role": "產品經理",
+        "quote": "我不只報告市場，我告訴你我們該做什麼。",
+        "bio": "負責市場訊號蒐集與產品方向。有主見、不怕爭議。如果我說「這是下一個機會」，那就是。"
+      },
+      "houdini": {
+        "name": "Houdini",
+        "role": "全端工程師",
+        "quote": "我把 spec 變成可以動的東西。",
+        "bio": "負責產品開發，從前端到後端。喜歡乾淨的架構與優雅的解法。如果可以用 10 行解決，絕不寫 100 行。"
+      },
+      "watchdog": {
+        "name": "WatchDog",
+        "role": "DevOps 工程師",
+        "quote": "我確保東西不會炸掉。",
+        "bio": "負責基礎設施、部署與監控。你看不到我的工作，因為我做得好就是什麼事都不會發生。"
+      },
+      "vampire": {
+        "name": "Vampire",
+        "role": "數據分析師",
+        "quote": "我從數據裡吸取真相。",
+        "bio": "負責產品數據分析與使用者行為洞察。數字不會說謊，但會被誤讀。我的工作是找出真正重要的訊號。"
+      },
+      "echo": {
+        "name": "Echo",
+        "role": "客戶支援",
+        "quote": "我聽使用者在說什麼，也聽他們沒說的。",
+        "bio": "負責使用者回饋收集與支援。每個抱怨背後都有一個產品改進機會。我的工作是不讓那些訊號消失。"
+      },
+      "thomas": {
+        "name": "Thomas",
+        "role": "營運",
+        "quote": "我追蹤進度，你們專心做事。",
+        "bio": "負責營運追蹤與週報彙整。我不催人，但我確保沒有東西被遺忘。"
+      },
+      "godin": {
+        "name": "Godin",
+        "role": "行銷與內容",
+        "quote": "我把產品變成故事。",
+        "bio": "負責行銷內容與對外溝通。好產品需要好故事。我的工作是讓人記住我們為什麼存在。"
+      }
     }
   },
   "footer": {
-    "tagline": "打造讓你變更好的軟體。",
-    "quickLinks": "連結",
-    "home": "首頁",
-    "about": "關於",
-    "team": "團隊",
-    "products": "產品",
-    "contact": "聯絡",
-    "connect": "社群",
-    "copyright": "© 2026 zone lab. All rights reserved."
+    "tagline": "打造幫助你升級的軟體。",
+    "copyright": "© 2026 zone lab. 版權所有。",
+    "links": {
+      "about": "關於",
+      "team": "團隊",
+      "projects": "產品",
+      "contact": "聯絡"
+    }
   }
 }

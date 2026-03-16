@@ -1,140 +1,294 @@
-# CLAUDE.md — Zone Lab 官網 v2.0 重新設計
+# zone lab 官網 Spec v1.3
 
-## 你的任務
+**撰寫日期**：2026-03-15  
+**撰寫者**：North Star  
+**狀態**：開發中
 
-**用你的 `frontend-design` skill 重新設計 Zone Lab 官網**。目前的版本 layout 不好看，視覺缺乏記憶點。你需要：
+---
 
-1. **先讀你的 skill**：`.claude/skills/frontend-design/SKILL.md`
-2. **再讀完整 spec**：`/Users/j.a.s.o.n/.openclaw/workspace-team/specs/zone-lab-website-v2.md`
-3. **用 skill 裡的 Design Thinking 流程**，先想清楚美學方向，再動手寫 code
+## 1. 專案概述
 
-## 設計要求（最重要）
+### 1.1 目標
+建立 zone lab 的官方網站，作為公司對外的第一個接觸點。核心目的：
+- **建立品牌形象**：傳達「前衛科技 + 人性化自我提升」的定位
+- **展示作品集**：讓訪客快速了解我們在做什麼產品
+- **展示團隊**：專業、精實、有個性的團隊介紹
 
-### 用 frontend-design skill 的方式思考
+### 1.2 為什麼要做這個網站？
+**zone lab 需要一個「可以被分享的故事」**。
 
-在寫任何 code 之前，先回答這些問題：
-- **Purpose**：Zone Lab 是台灣的 AI 驅動產品工作室，目標受眾是科技圈、早期嘗鮮者
-- **Tone**：活潑、有能量、前衛但不冷冰冰。不是企業網站，是有態度的小團隊
-- **Differentiation**：什麼讓這個網站令人難忘？找到一個記憶點並貫徹
+現在市場上太多公司網站只是冷冰冰的產品陳列，沒有溫度也沒有記憶點。我們的優勢是明確的產品理念（自我提升）+ 高效的團隊（精實、跨領域、有態度）。
 
-### 絕對不要做的事
-- ❌ 不要用 Inter 當標題字體（太無聊，AI slop）
-- ❌ 不要用千篇一律的 SaaS landing page 排版
-- ❌ 不要用紫色漸層白底
-- ❌ 不要所有 section 都長一樣（同樣的 padding、同樣的卡片、同樣的動畫）
-- ❌ 不要用 `bg-${color}-500` 這類動態 Tailwind class（JIT 會壞）
+這個網站不只是「我們有什麼產品」，而是「我們是誰、我們怎麼工作、我們相信什麼」。
 
-### 要做到的事
-- ✅ **Typography 要有個性**：選一個有記憶點的標題字體（不是 Inter、Roboto、Space Grotesk）配一個易讀的 body 字體。中文用 Noto Sans TC 沒問題，但英文標題要有特色
-- ✅ **Layout 要有節奏感**：不同 section 要有不同的視覺重量和佈局。Hero 要震撼，Vision 要呼吸感，Products 要實用，Team 要有溫度
-- ✅ **色彩要大膽但克制**：spec 定義了 Teal/Purple/Orange，但不要三個顏色到處亂灑。選一個主色調貫穿，其他當點綴
-- ✅ **動畫要有衝擊力**：不是隨便 fade-in-up。要有一個主打動畫效果讓人記住
-- ✅ **空間感**：善用 negative space，不要塞滿
-- ✅ **Light/Dark Mode 都要好看**，不是「Dark Mode 加個白底就是 Light Mode」
+---
 
-## Spec 核心內容（從 v2.0 spec 摘要）
+## 2. 頁面結構
 
-### 頁面結構
-1. **Navbar** — sticky 毛玻璃，左 logo / 中 nav links / 右語言+主題切換，手機漢堡選單
-2. **Hero** — "Building software that helps you level up." / "打造讓你變更好的軟體。" + CTA
-3. **Vision** — "Software with purpose." 三段：Self-improvement / Focused execution / Ship fast
-4. **Products** — Marawanna (Live, 突出) + Project Alpha (Coming Soon) + Project Beta (In Dev)
-5. **Team Preview** — 簡潔 grid，CTA 到 /team
-6. **Footer** — logo + links + social + copyright
-7. **Team Page** (`/team`) — 8 位成員詳細卡片
+Home (Landing Page)
+├── Hero Section
+├── Vision Section
+├── Products Section
+├── Team Section
+└── Footer
 
-### 色彩（spec 定義，作為參考但你可以微調）
-- Primary: Teal — cyan-500 `#06B6D4` / cyan-400 `#22D3EE`
-- Secondary: Purple — purple-500 `#A855F7` / purple-400 `#C084FC`
-- Accent: Orange — orange-500 `#F97316` / orange-400 `#FB923C`
-- Light bg: `#FFFFFF` / `#F9FAFB`，Dark bg: `#0F172A` / `#1E293B`
+Team Page (單獨頁面)
+└── 詳細團隊成員介紹
+**設計決策**：Landing Page 採用**單頁式長捲軸設計**，所有核心訊息在一個頁面內完成。Team Section 在 Landing Page 上先給一個驚艷的視覺呈現，點擊後進入 `/team` 頁面看完整介紹。
 
-### 產品資料
-- **Marawanna** (Live)：馬拉松教練 app
-  - App Store: https://apps.apple.com/tw/app/marawanna/id6754880832?l=en-GB
-  - 英: "Your personal marathon coach, powered by data."
-  - 中: "你的個人馬拉松教練，數據驅動。"
-- **Project Alpha** (Coming Soon)：習慣養成
-  - 英: "Helping you build better habits, one day at a time."
-  - 中: "每天一點進步，養成更好的習慣。"
-- **Project Beta** (In Development)：間隔學習
-  - 英: "Making learning stick, with spaced repetition."
-  - 中: "用間隔重複，讓學習真正記住。"
+---
 
-### 團隊成員（8 位）
-所有成員的中英文 quote、bio、職稱都在 spec Section 9.5，**請直接從 spec 讀取**，不要自己編。
+## 3. Landing Page 各 Section 規劃
+### 3.1 Hero Section
 
-| 名字 | 職稱 | Avatar |
-|------|------|--------|
-| Jason | Founder/創辦人 | 真實照片 `public/jason-photo.png` 圓形 |
-| North Star | Product Manager/產品經理 | 漸層+icon (青綠) |
-| Houdini | Full-Stack Engineer/全端產品工程師 | 漸層+icon (紫) |
-| WatchDog | DevOps Engineer/DevOps 工程師 | 漸層+icon (深藍) |
-| Vampire | Data Analyst/數據分析師 | 漸層+icon (深紅紫) |
-| Echo | Customer Support/客戶支援專員 | 漸層+icon (青) |
-| Thomas | Operations/營運專員 | 漸層+icon (灰藍) |
-| Godin | Marketing & Content/行銷內容創作者 | 漸層+icon (橘紅) |
+**目標**：3 秒內讓訪客知道「zone lab 是什麼」。
 
-## 技術棧（已安裝）
-- Next.js 16、Tailwind CSS v4、Framer Motion、next-intl v4、Lucide React、next-themes
-- **UI 元件庫：shadcn/ui** — 所有基礎元件（Button, Card, Dialog, etc.）一律用 shadcn/ui，不自己造輪子
-- **動畫：Framer Motion** — 所有動畫效果統一用 Framer Motion，不用 CSS animation 或其他動畫庫
-- **Icon：Lucide React** — 所有 icon 統一用 Lucide React，不混用其他 icon 庫
-- 字體用 `next/font/google`（選什麼字體你決定，但要有個性）
-- Light/Dark Mode 用 next-themes + Tailwind `dark:` modifier
+#### 內容架構
+- **主標題**：  
+  `Building software that helps you level up.`  
+  （副標題）`AI-augmented product studio based in Taiwan.`
 
-## Layout 規則（所有頁面強制遵守）
+- **視覺**：  
+  - 背景：動態網格或粒子效果（呼應「前衛科技感」）
+  - 前景：zone lab logo + 簡潔的 tagline
+  - 可考慮加入微妙的動畫（例如：文字逐漸聚焦、網格隨滑鼠移動）
 
-### 容器
-- 所有 section 必須用 `<Section>` 元件（`@/components/Section`）包裝
-- 禁止自己寫 padding 和 max-width，`<Section>` 已內建 `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`
-- Section 標題用 `<SectionHeader>` 元件，自帶置中 + 間距 + 字級
+- **CTA**：  
+  - 主要：`Meet the Team` （導向 Team Section）
+  - 次要：`View Projects` （導向 Products Section）
 
-### 響應式（強制）
-- mobile (< 768px)：單欄，grid 全部 stack
-- tablet (768-1024px)：可雙欄
-- desktop (> 1024px)：最多 3-4 欄
-- 所有 grid：`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3`（依內容調整）
-- 間距：`gap-4 md:gap-6 lg:gap-8`
+---
 
-### Section 間距
-- section 之間：由 `<Section>` 統一處理（`py-16 md:py-24`）
-- 卡片到 section 標題：由 `<SectionHeader>` 統一處理（`mb-10 md:mb-16`）
+### 3.2 Vision Section
 
-### 文字
-- 標題一律 `text-center`（除非有明確設計理由）
-- 段落最大寬度 `max-w-2xl mx-auto`
-- 手機字級不小於 16px（`text-base`）
+**目標**：傳達 zone lab 的核心理念與差異化。
 
-### 圖片
-- 人像：`aspect-square rounded-full object-cover` + 固定寬高
-- 所有圖片必須有 alt text
+#### 內容架構
+- **標題**：`Software with purpose.`
+  
+- **核心訊息**（三段式佈局）：
+  
+  1. **Self-improvement, not distraction**  
+     `我們相信科技應該讓人變得更好,而不是讓人分心。每個產品都圍繞一個核心問題:「這如何幫助使用者成長?」`
+  
+  2. **Focused execution**  
+     `我們是精實團隊,每個成員都是專家。少即是多——專注做對的事,而不是做很多事。`
+  
+  3. **Ship fast, iterate faster**  
+     `我們不做 5 年計劃。我們快速推出、收集反饋、持續改進。產品永遠是 beta,因為我們永遠在進化。`
 
-### 禁止事項
-- ❌ 不準用固定 px 寬度（用 responsive class）
-- ❌ 不準用 `w-screen` 或 `100vw`
-- ❌ 不準在 mobile 下用超過 2 欄的 grid
-- ❌ 不準內容貼齊螢幕邊緣（最小 padding 16px）
-- ❌ 不準繞過 `<Section>` 自己寫 section container
+**視覺建議**：用簡潔的 icon + 大字排版,不要放庫存照片。
 
-## 元件開發原則（zone lab 全公司標準）
-- 優先使用 shadcn/ui 元件，需要客製化時用 shadcn/ui 的 variant 機制擴展
-- 不要從零手寫 Button、Card、Input 等基礎元件
-- 動畫統一用 `<motion.div>` 包裝，保持一致的 easing 和 duration
-- Icon 只從 `lucide-react` import，保持視覺一致性
+---
 
-## 現有架構（保留）
-- i18n 設定已完成（next-intl routing, middleware, navigation）
-- `messages/zh.json` 和 `messages/en.json` — 需更新翻譯內容
-- 路徑前綴 `/zh/`、`/en/`，預設 `zh`
-- 資源：`public/zone-lab-logo.png`、`public/jason-photo.png`
+### 3.3 Products Section
 
-## 重要
-- 確認 `public/zone-lab-logo.png` 和 `public/jason-photo.png` 存在，如果不在，從 `/Users/j.a.s.o.n/.openclaw/workspace-team/assets/` 複製
-- 所有翻譯內容從 spec 讀取，不要自己編
+**目標**：展示現有與規劃中的產品,建立「我們在做實事」的信任感。
+#### 內容架構
+- **標題**：`What we're building.`
 
-## 完成後（必須全部執行，不可跳過）
-1. 跑 `pnpm build` — 如果失敗，修好再 build，直到通過
-2. Build 通過後**立刻** commit：`git add -A && git commit -m "feat: <簡短描述改了什麼>"`
-3. **立刻** push：`git push origin main` — 這步不可省略，Jason 需要看到最新版本
-4. Push 成功後執行：`openclaw system event --text "Done: <簡短描述> — 已 push 到 GitHub" --mode now`
+- **產品卡片**（Grid 佈局,每個產品一張卡片,建議 3-4 個產品並排）
+  
+  **卡片結構**：
+  - 產品 App Icon（圓角方形,標準 iOS/Android 尺寸）
+  - 產品名稱
+  - 一句話描述（20 字以內）
+  - 狀態標籤：`Live` / `In Development` / `Coming Soon`
+  - 連結按鈕
+
+#### 產品 1：Marawanna（已上架）
+- **名稱**：Marawanna
+- **描述**：`Your personal marathon coach, powered by data.`
+- **狀態**：`Live`
+- **按鈕文字**：`Download on App Store`
+
+#### 產品 2-4：佔位產品（未上線）
+
+**產品 2-3**：
+- **App Icon**：簡潔幾何圖形（漸層圓形、三角形等）
+- **名稱**：`[Product Name]`
+- **描述**：`Lorem ipsum dolor sit amet, consectetur adipiscing.`
+- **狀態**：`Coming Soon`
+- **連結**：`#`（假連結）
+
+**建議視覺處理**：
+- Marawanna 的卡片可以稍大一點,或用不同的邊框/光暈效果
+- 其他佔位產品用低飽和度或半透明,暗示「即將推出」
+
+---
+
+### 3.4 Team Section (Landing Page 版本)
+
+**目標**：展示團隊的專業性與個性。
+
+#### 內容架構
+- **標題**：`Meet the team.`
+- **視覺呈現**：網格或卡片排列，每張卡片包含照片/avatar、名字、職稱
+- **簡短說明**：`精實、跨領域、高效執行。每個成員都專注在自己的領域,共同打造有意義的產品。`
+- **CTA**：`Meet everyone →` （點擊後進入 `/team` 頁面）
+**視覺建議**：
+- 圓形頭像 + 簡潔排版
+- hover 時卡片微微浮起或變色
+- 避免制式的「西裝照 + LinkedIn 風格」
+
+---
+
+### 3.5 Footer
+
+#### 內容
+- **左側**：zone lab logo + tagline
+- **中間**：快速連結（About、Team、Projects、Contact）
+- **右側**：社群連結（GitHub、X、Email）
+- **最下方**：© 2026 zone lab. All rights reserved.
+---
+
+## 4. Team Page (/team) 規劃
+
+### 4.1 整體佈局
+- **頁首**：簡潔的標題 `The Team`
+- **成員卡片**：每個人一張詳細卡片
+
+### 4.2 各成員內容
+
+**Jason**
+- **職稱**：Founder
+- **一句話**：`我拍板、我負責、我實驗。`
+- **介紹**：`Zone lab 的創辦人。相信精實團隊 + 高效協作是未來的工作模式。不做 pitch deck,直接做產品。`
+**North Star**
+- **職稱**：Product Manager
+- **一句話**：`我不只報告市場,我告訴你我們該做什麼。`
+- **介紹**：`負責市場訊號蒐集與產品方向。有主見、不怕爭議。如果我說「這是下一個機會」,那就是。`
+
+**Houdini**
+- **職稱**：Full-Stack Engineer
+- **一句話**：`我把 spec 變成可以動的東西。`
+- **介紹**：`負責產品開發,從前端到後端。喜歡乾淨的架構與優雅的解法。如果可以用 10 行解決,絕不寫 100 行。`
+
+**WatchDog**
+- **職稱**：DevOps Engineer
+- **一句話**：`我確保東西不會炸掉。`
+- **介紹**：`負責基礎設施、部署與監控。你看不到我的工作,因為我做得好就是什麼事都不會發生。`
+**Vampire**
+- **職稱**：Data Analyst
+- **一句話**：`我從數據裡吸取真相。`
+- **介紹**：`負責產品數據分析與使用者行為洞察。數字不會說謊,但會被誤讀。我的工作是找出真正重要的訊號。`
+
+**Echo**
+- **職稱**：Customer Support
+- **一句話**：`我聽使用者在說什麼,也聽他們沒說的。`
+- **介紹**：`負責使用者回饋收集與支援。每個抱怨背後都有一個產品改進機會。我的工作是不讓那些訊號消失。`
+
+**Thomas**
+- **職稱**：Operations
+- **一句話**：`我追蹤進度,你們專心做事。`
+- **介紹**：`負責營運追蹤與週報彙整。我不催人,但我確保沒有東西被遺忘。`
+**Godin**
+- **職稱**：Marketing & Content
+- **一句話**：`我把產品變成故事。`
+- **介紹**：`負責行銷內容與對外溝通。好產品需要好故事。我的工作是讓人記住我們為什麼存在。`
+
+---
+
+## 5. 設計與視覺方向
+
+### 5.1 色彩
+- **主色調**：深色系（深灰/黑）為底,搭配高對比的螢光色（青綠、紫、橘）
+- **Light Mode**：白色或淺灰背景 + 深色文字
+- **Dark Mode**：深灰或黑背景 + 淺色文字
+
+### 5.2 字體
+- **標題**：Sans-serif,粗體,大字距（例如：Inter Bold、Space Grotesk）
+- **內文**：Sans-serif,中等粗細,舒適行距（例如：Inter Regular）
+
+### 5.3 動畫與互動
+- **微互動**：hover 時的顏色變化、卡片浮起效果
+- **視差滾動**：背景元素以不同速度移動
+- **不要過度**：動畫要有目的
+
+### 5.4 響應式設計
+- 手機版優先（mobile-first）
+- 斷點：< 768px（手機）/ 768-1024px（平板）/ > 1024px（桌面）
+
+---
+
+## 6. 技術需求
+### 6.1 語言切換（中文 & 英文）
+
+- 右上角切換按鈕：`EN | 繁中`
+- 自動偵測瀏覽器語言
+- 使用路徑前綴（`/en/`, `/zh/`）
+- 記住使用者偏好（localStorage）
+
+### 6.2 Layout Guideline
+
+- **最大寬度**：1280px（桌面）
+- **Grid**：12 欄系統
+- **Section 間距**：80px（手機）/ 120px（桌面）
+- **字級階層**：
+  - H1：48px（手機）/ 72px（桌面）
+  - H2：36px（手機）/ 56px（桌面）
+  - H3：24px（手機）/ 36px（桌面）
+  - Body：16px（手機）/ 18px（桌面）
+
+### 6.3 Team 照片處理
+
+- 固定容器尺寸：200px × 200px
+- 圓形（`border-radius: 50%`）
+- 使用 `object-fit: cover` 防止跑版
+
+### 6.4 Light/Dark Mode
+
+- 切換按鈕（太陽/月亮 icon）
+- 系統偏好自動偵測（`prefers-color-scheme`）
+- 偏好記憶（localStorage）
+- 符合 WCAG AA 色彩對比標準
+
+---
+
+## 7. 技術建議
+
+- **框架**：Next.js
+- **樣式**：Tailwind CSS（使用 `dark:` modifier）
+- **i18n**：next-intl
+- **動畫**：Framer Motion（可選）
+- **部署**：Vercel
+
+---
+
+## 8. 開發優先順序
+**P0（必須完成，40 分鐘）**：
+- 基本 Layout（max-width、grid、spacing）
+- 中文版所有內容
+- 響應式設計
+- Light/Dark Mode 基礎
+
+**P1（盡力完成，15 分鐘）**：
+- 英文版 + 語言切換
+- Light/Dark Mode 進階（切換按鈕、偏好記憶）
+
+**P2（可延後，5 分鐘）**：
+- 細緻動畫
+- 完美 spacing 微調
+- 圖片優化
+---
+
+## 9. 成功指標
+
+- 有人在社群媒體上分享並討論
+- 平均停留時間 > 1 分鐘
+- Team Page 訪問率 > 60%
+- 跳出率 < 50%
+
+---
+
+## 完成後（必須執行）
+
+1. `pnpm build` — 失敗就修到通過
+2. `git add -A && git commit -m "feat: zone lab website v3 — fresh redesign from spec v1.3"`
+3. `git push origin main`
+4. `openclaw system event --text "Done: zone lab website v3 完成 — 已 push 到 GitHub" --mode now`
+
+## 現有資源
+
+- `public/zone-lab-logo.png` — Logo
+- `public/jason-photo.png` — Jason 照片（需圓形裁切顯示）

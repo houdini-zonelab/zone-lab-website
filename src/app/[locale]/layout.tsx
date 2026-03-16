@@ -1,92 +1,70 @@
-import type { Metadata } from 'next';
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { ThemeProvider } from 'next-themes';
-import { Bricolage_Grotesque, DM_Sans, Noto_Sans_TC } from 'next/font/google';
-import { routing } from '@/i18n/routing';
-import '../globals.css';
+import type { ReactNode } from "react";
+import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
+import { Space_Grotesk, Inter } from "next/font/google";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import "@/app/globals.css";
 
-const bricolageGrotesque = Bricolage_Grotesque({
-  subsets: ['latin'],
-  variable: '--bricolage-font',
-  display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--dm-sans-font',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
 });
 
-const notoSansTC = Noto_Sans_TC({
-  subsets: ['latin'],
-  variable: '--noto-sans-tc-font',
-  display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
-});
-
-export async function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
+  children: ReactNode;
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'meta' });
+  const t = await getTranslations({ locale, namespace: "metadata" });
   return {
-    title: t('title'),
-    description: t('description'),
-    openGraph: {
-      title: t('title'),
-      description: t('description'),
-      type: 'website',
-      siteName: 'Zone Lab',
-    },
-    robots: 'index, follow',
+    title: t("title"),
+    description: t("description"),
   };
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
+export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) notFound();
+  const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      className={`${bricolageGrotesque.variable} ${dmSans.variable} ${notoSansTC.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
+    <html lang={locale} className={`${spaceGrotesk.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/zone-lab-logo.png" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){}})()`,
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-[#FAFAF8] dark:bg-[#0B1120] text-[#1a1a1a] dark:text-[#E8ECF1] overflow-x-hidden">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <NextIntlClientProvider>
-            {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
+      <body className="min-h-screen bg-[var(--bg)] text-[var(--text-primary)] font-[family-name:var(--font-body)]">
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

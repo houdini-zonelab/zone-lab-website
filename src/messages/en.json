@@ -66,6 +66,7 @@
     "subtitle": "Lean, cross-disciplinary, and high-execution. Every member focuses on their domain, together building products that matter.",
     "cta": "Meet everyone →",
     "page_title": "The Team",
+    "founders_label": "Founders",
     "founder": {
       "name": "Jason",
       "role": "Founder & CEO",
@@ -82,6 +83,20 @@
       "linkedin_label": "Connect on LinkedIn",
       "instagram_label": "Follow on Instagram",
       "email_label": "Get in touch"
+    },
+    "cofounder": {
+      "name": "Yu-Ya Lin",
+      "role": "Co-founder",
+      "tagline": "I see the details, make decisions, and make things happen.",
+      "bio_1": "Co-founder of Zone lab. From photonics engineering to product development, her cross-disciplinary background enables her to approach problems from different angles. Graduated from National Sun Yat-sen University (Photonics) and National Yang Ming Chiao Tung University (Photonics), skilled at translating complex technology into actionable product strategies.",
+      "bio_2": "Believes great products need clear vision and solid execution. Not chasing perfection, but chasing meaning — every decision must answer \"Is this truly useful?\". Together with Jason, building Zone lab from the ground up, proving small teams can make a big impact.",
+      "experience": [
+        "🎓 National Sun Yat-sen University, Photonics Engineering",
+        "🔬 National Yang Ming Chiao Tung University, Photonics",
+        "🚀 Co-founded Zone lab",
+        "💡 From photonics to product, cross-disciplinary thinking"
+      ],
+      "landing_bio": "Co-founder of Zone lab. From photonics engineering to product development, her cross-disciplinary thinking brings fresh perspectives. Believes great products need clear vision and solid execution."
     },
     "team_section_title": "The Team",
     "team_section_subtitle": "Lean, cross-disciplinary, and high-execution. Every member is an expert, focused on their domain, together building products that matter.",

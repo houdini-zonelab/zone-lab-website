@@ -121,6 +121,7 @@
     "subtitle": "精實、跨領域、高效執行。每個成員都專注在自己的領域，共同打造有意義的產品。",
     "cta": "認識所有成員 →",
     "page_title": "The Team",
+    "founders_label": "Founders",
     "founder": {
       "name": "Jason",
       "role": "Founder & CEO",
@@ -137,6 +138,20 @@
       "linkedin_label": "Connect on LinkedIn",
       "instagram_label": "Follow on Instagram",
       "email_label": "Get in touch"
+    },
+    "cofounder": {
+      "name": "Yu-Ya Lin",
+      "role": "Co-founder",
+      "tagline": "我看細節、做決策、讓事情發生。",
+      "bio_1": "Zone lab 的共同創辦人。從光電工程到產品開發，跨領域的背景讓她能從不同角度思考問題。畢業於中山大學光電系、陽明交通大學光電所，擅長將複雜的技術轉化為實際可行的產品策略。",
+      "bio_2": "相信好產品需要清晰的願景與紮實的執行。不追求完美，但追求有意義——每個決策都要回答「這真的有用嗎？」。與 Jason 一起，從零開始建立 Zone lab，讓小團隊也能做出影響力。",
+      "experience": [
+        "🎓 中山大學 光電工程系",
+        "🔬 陽明交通大學 光電工程所",
+        "🚀 共同創立 Zone lab",
+        "💡 從光電到產品，跨領域思維"
+      ],
+      "landing_bio": "Zone lab 的共同創辦人。從光電工程到產品開發，跨領域思維讓她能從不同角度思考問題。相信好產品需要清晰的願景與紮實的執行。"
     },
     "team_section_title": "The Team",
     "team_section_subtitle": "精實、跨領域、高效執行。每個成員都是專家，專注在自己的領域，共同打造有意義的產品。",

@@ -6,17 +6,18 @@
 
 ## 本次更新重點
 
-Testimonial 卡片視覺一致性修復，增量修改：
+Products Section 更新，增量修改：
 
-1. **卡片高度統一**：
-   - 所有卡片（包括 peek 卡片）固定相同高度
-   - 桌面：280-320px、平板：260-300px、手機：240-280px
-   - peek 卡片只縮放寬度不縮放高度（用 `scaleX(0.95)` 而非 `scale(0.95)`，或用 width 調整）
+1. **移除 Coming Soon 佔位產品**，替換為 3 個 Archived 產品：
+   - **Poop Hub**：icon `/poophub-icon.png`，描述 en `Track your digestive health with data.` zh `用數據記錄你的腸道健康`
+   - **ReCycle**：icon `/recycle-icon.png`，描述 en `Cycling tracker for your rides.` zh `記錄每一趟騎行旅程`
+   - **FlavorFlash**：icon `/flavorflash-icon.jpg`，描述 en `Capture your taste memories.` zh `捕捉你的味蕾記憶`
 
-2. **評價文字溢出處理**：
-   - 評價內容用 `line-clamp: 4`（最多 4 行）
-   - 超出部分截斷顯示 ellipsis
-   - CSS: `display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;`
+2. **Archived 狀態**：en `Archived` zh `已封存`，不顯示任何連結按鈕
+
+3. **視覺處理**：Archived 卡片用灰階/低飽和度或半透明（opacity 0.7-0.8）與 Live 產品區分
+
+4. 更新 `zh.json` 和 `en.json` 的產品資料（icon 已複製到 `public/`）
 
 ## 開發前必讀
 
@@ -41,6 +42,6 @@ Testimonial 卡片視覺一致性修復，增量修改：
 ## 完成後（必須全部執行）
 
 1. `pnpm build` — 如果失敗，修好再 build
-2. `git add -A && git commit -m "fix: testimonial card uniform height, text overflow clamp"`
+2. `git add -A && git commit -m "feat: replace placeholder products with 3 archived apps"`
 3. `git push origin main`
-4. `openclaw system event --text "Done: Zone lab website v1.4.2 — uniform card height + text clamp" --mode now`
+4. `openclaw system event --text "Done: Zone lab website v1.4.3 — 3 archived products (Poop Hub, ReCycle, FlavorFlash)" --mode now`

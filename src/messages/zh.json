@@ -40,6 +40,11 @@
         "status": "live"
       },
       {
+        "name": "Summur",
+        "description": "Cat & Dog care made simple.",
+        "status": "live"
+      },
+      {
         "name": "[Product Name]",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
         "status": "coming_soon"
@@ -82,7 +87,7 @@
         "bio": "負責基礎設施、部署與監控。你看不到我的工作，因為我做得好就是什麼事都不會發生。"
       },
       {
-        "name": "Vampire",
+        "name": "Dracula",
         "role": "Data Analyst",
         "tagline": "我從數據裡吸取真相。",
         "bio": "負責產品數據分析與使用者行為洞察。數字不會說謊，但會被誤讀。我的工作是找出真正重要的訊號。"

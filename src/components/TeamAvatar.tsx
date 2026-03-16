@@ -17,7 +17,7 @@ const avatarConfig: Record<
   "North Star": { gradient: "from-violet-500 to-indigo-600", Icon: Compass },
   Houdini: { gradient: "from-cyan-500 to-teal-600", Icon: Code },
   WatchDog: { gradient: "from-amber-500 to-orange-600", Icon: Shield },
-  Vampire: { gradient: "from-red-500 to-rose-600", Icon: BarChart3 },
+  Dracula: { gradient: "from-red-500 to-rose-600", Icon: BarChart3 },
   Echo: { gradient: "from-emerald-500 to-green-600", Icon: Headphones },
   Thomas: { gradient: "from-blue-500 to-sky-600", Icon: ClipboardList },
   Godin: { gradient: "from-pink-500 to-fuchsia-600", Icon: Megaphone },

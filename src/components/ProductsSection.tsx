@@ -9,22 +9,28 @@ import { buttonVariants } from "@/components/ui/button";
 import { ExternalLink, Triangle, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const appStoreLinks: Record<string, string> = {
+  Marawanna: "https://apps.apple.com/tw/app/marawanna/id6754880832?l=en-GB",
+  Summur: "https://apps.apple.com/tw/app/summur-cat-dog-care/id6730121236?l=en-GB",
+};
+
 const productIcons = [
   { bg: "from-cyan-500 to-blue-600", icon: "M" },
-  { bg: "from-amber-400 to-orange-500", Icon: Circle },
-  { bg: "from-purple-500 to-pink-500", Icon: Triangle },
+  { bg: "from-orange-400 to-amber-500", icon: "S" },
+  { bg: "from-gray-400 to-slate-500", Icon: Circle },
+  { bg: "from-gray-400 to-slate-500", Icon: Triangle },
 ];
 
 export function ProductsSection() {
   const t = useTranslations("products");
-  const items = [0, 1, 2];
+  const items = [0, 1, 2, 3];
 
   return (
     <Section id="products">
       <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
         {t("title")}
       </h2>
-      <div className="mt-10 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-3 md:gap-8">
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:mt-16 lg:grid-cols-4 md:gap-8">
         {items.map((i) => {
           const product = productIcons[i];
           const isLive = t(`items.${i}.status`) === "live";
@@ -71,9 +77,9 @@ export function ProductsSection() {
                     {isLive ? t("live") : t("coming_soon")}
                   </Badge>
 
-                  {isLive && (
+                  {isLive && appStoreLinks[t(`items.${i}.name`)] && (
                     <a
-                      href="https://apps.apple.com/tw/app/marawanna/id6754880832?l=en-GB"
+                      href={appStoreLinks[t(`items.${i}.name`)]}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={cn(

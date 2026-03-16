@@ -40,6 +40,11 @@
         "status": "live"
       },
       {
+        "name": "Summur",
+        "description": "Cat & Dog care made simple.",
+        "status": "live"
+      },
+      {
         "name": "[Product Name]",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
         "status": "coming_soon"
@@ -82,7 +87,7 @@
         "bio": "Handles infrastructure, deployment, and monitoring. You don't see my work because when I do it well, nothing happens."
       },
       {
-        "name": "Vampire",
+        "name": "Dracula",
         "role": "Data Analyst",
         "tagline": "I extract truth from data.",
         "bio": "Responsible for product data analysis and user behavior insights. Numbers don't lie, but they can be misread. My job is to find the signals that truly matter."

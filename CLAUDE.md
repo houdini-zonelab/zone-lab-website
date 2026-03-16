@@ -6,23 +6,17 @@
 
 ## 本次更新重點
 
-Testimonial Section 視覺優化，增量修改：
+Testimonial 卡片視覺一致性修復，增量修改：
 
-1. **Testimonial 輪播加 peek 效果**：
-   - 中間 1 個完整卡片 + 左右各顯示部分相鄰卡片（桌面 20-30%、平板 15-20%、手機 10-15%）
-   - 過渡動畫用平滑滑動（ease-in-out）
-   - 讓用戶知道「還有更多評價」
+1. **卡片高度統一**：
+   - 所有卡片（包括 peek 卡片）固定相同高度
+   - 桌面：280-320px、平板：260-300px、手機：240-280px
+   - peek 卡片只縮放寬度不縮放高度（用 `scaleX(0.95)` 而非 `scale(0.95)`，或用 width 調整）
 
-2. **Testimonial Section 寬度調整**：
-   - 整體寬度改為 **90% 螢幕寬度**（最大 1400px），比其他 section（1280px）更寬
-   - 這是為了 peek 效果需要更多橫向空間
-
-3. **卡片尺寸規格**：
-   - 桌面：寬 600-700px
-   - 平板：寬 400-500px
-   - 手機：寬 300-350px
-   - 陰影：box-shadow: 0 4px 20px rgba(0,0,0,0.1)
-   - Hover：translateY(-4px)
+2. **評價文字溢出處理**：
+   - 評價內容用 `line-clamp: 4`（最多 4 行）
+   - 超出部分截斷顯示 ellipsis
+   - CSS: `display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;`
 
 ## 開發前必讀
 
@@ -47,6 +41,6 @@ Testimonial Section 視覺優化，增量修改：
 ## 完成後（必須全部執行）
 
 1. `pnpm build` — 如果失敗，修好再 build
-2. `git add -A && git commit -m "feat: testimonial peek carousel, 90% width"`
+2. `git add -A && git commit -m "fix: testimonial card uniform height, text overflow clamp"`
 3. `git push origin main`
-4. `openclaw system event --text "Done: Zone lab website v1.4.1 — testimonial peek effect + wider layout" --mode now`
+4. `openclaw system event --text "Done: Zone lab website v1.4.2 — uniform card height + text clamp" --mode now`

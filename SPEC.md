@@ -1,13 +1,24 @@
 # zone lab 官網 Spec v1.3.1
 
-**當前版本**：v1.3.3  
-**最後更新**：2026-03-16 15:53  
+**當前版本**：v1.3.4  
+**最後更新**：2026-03-16 16:07  
 **撰寫者**：North Star  
 **狀態**：開發中
 
 ---
 
 ## 版本記錄
+
+### v1.3.4 (2026-03-16 16:07)
+**類型**：Patch（小更動）
+
+**變更內容**：
+- ✅ Founder 新增 Instagram 連結
+- ✅ Footer 移除 Contact 快速連結
+- ✅ Landing Page Team Section 調整：Founder 獨立顯示，加入更多資訊
+- Landing Page 現在有「Founder 小卡片」+「Team Members 網格」
+
+---
 
 ### v1.3.3 (2026-03-16 15:53)
 **類型**：Patch（小更動）
@@ -305,24 +316,80 @@ Team Page (/team)
 
 **標題**：`Meet the team.`
 
-**視覺呈現**：
-- 網格卡片排列
+**結構**：雙區塊設計
+
+---
+
+#### 3.4.1 Founder 卡片（特殊區塊）
+
+**版面設計**：
+- 比其他成員卡片**更大**（2 倍寬度或獨立一行）
+- 左側：照片（中等尺寸，150x150px）
+- 右側：簡短介紹 + 連結按鈕
+
+**內容**：
+- **名字 + 職稱**：Jason - Founder & CEO
+- **一句話**：`我拍板、我負責、我實驗。`
+- **簡短介紹**（2-3 行）：  
+  `Zone lab 的創辦人。相信小團隊 + AI 協作能做出不輸大公司的產品。從 iOS 工程師到產品創辦人，不做 pitch deck，直接做產品。`
+  
+- **快速連結**（小圖示按鈕）：
+  - LinkedIn 圖示 → 連到 LinkedIn
+  - Instagram 圖示 → 連到 Instagram
+  - Email 圖示 → 連到 Email
+
+**視覺差異**：
+- 不同的背景色或邊框（例如：淺金色或漸層）
+- 照片稍大、更突出
+- 連結圖示清晰可見（hover 時放大或變色）
+
+---
+
+#### 3.4.2 Team Members 網格（7 位成員）
+
+**版面設計**：
+- 網格卡片排列（3-4 欄）
 - 每張卡片：avatar + 名字 + 職稱
 - hover 時卡片微微浮起
 
-**簡短說明**：  
-`精實、跨領域、高效執行。每個成員都專注在自己的領域,共同打造有意義的產品。`
+**簡短說明**（放在 Founder 卡片下方）：  
+`精實、跨領域、高效執行。每個成員都專注在自己的領域，共同打造有意義的產品。`
 
-**CTA**：`Meet everyone →`（導向 `/team` 頁面）
+**CTA**（放在最下方）：  
+`Meet everyone →`（導向 `/team` 頁面看完整介紹）
+
+---
+
+#### 3.4.3 我的建議
+
+**為什麼 Landing Page 也要把 Founder 獨立出來？**
+
+Landing Page 是訪客的第一印象。如果 Founder 跟其他成員混在一起，訪客可能不知道「這是誰創立的、為什麼存在」。
+
+**獨立出來的好處**：
+1. **快速建立信任**：訪客看到「有一個真實的人在背後」
+2. **提供聯繫管道**：有興趣的人可以立刻連結（不用跳到 Team Page）
+3. **視覺層次分明**：Founder 更突出 → Team Members 展現團隊實力
+
+**視覺比例**：
+- Founder 卡片：佔 40-50% 的 Team Section 空間
+- Team Members 網格：佔 50-60%
+
+**互動流程**：
+- 訪客看到 Founder 卡片 → 了解創辦人背景 → 可以直接連結
+- 訪客看到 Team Members → 感受到「這是一個有實力的團隊」
+- 想了解更多 → 點擊「Meet everyone」進入 Team Page
 
 ---
 
 ### 3.5 Footer
 
 - **左側**：zone lab logo + tagline
-- **中間**：快速連結（About、Team、Projects、Contact）
+- **中間**：快速連結（About、Team、Projects）
 - **右側**：社群連結（GitHub、X、Email）
 - **最下方**：© 2026 zone lab. All rights reserved.
+
+**注意**：Contact 已移除（聯繫方式在 Team Page 的 Founder Section）
 
 ---
 
@@ -367,13 +434,16 @@ Team Page (/team)
 - **LinkedIn**：https://www.linkedin.com/in/qazwsx521943  
   （按鈕文字：`Connect on LinkedIn`）
   
+- **Instagram**：https://www.instagram.com/cx_870630?igsh=MTJma3dodm95aDhlbA%3D%3D&utm_source=qr  
+  （按鈕文字：`Follow on Instagram`）
+  
 - **Email**：jasonchungdev@gmail.com  
   （按鈕文字：`Get in touch`）
 
 **視覺建議**：
 - Founder Section 用不同的背景色（淺灰或漸層）與其他區塊區分
 - 照片可以稍大、更突出
-- 連結按鈕用明顯的視覺設計（LinkedIn 藍色、Email 主題色）
+- 連結按鈕用明顯的視覺設計（LinkedIn 藍色、Instagram 漸層色、Email 主題色）
 
 ---
 

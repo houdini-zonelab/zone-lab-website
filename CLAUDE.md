@@ -6,16 +6,18 @@
 
 ## 本次更新重點
 
-**Team Page 結構調整**（見 SPEC.md §4.2 和 §4.3）：
+三個變更，都是增量修改：
 
-1. **Founder Section**：Jason 獨立為大區塊（左照片 + 右介紹），包含：
-   - 更長的介紹文案（兩段，見 spec）
-   - Experience 列表（🎓🏢🤖🚀 四項）
-   - LinkedIn 按鈕（https://www.linkedin.com/in/qazwsx521943）
-   - Email 按鈕（jasonchungdev@gmail.com）
-   - 用不同背景色與 Team Members 區分
-2. **Team Members Section**：其他 7 位成員維持原本卡片格式，標題改為 `The Team`
-3. 更新 `zh.json` 和 `en.json` 的 team page 相關文案
+1. **Landing Page Team Section 改版**（見 SPEC.md §3.4）：
+   - Founder 獨立大卡片（2倍寬或獨立一行）：左照片150x150 + 右簡短介紹 + LinkedIn/Instagram/Email 小圖示按鈕
+   - 下方 Team Members 網格（7位成員，維持原卡片格式）
+   - Founder 卡片用不同背景色/邊框區分
+
+2. **Team Page Founder Section 新增 Instagram**：
+   - https://www.instagram.com/cx_870630?igsh=MTJma3dodm95aDhlbA%3D%3D&utm_source=qr
+   - 按鈕文字：`Follow on Instagram`
+
+3. **Footer 移除 Contact 連結**（聯繫方式已在 Founder Section）
 
 ## 開發前必讀
 
@@ -40,6 +42,6 @@
 ## 完成後（必須全部執行）
 
 1. `pnpm build` — 如果失敗，修好再 build
-2. `git add -A && git commit -m "feat: founder section with full bio, links, experience"`
+2. `git add -A && git commit -m "feat: landing page founder card, Instagram link, remove footer contact"`
 3. `git push origin main`
-4. `openclaw system event --text "Done: Zone lab website — Founder section added with bio, LinkedIn, email" --mode now`
+4. `openclaw system event --text "Done: Zone lab website v1.3.4 — landing founder card, Instagram, footer cleanup" --mode now`

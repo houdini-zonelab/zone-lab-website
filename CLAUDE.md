@@ -6,29 +6,23 @@
 
 ## 本次更新重點
 
-增量修改，不要重寫整個專案：
+Testimonial Section 視覺優化，增量修改：
 
-1. **新增 Testimonial Section**（見 SPEC.md §3.4）：
-   - 放在 Products 和 Team Section 之間
-   - 10 則假評價，輪播展示（每 5 秒切換，可手動切）
-   - 卡片：用戶頭像 80x80 + 名字 + 評分(星星) + 評語 + 使用產品
-   - 標題中文「用戶怎麼說」英文「What our users say」
-   - 假資料要看起真實（有 4 星的、不同身份、不要太完美）
+1. **Testimonial 輪播加 peek 效果**：
+   - 中間 1 個完整卡片 + 左右各顯示部分相鄰卡片（桌面 20-30%、平板 15-20%、手機 10-15%）
+   - 過渡動畫用平滑滑動（ease-in-out）
+   - 讓用戶知道「還有更多評價」
 
-2. **補齊中文翻譯**（zh.json 大量缺失）：
-   - Hero: 主標題「打造讓你變得更好的軟體」副標題「台灣的 AI 驅動產品工作室」CTA「認識團隊」「查看專案」
-   - Vision: 標題「有意義的軟體」+ 三段英文翻譯
-   - Products: 標題「我們在做什麼」、狀態「已上線」「即將推出」、按鈕「前往 App Store」
-   - Marawanna 中文描述「你的個人馬拉松教練，用數據驅動訓練」
-   - Summur 中文描述「貓狗照護，簡單搞定」
-   - Team Section: 標題「認識團隊」CTA「認識所有成員 →」
-   - 詳見 SPEC.md 各 section 的中英文對照
+2. **Testimonial Section 寬度調整**：
+   - 整體寬度改為 **90% 螢幕寬度**（最大 1400px），比其他 section（1280px）更寬
+   - 這是為了 peek 效果需要更多橫向空間
 
-3. **Footer 改版**（見 SPEC.md §3.6）：
-   - 左側：logo + tagline（中英文）
-   - 中間：About/Team/Projects（不要 Contact）
-   - 右側：新增「Get in touch / 聯繫我們」+ LinkedIn/Instagram/Email 圖示按鈕
-   - 底部：© 2026 zone lab
+3. **卡片尺寸規格**：
+   - 桌面：寬 600-700px
+   - 平板：寬 400-500px
+   - 手機：寬 300-350px
+   - 陰影：box-shadow: 0 4px 20px rgba(0,0,0,0.1)
+   - Hover：translateY(-4px)
 
 ## 開發前必讀
 
@@ -53,6 +47,6 @@
 ## 完成後（必須全部執行）
 
 1. `pnpm build` — 如果失敗，修好再 build
-2. `git add -A && git commit -m "feat: testimonial section, i18n zh translations, footer redesign"`
+2. `git add -A && git commit -m "feat: testimonial peek carousel, 90% width"`
 3. `git push origin main`
-4. `openclaw system event --text "Done: Zone lab website v1.4.0 — testimonial carousel, zh translations, footer with contact" --mode now`
+4. `openclaw system event --text "Done: Zone lab website v1.4.1 — testimonial peek effect + wider layout" --mode now`

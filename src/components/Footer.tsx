@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
-import { Github, Twitter, Mail } from "lucide-react";
+import { Linkedin, Instagram, Mail } from "lucide-react";
 
 export function Footer() {
   const t = useTranslations();
@@ -57,28 +57,32 @@ export function Footer() {
             </a>
           </div>
 
-          {/* Social */}
+          {/* Get in touch */}
           <div className="flex flex-col items-center md:items-end">
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Connect
+              {t("footer.contact_title")}
             </h4>
             <div className="flex gap-4">
               <a
-                href="#"
-                aria-label="GitHub"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                href="https://www.linkedin.com/in/qazwsx521943"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-muted-foreground transition-colors hover:text-[#0A66C2]"
               >
-                <Github className="h-5 w-5" />
+                <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="#"
-                aria-label="X / Twitter"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                href="https://www.instagram.com/cx_870630?igsh=MTJma3dodm95aDhlbA%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-muted-foreground transition-colors hover:text-[#E4405F]"
               >
-                <Twitter className="h-5 w-5" />
+                <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="mailto:jasonchungdev@gmail.com"
                 aria-label="Email"
                 className="text-muted-foreground transition-colors hover:text-foreground"
               >

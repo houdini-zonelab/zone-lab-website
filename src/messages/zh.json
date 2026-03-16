@@ -5,42 +5,42 @@
     "projects": "產品"
   },
   "hero": {
-    "title": "Building software that helps you level up.",
-    "subtitle": "AI-augmented product studio based in Taiwan.",
-    "cta_team": "Meet the Team",
-    "cta_projects": "View Projects"
+    "title": "打造讓你變得更好的軟體",
+    "subtitle": "台灣的 AI 驅動產品工作室",
+    "cta_team": "認識團隊",
+    "cta_projects": "查看專案"
   },
   "vision": {
-    "title": "Software with purpose.",
+    "title": "有意義的軟體",
     "items": [
       {
-        "title": "Self-improvement, not distraction",
+        "title": "自我提升，而非分心",
         "description": "我們相信科技應該讓人變得更好，而不是讓人分心。每個產品都圍繞一個核心問題：「這如何幫助使用者成長？」"
       },
       {
-        "title": "Focused execution",
+        "title": "專注執行",
         "description": "我們是精實團隊，每個成員都是專家。少即是多——專注做對的事，而不是做很多事。"
       },
       {
-        "title": "Ship fast, iterate faster",
+        "title": "快速推出，更快迭代",
         "description": "我們不做 5 年計劃。我們快速推出、收集反饋、持續改進。產品永遠是 beta，因為我們永遠在進化。"
       }
     ]
   },
   "products": {
-    "title": "What we're building.",
-    "download": "Download on App Store",
-    "coming_soon": "Coming Soon",
-    "live": "Live",
+    "title": "我們在做什麼",
+    "download": "前往 App Store",
+    "coming_soon": "即將推出",
+    "live": "已上線",
     "items": [
       {
         "name": "Marawanna",
-        "description": "Your personal marathon coach, powered by data.",
+        "description": "你的個人馬拉松教練，用數據驅動訓練",
         "status": "live"
       },
       {
         "name": "Summur",
-        "description": "Cat & Dog care made simple.",
+        "description": "貓狗照護，簡單搞定",
         "status": "live"
       },
       {
@@ -55,10 +55,65 @@
       }
     ]
   },
+  "testimonials": {
+    "title": "用戶怎麼說",
+    "items": [
+      {
+        "name": "Kevin Chen",
+        "role": "跑者",
+        "content": "Marawanna 改變了我的訓練方式，數據分析讓我知道哪裡需要改進。從完賽到突破 PB，感謝這個 app！"
+      },
+      {
+        "name": "Sarah Lin",
+        "role": "新手跑者",
+        "content": "作為新手跑者，Marawanna 的訓練計劃讓我從 0 到完成半馬。介面簡潔，數據清楚，推薦！"
+      },
+      {
+        "name": "Alex Wu",
+        "role": "貓主人",
+        "content": "Summur 讓我第一次養貓不再手忙腳亂。提醒功能超實用，健康記錄一目了然。"
+      },
+      {
+        "name": "Jamie Lee",
+        "role": "狗主人",
+        "content": "終於有一個寵物 app 不會塞滿廣告和複雜功能。Summur 簡單、乾淨、有用。"
+      },
+      {
+        "name": "Daniel Park",
+        "role": "超馬跑者",
+        "content": "Marawanna 的配速分析讓我知道自己到底跑得對不對。數據不會騙人，進步看得見！"
+      },
+      {
+        "name": "Emily Chang",
+        "role": "跑步教練",
+        "content": "用過很多跑步 app，Marawanna 是少數真的在乎『訓練品質』而不是『跑多遠』的。"
+      },
+      {
+        "name": "Chris Huang",
+        "role": "貓主人",
+        "content": "Summur 的疫苗提醒救了我好幾次，不用再擔心忘記帶貓去打針。"
+      },
+      {
+        "name": "Lisa Wang",
+        "role": "設計師",
+        "content": "介面設計很用心，不會像其他 app 那麼雜亂。Zone lab 的產品都有這種『剛剛好』的感覺。"
+      },
+      {
+        "name": "Mike Tsai",
+        "role": "狗主人",
+        "content": "從來沒想過一個 app 可以讓我更了解自己的狗。Summur 做到了。"
+      },
+      {
+        "name": "Ryan Liu",
+        "role": "鐵人三項選手",
+        "content": "Marawanna 不只是跑步 app，更像是一個智慧教練。每次訓練後的分析都讓我有收穫。"
+      }
+    ]
+  },
   "team": {
-    "title": "Meet the team.",
+    "title": "認識團隊",
     "subtitle": "精實、跨領域、高效執行。每個成員都專注在自己的領域，共同打造有意義的產品。",
-    "cta": "Meet everyone →",
+    "cta": "認識所有成員 →",
     "page_title": "The Team",
     "founder": {
       "name": "Jason",
@@ -125,7 +180,8 @@
     ]
   },
   "footer": {
-    "tagline": "Building software that helps you level up.",
+    "tagline": "打造讓你變得更好的軟體",
+    "contact_title": "聯繫我們",
     "copyright": "© 2026 zone lab. All rights reserved."
   }
 }

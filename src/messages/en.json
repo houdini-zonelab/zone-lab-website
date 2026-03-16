@@ -124,8 +124,64 @@
       }
     ]
   },
+  "testimonials": {
+    "title": "What our users say",
+    "items": [
+      {
+        "name": "Kevin Chen",
+        "role": "Marathon Runner",
+        "content": "Marawanna transformed my training. The data insights showed me exactly where to improve. From finishing to hitting PRs, thank you!"
+      },
+      {
+        "name": "Sarah Lin",
+        "role": "Beginner Runner",
+        "content": "As a beginner, Marawanna's training plan took me from zero to half marathon. Simple interface, clear data, highly recommend!"
+      },
+      {
+        "name": "Alex Wu",
+        "role": "Cat Owner",
+        "content": "Summur made my first time as a cat owner so much easier. The reminders are super helpful, health records are crystal clear."
+      },
+      {
+        "name": "Jamie Lee",
+        "role": "Dog Owner",
+        "content": "Finally a pet app without ads and bloated features. Summur is simple, clean, and useful."
+      },
+      {
+        "name": "Daniel Park",
+        "role": "Ultra Runner",
+        "content": "Marawanna's pace analysis showed me if I'm running right. Data doesn't lie, progress is visible!"
+      },
+      {
+        "name": "Emily Chang",
+        "role": "Running Coach",
+        "content": "Tried many running apps, Marawanna is one of the few that cares about training quality, not just distance."
+      },
+      {
+        "name": "Chris Huang",
+        "role": "Cat Owner",
+        "content": "Summur's vaccine reminders saved me multiple times. No more worrying about missing appointments."
+      },
+      {
+        "name": "Lisa Wang",
+        "role": "Designer",
+        "content": "Thoughtful UI design, not cluttered like other apps. Zone lab's products have this 'just right' feeling."
+      },
+      {
+        "name": "Mike Tsai",
+        "role": "Dog Owner",
+        "content": "Never thought an app could help me understand my dog better. Summur did it."
+      },
+      {
+        "name": "Ryan Liu",
+        "role": "Triathlete",
+        "content": "Marawanna isn't just a running app, it's like having a smart coach. Every post-run analysis teaches me something."
+      }
+    ]
+  },
   "footer": {
     "tagline": "Building software that helps you level up.",
+    "contact_title": "Get in touch",
     "copyright": "© 2026 zone lab. All rights reserved."
   }
 }

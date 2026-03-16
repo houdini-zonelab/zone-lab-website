@@ -147,12 +147,12 @@ export function TestimonialSection() {
                     key={`${current}-${pos}`}
                     initial={
                       isCurrent
-                        ? { opacity: 0.7, scale: 0.95 }
-                        : { opacity: 0, scale: 0.85 }
+                        ? { opacity: 0.7, scaleX: 0.95 }
+                        : { opacity: 0, scaleX: 0.85 }
                     }
                     animate={{
                       opacity: isCurrent ? 1 : 0.55,
-                      scale: isCurrent ? 1 : 0.92,
+                      scaleX: isCurrent ? 1 : 0.95,
                     }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className={`shrink-0 ${
@@ -170,10 +170,10 @@ export function TestimonialSection() {
                     style={!isCurrent ? { cursor: "pointer" } : undefined}
                   >
                     <div
-                      className={`rounded-2xl border border-border/50 bg-card p-6 sm:p-8 transition-transform duration-300 ${
+                      className={`rounded-2xl border border-border/50 bg-card p-6 sm:p-8 transition-transform duration-300 h-[250px] sm:h-[270px] md:h-[300px] ${
                         isCurrent
                           ? "shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:-translate-y-1"
-                          : "shadow-sm"
+                          : "shadow-sm overflow-hidden"
                       }`}
                     >
                       <div
@@ -191,7 +191,7 @@ export function TestimonialSection() {
                           <StarRating rating={ratings[idx]} />
                           <p
                             className={`text-base leading-relaxed text-muted-foreground ${
-                              !isCurrent ? "line-clamp-2" : ""
+                              !isCurrent ? "line-clamp-2" : "line-clamp-4"
                             }`}
                           >
                             &ldquo;{t(`items.${idx}.content`)}&rdquo;

@@ -55,12 +55,6 @@ export function Footer() {
             >
               {t("nav.projects")}
             </a>
-            <a
-              href="mailto:contact@zonelab.tech"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              {t("nav.contact")}
-            </a>
           </div>
 
           {/* Social */}

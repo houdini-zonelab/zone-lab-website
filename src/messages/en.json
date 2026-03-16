@@ -2,8 +2,7 @@
   "nav": {
     "about": "About",
     "team": "Team",
-    "projects": "Projects",
-    "contact": "Contact"
+    "projects": "Projects"
   },
   "hero": {
     "title": "Building software that helps you level up.",
@@ -73,7 +72,9 @@
         "🤖 Embraced AI, founded Zone lab",
         "🚀 From engineer to product founder"
       ],
+      "landing_bio": "Founder of Zone lab. Believes small teams + AI collaboration can build products that rival big companies. From iOS engineer to product founder — no pitch decks, just ship products.",
       "linkedin_label": "Connect on LinkedIn",
+      "instagram_label": "Follow on Instagram",
       "email_label": "Get in touch"
     },
     "team_section_title": "The Team",

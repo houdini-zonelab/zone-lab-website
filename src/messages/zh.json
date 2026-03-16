@@ -2,8 +2,7 @@
   "nav": {
     "about": "關於",
     "team": "團隊",
-    "projects": "產品",
-    "contact": "聯繫"
+    "projects": "產品"
   },
   "hero": {
     "title": "Building software that helps you level up.",
@@ -73,7 +72,9 @@
         "🤖 擁抱 AI 浪潮，創立 Zone lab",
         "🚀 從工程師到產品創辦人"
       ],
+      "landing_bio": "Zone lab 的創辦人。相信小團隊 + AI 協作能做出不輸大公司的產品。從 iOS 工程師到產品創辦人，不做 pitch deck，直接做產品。",
       "linkedin_label": "Connect on LinkedIn",
+      "instagram_label": "Follow on Instagram",
       "email_label": "Get in touch"
     },
     "team_section_title": "The Team",

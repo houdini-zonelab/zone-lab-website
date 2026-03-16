@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Instagram, Mail } from "lucide-react";
 import { Section } from "@/components/Section";
 import { Card, CardContent } from "@/components/ui/card";
 import { TeamAvatar } from "@/components/TeamAvatar";
@@ -95,6 +95,18 @@ export default function TeamPage() {
                   >
                     <Linkedin className="mr-2 h-4 w-4" />
                     {t("founder.linkedin_label")}
+                  </a>
+                  <a
+                    href="https://www.instagram.com/cx_870630?igsh=MTJma3dodm95aDhlbA%3D%3D&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      buttonVariants({ size: "sm" }),
+                      "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600"
+                    )}
+                  >
+                    <Instagram className="mr-2 h-4 w-4" />
+                    {t("founder.instagram_label")}
                   </a>
                   <a
                     href="mailto:jasonchungdev@gmail.com"

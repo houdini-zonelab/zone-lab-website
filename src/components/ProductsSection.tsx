@@ -50,7 +50,7 @@ export function ProductsSection() {
                 delay: i * 0.1,
                 ease: [0.4, 0, 0.2, 1],
               }}
-              className={isArchived ? "opacity-75" : undefined}
+              className={isArchived ? "opacity-65" : undefined}
             >
               <Card className={cn(
                 "group h-full transition-shadow hover:shadow-lg",
@@ -62,10 +62,7 @@ export function ProductsSection() {
                     alt={product.alt}
                     width={80}
                     height={80}
-                    className={cn(
-                      "mb-4 rounded-2xl shadow-lg",
-                      isArchived && "grayscale"
-                    )}
+                    className="mb-4 rounded-2xl shadow-lg"
                   />
 
                   <h3 className="text-lg font-bold md:text-xl">
